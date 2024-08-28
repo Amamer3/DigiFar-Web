@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./assets/favicon-RTpot5iP.ico" type="image/ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <title>Login - DigiFar</title>
+  <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
+  <link rel="stylesheet" crossorigin href="./assets/css/main.css">
+</head>
+
+<body class="relative text-black-4">
+  <!-- Success Popup -->
+<div id="success-popup" class="popup">
+  <div class="popup-content">
+      <p>Account successfully created!</p>
+      <button id="success-popup-close">OK</button>
+  </div>
+</div>
+
+<!-- Error Popup -->
+<div id="error-popup" class="popup">
+  <div class="popup-content">
+      <p id="error-message">There was an error creating the account.</p>
+      <button id="error-popup-close">OK</button>
+  </div>
+</div>
+
+  <!-- preloader -->
+  <div class="preloader__wrap fixed z-[1000] flex h-screen w-full items-center justify-center bg-white-1">
+    <div class="my-auto h-20 w-20 animate-spin rounded-full border-8 border-gray-300 border-t-accent-3"></div>
+  </div>
+
+
+  <!-- scroll top -->
+  <button
+    class="group/topButton scroll-top theme-transition-3 invisible fixed bottom-8 right-8 z-50 block size-10 cursor-pointer rounded-full bg-black-4 opacity-0 md:!size-12"
+    title="Go To Top">
+    <i
+      class="ti ti-arrow-badge-up theme-transition-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[32px] text-white-1 group-hover/topButton:text-accent-3 md:size-8">
+    </i>
+  </button>
+
+
+
+
+  <div class="relative">
+    <div
+      class="relative h-screen grid-cols-12 items-center justify-center gap-6 lg:grid xl:gap-[134px] xxl:overflow-hidden">
+      <div class="col-start-1 col-end-7">
+        <img alt="Login Image" class="max-lg:mx-auto " src="./assets/images/login.JPG" />
+      </div>
+
+
+      <div class="col-start-7 col-end-12 max-lg:px-4 max-lg:py-8 xl:col-start-7 xl:col-end-11">
+        <div class="items-center justify-center">
+          <a href="index.html">
+          <div>
+           <img alt="Logo" class="mx-auto block h-20" src="./assets/images/digifar.png" />
+            <h5 class="h5 mt-6 text-center font-medium">
+             <a href="index.html">Login to Your Account</a> 
+            </h5>
+          </div>
+        </a>
+
+
+
+          <form class="smt40px">
+            <input type="text" id="email"  placeholder="Username" required class="placeholder:m-text w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+
+
+            <input type="password" id="password" placeholder="Password" required class="placeholder:m-text smt24px w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+
+
+            <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
+              <div class="flex items-center gap-2">
+                <input type="checkbox" /> <span>Rember me</span>
+              </div>
+              <a href="signup.html">Forgot Password?</a>
+            </div>
+
+            <!-- login button -->
+            <button id="loginBtn" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">
+              Login
+            </button>
+
+            <div id="login-error-message" class="error-message"></div>
+          </form>
+
+
+          <div class="flex items-center">
+            <div class="h-px flex-1 bg-[#B3B6B9]/60"></div>
+            <p class="m-text p-2 text-black-1">Or sign in with</p>
+            <div class="h-px flex-1 bg-[#B3B6B9]/60"></div>
+          </div>
+          <div class="smt32px flex items-center justify-center gap-5">
+            <button
+              class="theme-transition-3 flex  rounded-full  items-center gap-2 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
+              <i class="ti ti-brand-google-filled text-[24px]"> </i>
+              <span class="m-text">Google</span>
+            </button>
+            <button
+              class="theme-transition-3 flex   rounded-full items-center gap-2 border border-[#3B5998] bg-[#3B5998] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
+              <i class="ti ti-brand-facebook text-[24px]"> </i>
+              <span class="m-text">Facebook</span>
+            </button>
+          </div>
+          <p class="s-text smt40px text-center text-black-1">
+            Don’t have an account?
+            <a class="!text-primary" href="signup.html"> Register Here</a>
+          </p>
+        </div>
+      </div>
+      <!-- <img alt="Element" class="absolute bottom-0 right-0 max-3xl:hidden"
+        src="./assets/images/footer-crown-HX0ow5gN.png" /> -->
+    </div>
+  </div>
+
+  <!-- Authen Script -->
+<!-- <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script> -->
+
+
+<script type="module" src="authen.js" defer ></script>
+<script type="module" crossorigin src="./assets/js/main.js"></script> 
+</body>
+
+</html>

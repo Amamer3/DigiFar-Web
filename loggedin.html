@@ -1,0 +1,1635 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" href="./assets/favicon-RTpot5iP.ico" type="image/ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <title>DigiFar | Value - Service</title>
+  
+  <link rel="stylesheet" crossorigin href="./assets/css/main.css">
+</head>
+
+<body class="relative text-black-4">
+    <h2>Welcome, <span id="user-name"></span></h2>
+    <!-- Success Popup -->
+<div id="success-popup" class="popup">
+    <div class="popup-content">
+        <p>Account successfully created!</p>
+        <button id="success-popup-close">OK</button>
+    </div>
+</div>
+
+<!-- Error Popup -->
+<div id="error-popup" class="popup">
+    <div class="popup-content">
+        <p id="error-message">There was an error creating the account.</p>
+        <button id="error-popup-close">OK</button>
+    </div>
+</div>
+
+  <!-- Logout page section start here -->
+
+  <!-- <section id="signup-section"> -->
+  <!-- preloader -->
+  <div class="preloader__wrap fixed z-[1000] flex h-screen w-full items-center justify-center bg-white-1">
+    <div class="my-auto h-20 w-20 animate-spin rounded-full border-8 border-gray-300 border-t-accent-3"></div>
+  </div>
+
+
+
+  <!-- scroll top -->
+  <button
+    class="group/topButton scroll-top theme-transition-3 invisible fixed bottom-8 right-8 z-50 block size-10 cursor-pointer rounded-full bg-black-4 opacity-0 md:!size-12"
+    title="Go To Top">
+    <i
+      class="ti ti-arrow-badge-up theme-transition-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[32px] text-white-1 group-hover/topButton:text-accent-3 md:size-8">
+    </i>
+  </button>
+
+<!-- ------------------------------------------------------------------------------------- -->
+
+  <!-- Navbar Starts -->
+  <div class="relative">
+    <!-- desktop menu -->
+    <div class="pb-[108px]">
+      <div class="desktop-nav theme-transition-3 fixed top-0 z-50 w-full bg-white-1">
+        <div
+          class="transition-primary spy24px container theme-transition-3 hidden w-full items-center justify-between xl:flex">
+          <div>
+            <a href="loggedin.html">
+              <img src="./assets/images/digifar.png" class="h-16" alt="Desktop Logo" />
+            </a>
+          </div>
+
+          <!-- Menu Items  start-->
+          <div class="flex items-center justify-between gap-10">
+            <ul class="menu">
+              <!-- navbarData -->
+              <li class="group relative">
+                <p
+                  class="menu-item theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">
+                  <span class="l-text shrink-0">Home</span>
+                  <!-- <i class="ti ti-chevron-down text-[24px]"> </i> -->
+                </p>
+                
+              </li>
+            </ul>
+
+
+            <a href="about.html"
+              class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">About
+              Us</a>
+            <ul class="menu">
+              <!-- navbarData -->
+              <li class="group relative">
+                <p
+                  class="menu-item theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">
+                  <span class="l-text shrink-0">SME</span>
+                  <i class="ti ti-chevron-down text-[24px]"> </i>
+                </p>
+                <ul data-lenis-prevent
+                  class="rounded-tl-0 navbar-dropdown-scrollbar duration-400 theme-transition-3 fixed z-30 mt-1 flex max-h-0 flex-col overflow-hidden rounded-md bg-black-1 py-1 text-white-1 opacity-0 shadow-2xl group-hover:max-h-[400px] group-hover:overflow-auto group-hover:opacity-100">
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea
+                    </a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea
+                    </a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">Textarea</a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href=""
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href="services.html"
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3"></a>
+                  </li>
+                  <li>
+                    <a href="service-details.html"
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href="faq.html"
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">Textarea</a>
+                  </li>
+                  <li>
+                    <a href="privacy-policy.html"
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+                  <li>
+                    <a href="terms-conditions.html"
+                      class="l-text theme-transition-3 relative block w-full border-b border-accent-3/20 bg-black-4 px-6 py-1 tracking-wide before:theme-transition-3 hover:before:theme-transition-3 before:absolute before:left-2 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full hover:tracking-wide hover:text-accent-3 hover:before:absolute hover:before:bg-accent-3">
+                      Textarea</a>
+                  </li>
+
+                  <!-- End Loop -->
+                </ul>
+              </li>
+            </ul>
+
+
+            <ul class="menu">
+              <!-- navbarData -->
+              <li class="group relative">
+                <p
+                  class="menu-item theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">
+                  <span class="l-text shrink-0">Merchant</span>
+                  
+                </p>
+                
+              </li>
+            </ul>
+
+
+            <a href="blogs.html"
+              class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">Blog</a>
+            <a href="contact-us.html"
+              class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">Contact</a>
+          </div>
+          <!-- Menu Items  end-->
+
+          <div class="flex gap-8">
+            <!-- <a href="login.html"
+              class="l-text theme-transition-3 flex items-center gap-1 text-black-4 hover:text-primary">
+              <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <!-- SVG Path for Lock Icon --
+              </svg>
+              <span>Login</span>
+            </a> -->
+            <a class="spy12px spx24px l-text group relative inline-flex items-center justify-center overflow-hidden bg-primary p-4 px-6 py-3 text-white-4 shadow-md transition duration-300 ease-out"
+              href="">
+              <span
+                class="text-white ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-accent-2 duration-300 group-hover:translate-x-0">
+                <i class="ti ti-arrow-narrow-right shrink-0"> </i>
+              </span>
+              <span id="logout-btn" class="ease absolute flex h-full w-full transform items-center justify-center text-white-4 transition-all duration-300 group-hover:translate-x-full rounded-full">Logout</span>
+              <span id="logout-btn" class="l-text invisible relative rounded-full">Logout</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- mobile navbar -->
+    <div
+      class="fixed top-0 z-50 w-full border-b border-white-3/30 bg-white-1 shadow-sm backdrop-blur-2xl backdrop-brightness-100 backdrop-contrast-100">
+      <div class="container left-0 top-0 flex w-full items-center justify-between py-4 xl:hidden xl:py-5">
+        <div class="">
+          <a href="/">
+            <img src="./assets/images/digifar.png" alt="Desktop Logo" class="max-xl:w-[120px]" />
+          </a>
+        </div>
+        <div
+          class="bg-white mobile-nav-toggle group flex h-10 w-10 cursor-pointer items-center justify-center rounded-md p-2">
+          <div class="space-y-2">
+            <span class="block h-1 w-10 origin-center rounded-full bg-secondary transition-transform ease-in-out">
+            </span>
+            <span class="block h-1 w-8 origin-center rounded-full bg-accent-3 transition-transform ease-in-out">
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="theme-transition-3 block xl:hidden">
+        <div
+          class="sidebar-overlay fixed left-0 top-0 z-20 h-[100vh] w-[100vw] -translate-y-full bg-primary/20 transition-all duration-500">
+        </div>
+        <div
+          class="menu-sidebar mobile-menu-scrollbar fixed left-0 top-0 z-40 m-3 h-[96vh] w-[250px] translate-y-full overflow-y-auto rounded-2xl bg-black-4 pt-5 text-black-4 opacity-0 transition-all duration-700">
+          <div class="px-5 pb-4">
+            <a href="index.html">
+              <img src="./assets/images/digifar.png" alt="Desktop Logo" class="mx-auto block w-[130px]" />
+            
+            </a>
+          </div>
+          <div class="mobile-menu-container min-h-screen rounded-xl bg-white-1 p-2 pt-10">
+            <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
+              <li class="theme-transition-3">
+                <p
+                  class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+                  <span class="l-text">Home</span>
+                </p>
+                <div></div>
+              </li>
+            </ul>
+
+
+            <a href="about.html"
+              class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+              <span class="l-text">About Us</span>
+            </a>
+
+
+            <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
+              <li>
+                <p
+                  class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+                  <span class="l-text">SME</span>
+                  <i class="ti ti-chevron-down text-[24px]"> </i>
+                </p>
+                <div>
+                  <ul
+                    class="mobile-nav-list theme-transition-3 mx-8 flex max-h-0 -translate-y-10 flex-col overflow-hidden rounded-md bg-white-4 opacity-0">
+                    <!-- menuItems  -->
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="careers.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="careers-details.html" class="l-text">
+                        Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="feature.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="feature-details.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="how-it-works.html" class="l-text">Textarea</a>
+                    </li>
+
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="our-team.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="team-details.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="pricing-plan.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="services.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="service-details.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="faq.html" class="l-text">Textarea</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="privacy-policy.html" class="l-text">Textarea</a>
+                    </li>
+
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="terms-conditions.html" class="l-text">Textarea</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+
+
+            <!--  -->
+            <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
+              <li>
+                <p
+                  class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+                  <span class="l-text">Merchant</span>
+                  
+                </p>
+                <div>
+                  
+                </div>
+              </li>
+            </ul>
+
+
+
+            <!--  -->
+            <a href="blogs.html"
+              class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+              <span class="l-text">Blogs</span>
+            </a>
+
+            <a href="contact-us.html"
+              class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+              <span class="l-text">Contact</span>
+            </a>
+
+
+            <div class="flex flex-cols-2 gap-1 pt-2">
+              <!-- <button
+                class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
+                
+                <span class="m-text">Login</span>
+              </button> -->
+
+              <button
+              class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
+              <!-- <i class="ti ti-brand-google-filled text-[24px]"> </i> -->
+              <span class="m-text">Logout</span>
+            </button>
+            </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End of the navbar -->
+
+
+
+
+  <!-- banner -->
+  <section class="home-two-hero-pattern fade-wrapper relative overflow-hidden bg-hero-pattern object-cover pt-[108px]">
+    <div class="container relative pt-20 sm:pt-25">
+      <div class="grid-cols-12 items-center gap-10 sm:grid 4xl:gap-15">
+        <div class="col-start-1 col-end-5 justify-end max-md:col-end-13 xl:col-end-4 4xl:flex ">
+          <img src="./assets/images/hero-thum-5O6D83HW.png" width="{458}" height="{570}"
+            alt="home page banner thumb image" class="fade-top max-xs:w-72 xs:max-md:w-80 4xl:max-w-[unset] " />
+        </div>
+
+
+        <div class="col-start-1 col-end-13 grid-cols-9 max-sm:mt-10 sm:grid md:col-start-5 xl:col-start-4">
+          <div class="col-start-1 col-end-10 xl:col-end-9">
+            <p class="xl-text title-animation font-medium capitalize">
+              Simplify your financial operations with our platform
+            </p>
+            <h1 class="d1 title-animation font-semibold">
+
+              <span class="text-primary underline underline-offset-8">
+                Unlimited possibilities
+
+              </span>
+              for your business
+            </h1>
+          </div>
+          <p class="xl-text fade-top col-start-1 col-end-9 mt-3 text-black-3 lg:col-end-8 xl:col-end-7">
+            Increase the added value of your financial services by offering your
+            clients a wide range of integrated services on a single platform
+          </p>
+          
+
+
+        </div>
+      </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+      <!-- <div class="grid grid-cols-8 pb-10 sm:pb-[70px]">
+        <div class="col-start-1 col-end-13 mt-10 sm:col-end-8 md:mt-25">
+          <div class="container flex flex-wrap items-center gap-6 sm:justify-between sm:gap-10">
+            <div>
+              <div class="d2 theme-transition-3 font-medium">
+                <span class="odometer" counter-value="120">0</span>+
+              </div>
+              <p class="xl-text mt-4 text-black-3">Partner with us</p>
+            </div>
+            <div>
+              <div class="d2 theme-transition-3 font-medium">
+                <span class="odometer" counter-value="1.3">0</span>+
+              </div>
+              <p class="xl-text mt-4 text-black-3">
+                Cumulative trading volume
+              </p>
+            </div>
+            <div>
+              <div class="d2 theme-transition-3 font-medium">
+                <span class="odometer" counter-value="705">0</span>
+                K+
+              </div>
+              <p class="xl-text mt-4 text-black-3">Successful Projects</p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="bottom-[70px] right-0 max-sm:pb-10 sm:absolute 3xl:-right-36 3xl:bottom-[70px] 4xl:-right-52">
+        <div class="flex flex-col gap-3">
+          <div class="mt-0 flex items-center gap-3">
+            <!-- <div class="mt-3 flex -space-x-2 overflow-hidden p-0.5">
+              <img alt="image" class="inline-block h-12 w-12 rounded-full ring-2 ring-white-3"
+                src="./assets/images/banner-user-1-354hd0Im.png" />
+              <img alt="image two" class="inline-block h-12 w-12 rounded-full ring-2 ring-white-3"
+                src="./assets/images/banner-user-2-wt_pCPAa.png" />
+              <img alt="image three" class="inline-block h-12 w-12 rounded-full ring-2 ring-white-3"
+                src="./assets/images/banner-user-3-R4zOtq0c.png" />
+            </div>
+            <div class="d4 font-semibold">
+              <span class="odometer" counter-value="17">0</span>M
+            </div> -->
+          </div>
+          <!-- <div class="flex items-center gap-3">
+            <div class="size-[10px] rounded-full bg-primary"></div>
+            <p class="lead-text font-medium">World active user</p>
+          </div>
+        </div>
+        <div class="smt40px">
+          <image src="./assets/images/card-bg-TfiQQwaN.png" alt="card Image" class="fade-top max-3xl:w-72" />
+        </div> -->
+        </div>
+        <image src="./assets/images/banner-vector-VKhCsJoR.png" alt="Vector Image"
+          class="absolute right-0 top-[52px] max-xxl:size-30 max-xxl:rotate-90" />
+        <image src="./assets/images/banner-star-luJUK45V.png" alt="Star Image"
+          class="absolute top-[177px] max-3xl:hidden 3xl:-right-36 4xl:-right-48" />
+      </div>
+
+  </section>
+
+  <!-- home about -->
+  <section class="spy120px fade-wrapper image-move-section relative overflow-hidden">
+    <div class="container relative">
+      <div class="grid grid-cols-12 items-center gap-6">
+        <div class="col-start-1 col-end-13 flex justify-end overflow-y-clip overflow-x-visible xl:col-end-6">
+          <image src="./assets/images/couturiere_africaine.jpg" alt="about section image"
+            class="reveal-img parallax-img max-xl:mx-auto max-xl:block xxl:max-w-[unset] rounded-md" />
+        </div>
+        <div class="col-start-1 col-end-13 xl:col-start-6 xxl:col-start-7">
+          <div class="max-w-[416px]">
+            <h5 class="h5 title-animation font-medium capitalize text-primary">
+              About Us
+            </h5>
+            <h3 class="h2 title-animation mt-3 font-semibold">
+              Introduction to a Financial solutions
+            </h3>
+            <p class="m-text fade-top mt-3 text-black-1">
+              It's not the metrics of your business that matter, but rather the metrics of your ambitions.
+            </p>
+          </div>
+          <div class="mt-8 flex gap-6 max-sm:flex-col-reverse sm:items-center sm:gap-8 xl:mt-[55px] xl:gap-15">
+            <div>
+              <a href=""
+                class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit bg-primary font-semibold text-white-1 hover:border-accent-3 hover:bg-transparent hover:text-black-4 lg:size-[180px]">
+                <div class="flex flex-col items-center justify-center gap-3">
+                  <i class="ti ti-arrow-up-right text-[40px]"> </i>
+                  <p class="capitalize">About More</p>
+                </div>
+                <span
+                  class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
+                </span>
+              </a>
+            </div>
+            <div>
+              <SectionTitle text="Online and Mobile Banking" class="h2" />
+              <h3 class="h2 title-animation mt-3 font-semibold">
+                Online and Mobile Banking
+              </h3>
+              <p class="m-text fade-top mt-3 text-black-1">
+                Ambitious companies of all sizes rely on Digifar to grow their business anywhere.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <image src="./assets/images/about-stars-quf6xZxN.png" alt="Service star"
+        class="absolute right-5 top-0 animate-custom-pulse max-md:w-20 xxl:-right-15" />
+    </div>
+    <image src="./assets/images/service-coin-Dgv-7W6T.png" alt="Service star image"
+      class="absolute bottom-0 right-0 max-md:w-30 md:max-xxl:w-40" />
+
+    <Lines />
+  </section>
+
+  <!-- home services -->
+  <section
+    class="fade-wrapper relative z-10 bg-primary text-white-1 after:bottom-0 after:right-0 after:-z-10 after:h-full after:w-1/2 after:bg-accent-4 lg:after:absolute">
+    <div class="max-lg:spy120px container relative grid grid-cols-12 items-center">
+      <div class="col-start-1 col-end-13 lg:col-end-6">
+        <h5 class="h5 title-animation title-anim-active font-medium capitalize text-white-1">
+          Services
+        </h5>
+        <h3 class="d4 title-animation h2 title-anim-active mt-3 font-semibold">
+          Our Featured Products.
+        </h3>
+        <p class="m-text fade-top mt-5 text-white-2">
+          Integrate Babuz on your web-site to offer fast, secure and seamless
+          online bank transfer payment method.
+        </p>
+        <p class="m-text fade-top fade-top mt-4 text-white-2">
+          You could receive payments straight into your company bank account or
+          open a Babuz merchant account and collect funds there.
+        </p>
+        <div class="spt40px">
+          <a class="group flex items-center gap-16" href="services.html">
+            <span class="xl-text">All Services</span>
+            <span class="relative flex items-center">
+              <svg class="theme-transition-3 absolute -left-8" xmlns="http://www.w3.org/2000/svg" width="58" height="16"
+                viewBox="0 0 58 16" fill="none">
+                <path
+                  d="M57.7071 8.70711C58.0976 8.31659 58.0976 7.68342 57.7071 7.2929L51.3431 0.928937C50.9526 0.538412 50.3195 0.538412 49.9289 0.928937C49.5384 1.31946 49.5384 1.95263 49.9289 2.34315L55.5858 8L49.9289 13.6569C49.5384 14.0474 49.5384 14.6805 49.9289 15.0711C50.3195 15.4616 50.9526 15.4616 51.3431 15.0711L57.7071 8.70711ZM-8.74228e-08 9L57 9L57 7L8.74228e-08 7L-8.74228e-08 9Z"
+                  class="theme-transition-3 fill-white-1"></path>
+              </svg>
+              <span
+                class="block size-12 rounded-full border border-white-1 group-hover:border-black-1 group-hover:bg-black-4">
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- services start -->
+      <div class="max-lg:spt40px col-start-1 col-end-13 grid max-lg:gap-3 xs:grid-cols-2 lg:col-start-7">
+        <div
+          class="spx40px group theme-transition-3 relative py-10 text-black-4 max-lg:bg-accent-4 sm:py-15 xxl:pb-[105px] xxl:pt-15">
+          <img src="assets/images/services/airtime.png" alt="">
+          <h5 class="h5 spt24px font-medium">Airtime</h5>
+          <p class="m-text mt-3 text-balance text-black-3">
+            Reduced Payments maintenance and processing fees. No hidden fees.
+          </p>
+          <div
+            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
+            <a class="bg-primary p-3" href="service-details.html">
+              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
+              </i>
+            </a>
+          </div>
+        </div>
+
+
+        <div
+          class="spx40px group theme-transition-3 relative bg-accent-4 py-10 text-black-4 sm:py-15 lg:bg-primary/20 xxl:pb-[105px] xxl:pt-15">
+          <img src="assets/images/services/transfert-dargent.png" alt="">
+          <h5 class="h5 spt24px font-medium">Government taxes</h5>
+          <p class="m-text mt-3 text-balance text-black-3">
+            Stay updated. check your bank account to manage funds and track
+            transactions securely.
+          </p>
+          <div
+            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
+            <a class="bg-primary p-3" href="service-details.html">
+              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
+              </i>
+            </a>
+          </div>
+        </div>
+
+
+        <div
+          class="spx40px group theme-transition-3 relative bg-accent-4 py-10 text-black-4 sm:py-15 lg:bg-primary/20 xxl:pb-[105px] xxl:pt-15">
+          <img src="assets/images/services/hadj2-1.png" alt="">
+          <h5 class="h5 spt24px font-medium">Hajj & Umrah Payment</h5>
+          <p class="m-text mt-3 text-balance text-black-3">
+            Reduced Payments maintenance and processing fees. No hidden fees.
+          </p>
+          <div
+            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
+            <a class="bg-primary p-3" href="service-details.html">
+              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
+              </i>
+            </a>
+          </div>
+        </div>
+        <div
+          class="spx40px group theme-transition-3 relative py-10 text-black-4 max-lg:bg-accent-4 sm:py-15 xxl:pb-[105px] xxl:pt-15">
+          <img src="assets/images/services/sbee.png" alt="">
+          <h5 class="h5 spt24px font-medium">Electricity</h5>
+          <p class="m-text mt-3 text-balance text-black-3">
+            Execute pay outs and refunds straight to your customer’s bank account
+            via BabuZ.
+          </p>
+          <div
+            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
+            <a class="bg-primary p-3" href="service-details.html">
+              <i class="ti ti-arrow-up-right text-[40px] text-white-1"> </i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img alt="Service animal" class="absolute bottom-0 left-0 max-3xl:w-30 max-sm:hidden"
+      src="./assets/images/service-animale-k7JSGUUN.png" />
+    <img alt="Service animal" class="absolute bottom-0 right-0 max-3xl:w-30 max-sm:hidden"
+      src="./assets/images/service-coins-wqijGupM.png" />
+  </section>
+
+
+  <!-- download the app fingertips -->
+  <!-- <section class="spy120px fade-wrapper relative">
+    <div class="container">
+      <div class="grid grid-cols-12 items-center justify-between max-lg:gap-6">
+        <div class="col-start-1 col-end-13 lg:col-end-6">
+          <h5 class="h5 title-animation title-anim-active font-medium capitalize text-primary">
+            BANKING AT YOUR FINGERTIPS
+          </h5>
+          <h3 class="d4 title-animation h2 title-anim-active mt-3 max-w-[454px] font-semibold">
+            Follow Four Quick Steps to Buy Our Card With Confidence
+          </h3>
+          <p class="m-text fade-top mt-5 text-black-3">
+            The rise of cryptocurrencies has opened up new trading In this
+            beginner's guide to cryptocurrency trading we demystify the world
+            of digital currencies
+          </p>
+          <div class="spt32px grid gap-5 xs:grid-cols-2">
+            <div class="fade-top flex items-center gap-2">
+              <i class="ti ti-circle-check text-[24px] text-black-2"> </i>
+              <p class="l-text font-medium text-black-2">Charts trading</p>
+            </div>
+            <div class="fade-top flex items-center gap-2">
+              <i class="ti ti-circle-check text-[24px] text-black-2"> </i>
+              <p class="l-text font-medium text-black-2">Supreme Authority</p>
+            </div>
+            <div class="fade-top flex items-center gap-2">
+              <i class="ti ti-circle-check text-[24px] text-black-2"> </i>
+              <p class="l-text font-medium text-black-2">Worldly Power</p>
+            </div>
+            <div class="fade-top flex items-center gap-2">
+              <i class="ti ti-circle-check text-[24px] text-black-2"> </i>
+              <p class="l-text font-medium text-black-2">Global Dominance</p>
+            </div>
+          </div>
+          <div class="smt40px flex items-center gap-6 max-xs:flex-wrap max-xs:gap-4">
+            <a href="/">
+              <img alt="google play" src="./assets/images/google-play-g3O9VfuS.png" />
+            </a>
+            <a href="/">
+              <img alt="apple play" src="./assets/images/apple-play-9dvnxDZN.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-start-1 col-end-13 row-start-1 overflow-hidden lg:col-start-7">
+          <img alt="finger section image" class="reveal-img parallax-img mx-auto max-lg:w-80"
+            src="./assets/images/finger-section-image-IGSCLPs6.png" />
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- pricing plan -->
+  <!-- <section
+    class="spy120px relative z-10 bg-white-4 after:absolute after:bottom-0 after:-z-10 after:h-[35%] after:w-full after:bg-accent-3/15">
+    <div class="container">
+      <div class="flex flex-col items-center justify-center">
+        <h5 class="h5 title-animation text-center font-medium capitalize text-primary">
+          Pricing Plan
+        </h5>
+        <h3 class="d4 title-animation mt-3 pt-3 font-semibold">
+          Simple pricing for everyone.
+        </h3>
+        <p class="m-text mt-6 max-w-[367px] text-center text-black-3">
+          Use customer data to build great and solid product experiences that
+          convert.
+        </p>
+        <div class="mt-5 flex items-center gap-5 xs:gap-8">
+          <button
+            class="spx24px spy12px button-weekly l-text tab-links theme-transition-3 border border-accent-3 bg-accent-3 !px-12 py-4 capitalize text-accent-2 hover:bg-accent-3">
+            Weekly
+          </button>
+          <button
+            class="spx24px spy12px tab-links button-yearly l-text theme-transition-3 border border-accent-3 !px-12 py-4 capitalize text-accent-2 hover:bg-accent-3">
+            yearly
+          </button>
+        </div>
+      </div>
+
+
+      
+      <div class="smt60px grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:gap-6">
+        <!-- pricing card one --
+        <div class="spt40px till-card spb40px theme-transition-3 relative bg-white-1">
+          <div class="spl40px">
+            <div class="flex items-center justify-between">
+              <span class="h5 font-medium">Simple Plan</span>
+            </div>
+            <div class="mt-3 flex items-end">
+              <p class="d4 leading-0 text-primaryColor price-one theme-transition-4 font-semibold">
+                $10
+              </p>
+              <p class="h6 theme-transition-4 mb-2 font-medium">/yr</p>
+            </div>
+          </div>
+          <div class="spt32px spb32px smt32px spr24px spl24px mx-4 flex flex-col gap-6 rounded-xl bg-white-2">
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Minimum Investment</p>
+              </div>
+              <p class="h4 font-medium">$100</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Investment Duration</p>
+              </div>
+              <p class="h4 font-medium">30D</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Daily Returns</p>
+              </div>
+              <p class="h4 font-medium">2.0%</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Total Return</p>
+              </div>
+              <p class="h4 font-medium">160%</p>
+            </div>
+          </div>
+          <a class="spx24px spy12px l-text smt40px spx24px spy12px l-text smt40px theme-transition-3 mx-auto block w-fit bg-accent-3 capitalize hover:bg-accent-3/80"
+            href="signup.html">
+            Join Simple Plan
+          </a>
+          <img alt="Secondary Circle" src="./assets/images/pricint-play-primary-circle-63_JQo29.png"
+            class="absolute right-0 top-0 max-xl:w-[80px]" />
+        </div>
+
+        <!-- pricing card two --
+        <div class="spt40px till-card spb40px theme-transition-3 relative bg-accent-3">
+          <div class="spl40px">
+            <div class="flex items-center justify-between">
+              <span class="h5 font-medium">Growth Plan</span>
+              <span class="h6 theme-transition-3 z-10 me-3 rounded-full bg-accent-5 px-3 py-2 font-medium">Most
+                Popular</span>
+            </div>
+            <div class="mt-3 flex items-end">
+              <p class="d4 leading-0 text-primaryColor price-two theme-transition-4 font-semibold">
+                $30
+              </p>
+              <p class="h6 theme-transition-4 mb-2 font-medium">/yr</p>
+            </div>
+          </div>
+          <div class="spt32px spb32px smt32px spr24px spl24px mx-4 flex flex-col gap-6 rounded-xl bg-white-2">
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Minimum Investment</p>
+              </div>
+              <p class="h4 font-medium">$500</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-2xl"> </i>
+                <p class="m-text">Investment Duration</p>
+              </div>
+              <p class="h4 font-medium">60D</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Daily Returns</p>
+              </div>
+              <p class="h4 font-medium">2.5%</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Total Return</p>
+              </div>
+              <p class="h4 font-medium">230%</p>
+            </div>
+          </div>
+          <a class="spx24px spy12px l-text smt40px spx24px spy12px l-text smt40px theme-transition-3 mx-auto block w-fit bg-accent-5 capitalize hover:bg-accent-5/90"
+            href="signup.html">Join Standard Plan</a>
+        </div>
+        <!-- pricing card three --
+        <div class="spt40px till-card spb40px theme-transition-3 relative bg-white-1">
+          <div class="spl40px">
+            <div class="flex items-center justify-between">
+              <span class="h5 font-medium">Premium Plan</span>
+            </div>
+            <div class="mt-3 flex items-end">
+              <p class="d4 leading-0 text-primaryColor price-three theme-transition-4 font-semibold">
+                $75
+              </p>
+              <p class="h6 theme-transition-4 mb-2 font-medium">/yr</p>
+            </div>
+          </div>
+          <div class="spt32px spb32px smt32px spr24px spl24px mx-4 flex flex-col gap-6 rounded-xl bg-white-2">
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Minimum Investment</p>
+              </div>
+              <p class="h4 font-medium">$1000</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Investment Duration</p>
+              </div>
+              <p class="h4 font-medium">90D</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Daily Returns</p>
+              </div>
+              <p class="h4 font-medium">3.0%</p>
+            </div>
+            <div class="flex items-center justify-between gap-6">
+              <div class="flex items-center gap-3">
+                <i class="ti ti-checkbox text-xl"> </i>
+                <p class="m-text">Total Return</p>
+              </div>
+              <p class="h4 font-medium">475%</p>
+            </div>
+          </div>
+          <a class="spx24px spy12px l-text smt40px spx24px spy12px l-text smt40px theme-transition-3 mx-auto block w-fit bg-accent-3 capitalize hover:bg-accent-3/80"
+            href="signup.html">Join Premium Plan</a>
+          <img alt="Secondary Circle" class="absolute right-0 top-0 max-xl:w-[80px]"
+            src="./assets/images/pricint-play-secondary-circle-Uhpl0IH2.png" />
+        </div>
+      </div>
+    </div>
+    <img src="./assets/images/pricing-plan-vector-FzEpg3yz.png" alt="Pricing Plan Vector"
+      class="absolute right-[2%] top-10 max-lg:w-[150px] md:max-lg:top-15 lg:right-[10%] lg:top-[78px]" />
+  </section> -->
+
+
+  <!-- testimonials -->
+  <!-- home financial planning -->
+  <!-- <section class="spt120px spb120px fade-wrapper relative overflow-hidden">
+    <div class="container">
+      <div class="flex justify-between gap-6 max-md:flex-col md:items-center">
+        <div class="max-w-[633px]">
+          <h5 class="h5 title-animation font-medium capitalize text-primary">
+            Financial Planning
+          </h5>
+          <h3 class="d4 title-animation pt-3 font-semibold">
+            Let's plan your finances the right way
+          </h3>
+        </div>
+        <div class="max-w-[372px] max-md:flex max-md:flex-col max-md:gap-4 md:self-end">
+          <a class="group flex items-center gap-16 hover:text-secondary max-md:order-2 md:place-content-end"
+            href="contact-us.html">
+            <span>Learn More</span>
+            <span class="relative flex items-center">
+              <svg class="theme-transition-3 absolute -left-8" xmlns="http://www.w3.org/2000/svg" width="58" height="16"
+                viewBox="0 0 58 16" fill="none">
+                <path
+                  d="M57.7071 8.70711C58.0976 8.31659 58.0976 7.68342 57.7071 7.2929L51.3431 0.928937C50.9526 0.538412 50.3195 0.538412 49.9289 0.928937C49.5384 1.31946 49.5384 1.95263 49.9289 2.34315L55.5858 8L49.9289 13.6569C49.5384 14.0474 49.5384 14.6805 49.9289 15.0711C50.3195 15.4616 50.9526 15.4616 51.3431 15.0711L57.7071 8.70711ZM-8.74228e-08 9L57 9L57 7L8.74228e-08 7L-8.74228e-08 9Z"
+                  class="theme-transition-3 fill-black-1 group-hover:fill-secondary"></path>
+              </svg>
+              <span
+                class="block size-12 rounded-full border border-black-1 group-hover:border-secondary max-md:size-10">
+              </span>
+            </span>
+          </a>
+          <p class="m-text sm:spt40px fade-top text-black-3">
+            Highlights the impact of technology on the banking industry, enabling
+            convenient digital access to financial services.
+          </p>
+        </div>
+      </div>
+      <div class="spt60px grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="sp32px till-card group theme-transition-3 bg-white-1 shadow-custom1 hover:bg-primary">
+          <div class="theme-transition-3 w-fit rounded-full bg-white-4 p-[14px] group-hover:bg-white-1">
+            <img alt="finance image" src="./assets/images/finance-planning-1-5kRSgKDG.png" />
+          </div>
+          <a class="h5 theme-transition-3 mt-6 block font-medium group-hover:text-white-1" href="home-loan.html">Home
+            Loans</a>
+          <p class="m-text theme-transition-3 mt-3 text-black-3 group-hover:text-white-1">
+            Reduced Payments maintenance and processing fees. No hidden fees.
+          </p>
+        </div>
+        <div class="sp32px till-card group theme-transition-3 bg-white-1 shadow-custom1 hover:bg-primary">
+          <div class="theme-transition-3 w-fit rounded-full bg-white-4 p-[14px] group-hover:bg-white-1">
+            <img alt="finance image two" src="./assets/images/finance-planning-2-Z3umQSiG.png" />
+          </div>
+          <a class="h5 theme-transition-3 mt-6 block font-medium group-hover:text-white-1"
+            href="education-loan.html">Education Loans</a>
+          <p class="m-text theme-transition-3 mt-3 text-black-3 group-hover:text-white-1">
+            Execute pay outs and refunds straight to your customer’s bank account
+            via BabuZ.
+          </p>
+        </div>
+        <div class="sp32px till-card group theme-transition-3 bg-white-1 shadow-custom1 hover:bg-primary">
+          <div class="theme-transition-3 w-fit rounded-full bg-white-4 p-[14px] group-hover:bg-white-1">
+            <img alt="finance image three" src="./assets/images/finance-planning-3-6Ef2IyZ0.png" />
+          </div>
+          <a class="h5 theme-transition-3 mt-6 block font-medium group-hover:text-white-1"
+            href="business-loan.html">Business Loans</a>
+          <p class="m-text theme-transition-3 mt-3 text-black-3 group-hover:text-white-1">
+            This section provides an overview of what banking is financial system
+          </p>
+        </div>
+        <div class="sp32px till-card group theme-transition-3 bg-white-1 shadow-custom1 hover:bg-primary">
+          <div class="theme-transition-3 w-fit rounded-full bg-white-4 p-[14px] group-hover:bg-white-1">
+            <img alt="finance image four" src="./assets/images/finance-planning-4-Va9Z9vS-.png" />
+          </div>
+          <a class="h5 theme-transition-3 mt-6 block font-medium group-hover:text-white-1" href="car-loan.html">Car
+            Loans</a>
+          <p class="m-text theme-transition-3 mt-3 text-black-3 group-hover:text-white-1">
+            Highlights the impact of technology on the banking industry, enabling
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="over hidden overflow-hidden md:block">
+      <div class="lines">
+        <div class="line absolute left-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
+        <div class="line absolute right-[calc(100%-50%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
+        <div class="line-alt absolute left-[30%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
+        <div class="line-alt absolute right-[calc(30%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
+        <div class="line absolute right-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- personalized solution -->
+  <section class="max-lg:spy120px fade-wrapper relative bg-secondary">
+    <div class="container">
+      <div class="grid grid-cols-12 items-center gap-6">
+        <div class="col-start-1 col-end-13 justify-end lg:col-end-7 4xl:flex 4xl:place-self-end">
+          <img alt="Personalized image section image" class="appear-down 4xl:max-w-[unset]"
+            src="./assets/images/personalized-section-image-FU-vmfTR.png" />
+        </div>
+        <div class="spy60px lg:spy120px col-start-1 col-end-13 lg:col-start-8">
+          <h3 class="d4 title-animation h2 title-anim-active font-semibold text-white-1">
+            Simplify your financial operations with
+            our platform
+
+          </h3>
+          <p class="m-text spt24px l-text fade-top font-normal text-white-1">
+            Get in touch with us, and we will help you to create the right one for
+            your business or personal needs.
+          </p>
+          <a class="alter-btn btn-anim group/link smt40px relative z-10 inline-flex size-[150px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-white-1 bg-white-1 font-semibold text-black-4 hover:border-primary hover:bg-primary sm:size-[180px] lg:size-[180px]"
+            href="contact-us.html">
+            <div class="flex flex-col items-center justify-center">
+              <i class="ti ti-arrow-up-right text-[40px]"> </i>
+              <p class="m-text mt-1 capitalize">Learn More</p>
+            </div>
+            <span
+              class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <img alt="animal image" class="absolute bottom-0 right-0 max-xxl:w-40"
+      src="./assets/images/personalized-animal-image-wyyH_bm2.png" />
+  </section>
+
+  <!-- faq -->
+  <section class="spy120px relative overflow-hidden">
+    <div class="container">
+      <h5 class="h5 title-animation title-anim-active text-center font-medium capitalize text-primary">
+        FAQ
+      </h5>
+      <h3 class="d4 title-animation title-anim-active mt-3 text-center font-semibold">
+        Frequently ASked Questions
+      </h3>
+      <div class="spt60px grid gap-6 lg:grid-cols-2">
+        <div class="flex flex-col justify-between gap-5">
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                How do I report fraudulent activity on my account?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                Can I set up account alerts for unusual transactions?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                What should I do if my card is damaged?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                Is there a way to dispute a transaction on my account?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                What steps should I take if I forget my card PIN?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col justify-between gap-5">
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                How do I report fraudulent activity on my account?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                Can I set up account alerts for unusual transactions?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                What should I do if my card is damaged?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                Is there a way to dispute a transaction on my account?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+          <div class="rounded-16px appear-down rounded-xl p-4 shadow-custom3 sm:p-5">
+            <div
+              class="rounded-16px faq-accordion theme-transition-3 flex cursor-pointer items-center justify-between gap-6">
+              <h6 class="l-text font-medium">
+                What steps should I take if I forget my card PIN?
+              </h6>
+              <div
+                class="bg-bgColorOne text-primaryColor theme-transition-4 rounded-full border-2 border-black-4 p-1 leading-none">
+                <i class="ti ti-plus text-[24px]"> </i>
+              </div>
+            </div>
+            <div class="theme-transition-6 h-0 overflow-hidden">
+              <p class="m-text mt-4">
+                If you notice any suspicious or unauthorized activity on your
+                account, follow these steps: 1. Contact your bank or credit card
+                issuer immediately. 2. Report the fraudulent transactions and
+                provide details of the unauthorized activity. 3. Request to block
+                or deactivate the affected card or account. 4. Follow any
+                additional instructions provided by your bank to resolve the
+                issue.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- home two testimonial -->
+  <section class="fade-wrapper bg-primary text-white-1">
+    <div class="container sm:border-e">
+      <div
+        class="spt120px flex justify-between rounded-br-[150px] border-b border-e pb-10 pr-20 max-xs:flex-col max-xs:gap-4 xs:items-center">
+        <h3 class="h2 font-semibold">Testimonials</h3>
+        <div class="flex items-center gap-5">
+          <button
+            class="customerSliderPrev theme-transition-3 border border-white-1 bg-white-1 p-3 text-black-4 hover:bg-transparent hover:text-white-1 xl:p-4">
+            <i class="ti ti-arrow-left text-[24px]"> </i>
+          </button>
+          <button
+            class="customerSliderNext theme-transition-3 border border-white-1 bg-white-1 p-3 text-black-4 hover:bg-transparent hover:text-white-1 xl:p-4">
+            <i class="ti ti-arrow-right text-[24px]"> </i>
+          </button>
+        </div>
+      </div>
+      <div class="grid grid-cols-12 gap-6">
+        <div class="col-start-1 col-end-13 lg:col-end-5 lg:border-e xl:col-end-4">
+          <div class="mx-auto h-[60px] w-px bg-white-1 lg:mx-[40%]"></div>
+          <div class="lg:smb120px w-fit border px-6 py-3 max-lg:mx-auto">
+            Go to Our Partner Program
+          </div>
+        </div>
+        <div class="col-start-1 col-end-13 lg:col-start-5 xl:col-start-4">
+          <div class="swiper swiper-testimonial-one-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="flex gap-8 pt-6">
+                  <div class="shrink-0">
+                    <i class="ti ti-quote block rotate-180 text-[80px] font-light">
+                    </i>
+                  </div>
+
+                  <div class="max-w-[702px] max-lg:pr-2">
+                    <p class="xl-text fade-top font-normal text-white-1">
+                      “ It's been 2 years since I found Bankio, and it's such
+                      a relief as a small business owner to not worry about
+                      unnecessary fees. I lost my credit card once, and the
+                      service was so prompt that I was back to work the next
+                      day!
+                    </p>
+                    <div class="smt40px spb120px flex items-center gap-6">
+                      <img alt="Testimonial Image" src="./assets/images/home-two-testimonials-1-WfVdW9qO.png"
+                        class="size-25" />
+                      <div>
+                        <p class="h4 font-semibold text-white-1">
+                          Andrew Russel
+                        </p>
+                        <p class="m-text text-white-4">VP of Marketing</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex gap-8 pt-6">
+                  <div class="shrink-0">
+                    <i class="ti ti-quote block rotate-180 text-[80px] font-light">
+                    </i>
+                  </div>
+
+                  <div class="max-w-[702px] max-lg:pr-2">
+                    <p class="xl-text fade-top font-normal text-white-1">
+                      “ It's been 2 years since I found Bankio, and it's such
+                      a relief as a small business owner to not worry about
+                      unnecessary fees. I lost my credit card once, and the
+                      service was so prompt that I was back to work the next
+                      day!
+                    </p>
+                    <div class="smt40px spb120px flex items-center gap-6">
+                      <img alt="Testimonial Image" src="./assets/images/home-one-testimonial-1-H2NmZISQ.png"
+                        class="size-25" />
+                      <div>
+                        <p class="h4 font-semibold text-white-1">
+                          Andrew Russel
+                        </p>
+                        <p class="m-text text-white-4">VP of Marketing</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="flex gap-8 pt-6">
+                  <div class="shrink-0">
+                    <i class="ti ti-quote block rotate-180 text-[80px] font-light">
+                    </i>
+                  </div>
+
+                  <div class="max-w-[702px] max-lg:pr-2">
+                    <p class="xl-text fade-top font-normal text-white-1">
+                      “ It's been 2 years since I found Bankio, and it's such
+                      a relief as a small business owner to not worry about
+                      unnecessary fees. I lost my credit card once, and the
+                      service was so prompt that I was back to work the next
+                      day!
+                    </p>
+                    <div class="smt40px spb120px flex items-center gap-6">
+                      <img alt="Testimonial Image" src="./assets/images/home-one-testimonial-2-ptsc1lo1.png"
+                        class="size-25" />
+                      <div>
+                        <p class="h4 font-semibold text-white-1">
+                          Andrew Russel
+                        </p>
+                        <p class="m-text text-white-4">VP of Marketing</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- home one blog section  -->
+  <section class="spy120px fade-wrapper relative overflow-hidden">
+    <div class="container">
+      <div class="flex justify-between gap-4 max-md:flex-col md:items-center md:gap-6">
+        <div>
+          <h5 class="h5 title-animation font-medium capitalize text-primary">
+            Recent Blog
+          </h5>
+          <h3 class="d4 title-animation mt-5 max-w-[400px] font-semibold">
+            Read update Journal
+          </h3>
+        </div>
+        <p class="m-text max-w-[306px] text-balance text-black-3">
+          Read our blog and try to see passion liesin making everything accessible
+          andaesthetic for everyone.
+        </p>
+      </div>
+      <div class="spt60px grid items-center gap-6 xl:grid-cols-2">
+
+
+        <!-- single blog -->
+        <div
+          class="till-card relative justify-center gap-6 max-xl:flex max-xl:items-center max-md:flex-col lg:gap-10 xl:pb-15">
+          <div class="w-fit overflow-hidden">
+            <img alt="Blog image one" class="reveal-img parallax-img relative inline-block"
+              src="./assets/images/home-one-recent-blog-1-bRqFbUx7.png" />
+          </div>
+          <div class="sp24px bottom-0 left-[220px] max-w-[416px] bg-white-1 shadow-custom2 max-xl:h-fit xl:absolute">
+            <p class="s-text text-black-3">Latest News December 12, 2022</p>
+            <a class="h4 theme-transition-3 mt-3 block font-medium hover:text-primary" href="blog-details.html">The
+              future of fraud protection.</a>
+            <p class="m-text mt-4 text-black-3">
+              Morbi eget venenatis lorem, id viverra massa. Etiam congue efficitur
+              velit vel pharetra.
+            </p>
+            <div class="mt-3 h-px w-full bg-white-3/60"></div>
+            <a class="group theme-transition-3 mt-3 flex items-center gap-6 hover:text-primary"
+              href="blog-details.html">
+              <span class="xl-text font-medium">Read More</span>
+              <span
+                class="theme-transition-3 bg-primary p-2 text-white-1 group-hover:bg-accent-3 group-hover:text-primary md:p-3">
+                <i class="ti ti-arrow-up-right shrink-0 text-[24px]"> </i>
+              </span>
+            </a>
+          </div>
+        </div>
+
+
+
+        <!-- single blog -->
+        <div
+          class="till-card relative justify-center gap-6 max-xl:flex max-xl:items-center max-md:flex-col lg:gap-10 xl:pb-15">
+          <div class="w-fit overflow-hidden">
+            <img alt="Blog image one" class="reveal-img parallax-img relative inline-block"
+              src="./assets/images/home-one-recent-blog-2-w7LW9vXY.png" />
+          </div>
+          <div class="sp24px bottom-0 left-[220px] max-w-[416px] bg-white-1 shadow-custom2 max-xl:h-fit xl:absolute">
+            <p class="s-text text-black-3">Latest News December 12, 2022</p>
+            <a class="h4 theme-transition-3 mt-3 block font-medium hover:text-primary" href="blog-details.html">The
+              future of fraud protection.</a>
+            <p class="m-text mt-4 text-black-3">
+              Morbi eget venenatis lorem, id viverra massa. Etiam congue efficitur
+              velit vel pharetra.
+            </p>
+            <div class="mt-3 h-px w-full bg-white-3/60"></div>
+            <a class="group theme-transition-3 mt-3 flex items-center gap-6 hover:text-primary"
+              href="blog-details.html">
+              <span class="xl-text font-medium">Read More</span>
+              <span
+                class="theme-transition-3 bg-primary p-2 text-white-1 group-hover:bg-accent-3 group-hover:text-primary md:p-3">
+                <i class="ti ti-arrow-up-right shrink-0 text-[24px]"> </i>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+
+<!-- This is a buuton -->
+      <!-- <div class="spt60px flex items-center justify-center">
+        <a href="blogs.html"
+          class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3">
+          <div class="flex flex-col items-center justify-center">
+            <i class="ti ti-arrow-up-right shrink-0 text-2xl text-[40px]"> </i>
+            <p class="m-text mt-1 capitalize">All Blogs</p>
+          </div>
+          <span
+            class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
+          </span>
+        </a>
+      </div> -->
+    </div>
+  </section>
+
+
+  
+  <!-- footer -->
+  <footer class="relative overflow-hidden bg-accent-2 text-white-1">
+    <div class="max-xxl:container xxl:ml-[calc((100%-1296px)/2)]">
+      <div class="flex justify-between max-xxl:flex-col-reverse">
+        <div>
+          <div class="spy120px flex flex-auto gap-6 max-md:flex-col max-md:gap-8">
+            <div class="flex-1">
+              <a href="loggedin.html"><img alt="Footer Logo" src="./assets/images/digifar.png" class="h-20" /></a>
+              <p class="m-text text-balance text-white-3">
+                DigiFar is a growth engine for a new generation of innovative, forward-looking organizations operating in Africa.
+              </p>
+              <div class="smt40px flex items-center gap-3">
+                <a class="theme-transition-3 rounded-xl bg-black-2 p-2 hover:bg-primary" href="">
+                  <i class="ti ti-brand-facebook text-[24px]"> </i>
+                </a>
+                <a class="theme-transition-3 rounded-xl bg-black-2 p-2 hover:bg-primary" href="">
+                  <i class="ti ti-brand-twitch text-[24px]"> </i>
+                </a>
+                <a class="theme-transition-3 rounded-xl bg-black-2 p-2 hover:bg-primary" href="">
+                  <i class="ti ti-brand-instagram text-[24px]"> </i>
+                </a>
+                <a class="theme-transition-3 rounded-xl bg-black-2 p-2 hover:bg-primary" href="">
+                  <i class="ti ti-brand- text-[24px]"> </i>
+                </a>
+                <a class="theme-transition-3 rounded-xl bg-black-2 p-2 hover:bg-primary" href="">
+                  <i class="ti ti-brand-youtube text-[24px]"> </i>
+                </a>
+              </div>
+            </div>
+
+
+            <div class="flex-1">
+              <h5 class="h3 font-medium">Solutions</h5>
+              <ul class="spt32px flex flex-col gap-3 md:gap-4">
+                <li>
+                  <a class="m-text theme-transition-3 text-white-3 hover:tracking-wide hover:text-accent-3"
+                    href="about.html">DigiPay</a>
+                </li>
+                <li>
+                  <a class="m-text theme-transition-3 text-white-3 hover:tracking-wide hover:text-accent-3"
+                    href="blogs.html">DigiPoint</a>
+                </li>
+                <li>
+                  <a class="m-text theme-transition-3 text-white-3 hover:tracking-wide hover:text-accent-3"
+                    href="services.html">USSD Services</a>
+                </li>
+                <li>
+                  <a class="m-text theme-transition-3 text-white-3 hover:tracking-wide hover:text-accent-3"
+                    href="feature.html">Developers</a>
+                </li>
+                <li>
+                  <a class="m-text theme-transition-3 text-white-3 hover:tracking-wide hover:text-accent-3"
+                    href="contact-us.html">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1">
+              <h5 class="h3 font-medium">Contact Us</h5>
+              <p class="m-text spt32px text-white-3">
+                <i class="ti ti-brand-twitch text-[24px]"> </i> 2118 Zongo Cotonou, Benin
+              </p>
+              <a class="spt24px xl-text block text-white-3 underline underline-offset-4" href="tel:+227"><i class="ti ti-phone gap-1 "></i> +229 97
+                53 39 34</a>
+              <a class="m-text mt-3 block text-white-3" href="mailto:info@gmail.com"><i class="ti ti-mail"></i> support@digifar.net</a>
+            </div>
+          </div>
+          <div
+            class="spy32px flex items-center justify-between border-t border-black-2 max-md:flex-col-reverse max-md:gap-5">
+            <div class="flex items-center gap-2 max-[380px]:flex-col min-[380px]:gap-3">
+              <p class="m-text text-white-1">Copyright @ 2024 Digifar</p>
+              <div class="bg-black-3 max-[380px]:h-px max-[380px]:w-20 min-[380px]:h-4 min-[380px]:w-px"></div>
+              <p class="m-text">
+                Designed By
+                <a class="hover:text-accent-3" href="">Nacasky Co. Ltd</a>
+              </p>
+            </div>
+            <div class="me-6 flex bg-accent-1 py-1 pr-1 ps-5 min-[1500px]:w-[526px]">
+              <input type="text" class="w-full bg-inherit outline-none placeholder:text-white-3"
+                placeholder="Enter Your Email" />
+              <div class="bg-black-4 p-3">
+                <i class="ti ti-send text-[24px]"> </i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="xxl:spt120px flex flex-col items-center gap-10 bg-accent-1 px-10 text-center max-xxl:justify-between max-xxl:py-6 lg:gap-15 lg:max-xxl:flex-row xxl:w-[508px] xxl:px-25 xxl:pb-8">
+          <h5 class="h3 font-semibold">Powering growth for amazing businesses</h5>
+          <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-white-1 hover:border-accent-3 hover:text-black-4 lg:max-xxl:order-3 xxl:size-[180px]"
+            href="contact-us.html">
+            <div class="flex flex-col items-center justify-center">
+              <i class="ti ti-arrow-up-right text-[40px]"> </i>
+              <p class="m-text mt-1 capitalize">Contact Us</p>
+            </div>
+            <span
+              class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
+            </span>
+          </a>
+          <!-- <div class="flex flex-col items-center">
+            <p class="xl-text font-medium">09 : 00 AM - 10 : 30 PM</p>
+            <p class="m-text font-medium">Saturday - Thursday</p>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <img alt="footer stripe" class="absolute -left-[17%] -top-[40%] hidden origin-center animate-spin-slow 3xl:block"
+      src="./assets/images/footer-coin-fV72VHNl.png" />
+    <img alt="footer animale" class="absolute bottom-0 left-0 block max-3xl:size-30 max-[1500px]:hidden"
+      src="./assets/images/footer-crown-HX0ow5gN.png" />
+  </footer>
+
+
+<!-- Authen Script -->
+<!-- <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script> -->
+<!-- <script src="authen.js"></script>
+<script type="module" crossorigin src="./assets/js/main.js"></script> -->
+
+
+<!-- </section> -->
+
+<!------------------------------------------------------------------------------------------------------->
+<!------------------------------- The Logged In page  ----------------------------------------------------------------------------------------------------->
+<!------------------------------------------------------------------------------------------------------->
+
+
+
+
+
+
+<!-- <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>  -->
+    <script>
+        // Initialize Firebase (reuse your firebaseConfig from previous scripts)
+        // firebase.initializeApp(firebaseConfig);
+
+        // const auth = firebase.auth();
+        // const logoutBtn = document.getElementById('logout-btn');
+        // const userNameSpan = document.getElementById('user-name');
+
+        // auth.onAuthStateChanged(user => {
+        //     if (user) {
+        //         // Display user's name or email
+        //         userNameSpan.textContent = user.displayName || user.email;
+        //     } else {
+        //         // Redirect to login page if no user is authenticated
+        //         window.location.href = 'index.html';
+        //     }
+        // });
+
+        // logoutBtn.addEventListener('click', () => {
+        //     auth.signOut().then(() => {
+        //         window.location.href = 'index.html';
+        //     });
+        // });
+    </script>
+
+<script type="module" src="authen.js" defer ></script>
+<script type="module" crossorigin src="./assets/js/main.js"></script>
+</body>
+
+</html>
