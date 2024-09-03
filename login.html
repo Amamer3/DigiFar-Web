@@ -9,25 +9,13 @@
 
   <title>Login - DigiFar</title>
   <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
+ 
+  <link rel="stylesheet" href="authen.css">
   <link rel="stylesheet" crossorigin href="./assets/css/main.css">
 </head>
 
 <body class="relative text-black-4">
-  <!-- Success Popup -->
-<div id="success-popup" class="popup">
-  <div class="popup-content">
-      <p>Account successfully created!</p>
-      <button id="success-popup-close">OK</button>
-  </div>
-</div>
-
-<!-- Error Popup -->
-<div id="error-popup" class="popup">
-  <div class="popup-content">
-      <p id="error-message">There was an error creating the account.</p>
-      <button id="error-popup-close">OK</button>
-  </div>
-</div>
+  
 
   <!-- preloader -->
   <div class="preloader__wrap fixed z-[1000] flex h-screen w-full items-center justify-center bg-white-1">
@@ -47,7 +35,7 @@
 
 
 
-  <div class="relative">
+  <!-- <div class="relative" id="signIn">
     <div
       class="relative h-screen grid-cols-12 items-center justify-center gap-6 lg:grid xl:gap-[134px] xxl:overflow-hidden">
       <div class="col-start-1 col-end-7">
@@ -68,11 +56,14 @@
 
 
 
-          <form class="smt40px">
-            <input type="text" id="email"  placeholder="Username" required class="placeholder:m-text w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+          <form method="post" class="smt40px">
+
+            <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+
+            <input  id="email"  type="text"  placeholder="Username" required class="placeholder:m-text w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
 
 
-            <input type="password" id="password" placeholder="Password" required class="placeholder:m-text smt24px w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+            <input id="password"  type="password"  placeholder="Password" required class="placeholder:m-text smt24px w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
 
 
             <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
@@ -82,10 +73,12 @@
               <a href="signup.html">Forgot Password?</a>
             </div>
 
-            <!-- login button -->
-            <button id="loginBtn" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">
+            <!-- login button --
+             
+            <button  id="submitSignIn" type="submit" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">
               Login
             </button>
+          
 
             <div id="login-error-message" class="error-message"></div>
           </form>
@@ -110,23 +103,59 @@
           </div>
           <p class="s-text smt40px text-center text-black-1">
             Don’t have an account?
-            <a class="!text-primary" href="signup.html"> Register Here</a>
+            <a class="!text-primary" id="signUpButton" href="signup.html"> Register Here</a>
           </p>
         </div>
       </div>
-      <!-- <img alt="Element" class="absolute bottom-0 right-0 max-3xl:hidden"
-        src="./assets/images/footer-crown-HX0ow5gN.png" /> -->
+
+      
+
     </div>
-  </div>
+  </div> -->
 
-  <!-- Authen Script -->
-<!-- <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script> -->
+  <div class="relative" id="signIn">
+    <div class="relative h-screen grid-cols-12 items-center justify-center gap-6 lg:grid xl:gap-[134px] xxl:overflow-hidden">
+        <div class="col-start-1 col-end-7">
+            <img alt="Login Image" class="max-lg:mx-auto" src="./assets/images/login.JPG" />
+        </div>
+
+        <div class="col-start-7 col-end-12 max-lg:px-4 max-lg:py-8 xl:col-start-7 xl:col-end-11">
+            <div class="items-center justify-center">
+                <a href="index.html">
+                    <div>
+                        <img alt="Logo" class="mx-auto block h-20" src="./assets/images/digifar.png" />
+                        <h5 class="h5 mt-6 text-center font-medium">Login to Your Account</h5>
+                    </div>
+                </a>
+
+                <form method="post" class="smt40px">
+                    <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+                    <input id="email" type="text" placeholder="Username" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+                    <input id="password" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+
+                    <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" /> <span>Remember me</span>
+                        </div>
+                        <a href="signup.html">Forgot Password?</a>
+                    </div>
+
+                    <button id="submitSignIn" type="submit" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">Login</button>
+                </form>
+
+                <p class="s-text smt40px text-center text-black-1">
+                    Don’t have an account?
+                    <a class="!text-primary" href="signup.html">Register Here</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<script type="module" src="authen.js" defer ></script>
-<script type="module" crossorigin src="./assets/js/main.js"></script> 
+
+  <script type="module" src="firebaseauth.js"></script>
+ <script crossorigin src="./assets/js/main.js"></script>  
 </body>
 
 </html>

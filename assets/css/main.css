@@ -71,6 +71,19 @@
   text-align: center;
 }
 
+/* sweet alert */
+.popover-content.popover-show {
+  display: block; /* Show popover on click */
+  position: absolute; /* Position absolutely relative to the button */
+  top: 100%; /* Position below the button */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 0); /* Center horizontally with offset */
+  background-color: #fff; /* Set background color */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow */
+  padding: 1rem; /* Add some padding */
+  z-index: 10; /* Set z-index to ensure it appears above other elements */
+}
 
 .swiper {
   margin-left: auto;
@@ -3678,6 +3691,7 @@ button,
 .h6{
   font-size: 14px;
   line-height: 130%;
+  padd
 }
 
 @media (min-width: 1400px){

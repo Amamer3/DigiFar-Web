@@ -1,0 +1,193 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+    <script type="text/javascript">
+        window.tailwind.config = {
+            darkMode: ['class'],
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--border))',
+                        input: 'hsl(var(--input))',
+                        ring: 'hsl(var(--ring))',
+                        background: 'hsl(var(--background))',
+                        foreground: 'hsl(var(--foreground))',
+                        primary: {
+                            DEFAULT: 'hsl(var(--primary))',
+                            foreground: 'hsl(var(--primary-foreground))'
+                        },
+                        secondary: {
+                            DEFAULT: 'hsl(var(--secondary))',
+                            foreground: 'hsl(var(--secondary-foreground))'
+                        },
+                        destructive: {
+                            DEFAULT: 'hsl(var(--destructive))',
+                            foreground: 'hsl(var(--destructive-foreground))'
+                        },
+                        muted: {
+                            DEFAULT: 'hsl(var(--muted))',
+                            foreground: 'hsl(var(--muted-foreground))'
+                        },
+                        accent: {
+                            DEFAULT: 'hsl(var(--accent))',
+                            foreground: 'hsl(var(--accent-foreground))'
+                        },
+                        popover: {
+                            DEFAULT: 'hsl(var(--popover))',
+                            foreground: 'hsl(var(--popover-foreground))'
+                        },
+                        card: {
+                            DEFAULT: 'hsl(var(--card))',
+                            foreground: 'hsl(var(--card-foreground))'
+                        },
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+                      :root {
+                          --background: 0 0% 100%;
+      --foreground: 240 10% 3.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 240 10% 3.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 240 10% 3.9%;
+      --primary: 240 5.9% 10%;
+      --primary-foreground: 0 0% 98%;
+      --secondary: 240 4.8% 95.9%;
+      --secondary-foreground: 240 5.9% 10%;
+      --muted: 240 4.8% 95.9%;
+      --muted-foreground: 240 3.8% 46.1%;
+      --accent: 240 4.8% 95.9%;
+      --accent-foreground: 240 5.9% 10%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 240 5.9% 90%;
+      --input: 240 5.9% 90%;
+      --ring: 240 5.9% 10%;
+      --radius: 0.5rem;
+                      }
+                      .dark {
+                          --background: 240 10% 3.9%;
+      --foreground: 0 0% 98%;
+      --card: 240 10% 3.9%;
+      --card-foreground: 0 0% 98%;
+      --popover: 240 10% 3.9%;
+      --popover-foreground: 0 0% 98%;
+      --primary: 0 0% 98%;
+      --primary-foreground: 240 5.9% 10%;
+      --secondary: 240 3.7% 15.9%;
+      --secondary-foreground: 0 0% 98%;
+      --muted: 240 3.7% 15.9%;
+      --muted-foreground: 240 5% 64.9%;
+      --accent: 240 3.7% 15.9%;
+      --accent-foreground: 0 0% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 0 0% 98%;
+      --border: 240 3.7% 15.9%;
+      --input: 240 3.7% 15.9%;
+      --ring: 240 4.9% 83.9%;
+                      }
+                  }
+              </style>
+</head>
+
+<body>
+
+
+    <!-- <div class="flex flex-col md:flex-row bg-card text-foreground p-6 rounded-lg shadow-lg ">
+
+        <div class="flex-1 mb-4 md:mr-4">
+            <h1 class="text-2xl font-bold">KOFISWEET</h1>
+            <h2 class="text-lg">Bundles</h2>
+            <p class="text-muted-foreground">0542493073</p>
+            <div class="mt-4">
+                <p class="text-destructive">⚠️ Please note that data sent to a wrong number cannot be refunded.</p>
+                <p class="text-destructive">⚠️ MTN delivery usually takes up to 2 hours.</p>
+            </div>
+            <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 mt-4 p-2 rounded">Share
+                Link</button>
+        </div> -->
+
+
+
+
+
+        <!-- <div class="absolute  bg-white rounded-md shadow-lg p-4" id="">
+
+            <div class="bg-yellow-500 p-4 rounded-lg text-center">
+                <img aria-hidden="true" alt="MTN Logo" src="https://openui.fly.dev/openui/24x24.svg?text=📶" />
+                <h3 class="text-xl font-bold mt-2"> Airtime Top-Up 
+                </h3>
+            </div>
+            <form class="mt-4">
+                <label class="block mb-2">Select Your Country *</label>
+                <select id="countryCode" class="rounded-md "></select>
+                <input type="tel" id="phoneNumber" placeholder="Enter phone number" class="rounded-md  "> -->
+                <!-- <select id="countryCode" name="countryCode" class="" class="form-select border border-border rounded p-2 w-full">
+                    <option>+227</option>
+                </select> -->
+                <!-- <p class="mt-2">Price: GHC</p> -->
+                <!-- <label class="block mt-4 mb-2">Phone Number To Credit Data *</label>
+            <input type="text" placeholder="Phone Number to credit" class="border border-border rounded p-2 w-full" required /> -->
+
+                <!-- <label class="block mt-4 mb-2">Merchant Transaction Id *</label>
+                <input type="text" placeholder="Transaction Id" class="border border-border rounded p-2 w-full"
+                    required />
+
+                <label class="block mt-4 mb-2">Merchant Id *</label>
+                <input type="text" placeholder="Phone Number to credit" class="border border-border rounded p-2 w-full"
+                    required /> -->
+
+                <!-- <label class="block mt-4 mb-2">Amount *</label>
+                <input type="text" placeholder="Phone Number to credit" class="border border-border rounded p-2 w-96"
+                    required /> -->
+
+                <!-- <label class="block mt-4 mb-2">Receiver Account</label>
+                <input type="email" placeholder=" Receipt account details"
+                    class="border border-border rounded p-2 w-full" /> -->
+                <!-- <button type="submit"
+                    class="bg-primary text-primary-foreground hover:bg-primary/80 mt-4 p-2 rounded w-">Purchase</button>
+            </form>
+        </div>
+    </div> -->
+
+
+
+    <!-- not part yet -->
+    <div class="relative ">
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-md text-center" id="popoverButton">
+            Airtime Top-Up
+        </button>
+      
+        <div class="absolute hidden bg-white rounded-md shadow-lg p-4 -left" id="popoverContent">
+          <form>
+            <label for="countryCode" class="block text-gray-700 font-bold mb-2">Country Code:</label>
+            <select id="countryCode" name="countryCode" class="border border-gray-300 rounded-md px-4 py-2 w-full" required></select>
+            
+      
+            <label  id="phoneNumber" for="phoneNumber" class="block text-gray-700 font-bold mb-2">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" class="border border-gray-300 rounded-md px-4 py-2 w-full" required>
+      
+            <label for="amount" class="block text-gray-700 font-bold mb-2">Amount:</label>
+            <input type="number" id="amount" name="amount" class="border border-gray-300 rounded-md px-4 py-2 w-full" required>
+      
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md mt-4 text-center">Submit</button>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+    <script src="digifar-offers.js" defer></script>
+</body>
+
+</html>
