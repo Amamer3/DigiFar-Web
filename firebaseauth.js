@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const docRef = doc(db, "users", user.uid);
                     setDoc(docRef, userData)
                         .then(() => {
-                            window.location.href = 'index.html';
+                            window.location.href = 'login.html';
                         })
                         .catch((error) => {
                             console.error("Error writing document", error);
