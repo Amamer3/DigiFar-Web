@@ -17,35 +17,130 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-// function showMessage(message, divId) {
-//     var messageDiv = document.getElementById(divId);
-//     messageDiv.style.display = "block";
-//     messageDiv.innerHTML = message;
-//     messageDiv.style.opacity = 1;
-//     setTimeout(function () {
-//         messageDiv.style.opacity = 0;
-//     }, 5000);
-// }
+const db = getFirestore(app);
+
+
+
+
+function setTokenCookie(token) {
+    document.cookie = `authToken=${token}; path=/; secure; HttpOnly`;
+}
+
+// Function to clear cookie (used for logout)
+function clearTokenCookie() {
+    document.cookie = `authToken=; Max-Age=0; path=/; secure; HttpOnly`;
+}
+
+// Function to display messages
+function showMessage(message, divId) {
+    var messageDiv = document.getElementById(divId);
+    messageDiv.style.display = "block";
+    messageDiv.innerHTML = message;
+    messageDiv.style.opacity = 1;
+    setTimeout(function () {
+        messageDiv.style.opacity = 0;
+    }, 5000);
+}
+
+// Sign-Up Logic
+document.getElementById('submitSignUp').addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById('rEmail').value;
+    const password = document.getElementById('rPassword').value;
+    const firstName = document.getElementById('fName').value;
+    const lastName = document.getElementById('lName').value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+            const user = userCredential.user;
+
+            // Store user data in Firestore
+            const userData = {
+                email: email,
+                firstName: firstName,
+                lastName: lastName
+            };
+            await setDoc(doc(db, "users", user.uid), userData);
+
+            // Get JWT token and store in cookie
+            const token = await user.getIdToken();
+            setTokenCookie(token);
+
+            showMessage('Account Created Successfully', 'signUpMessage');
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            if (errorCode === 'auth/email-already-in-use') {
+                showMessage('Email Address Already Exists !!!', 'signUpMessage');
+            } else {
+                showMessage('Unable to create User', 'signUpMessage');
+            }
+        });
+});
+
+// Sign-In Logic
+document.getElementById('submitSignIn').addEventListener('click', (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+            const user = userCredential.user;
+
+            // Get JWT token and store in cookie
+            const token = await user.getIdToken();
+            setTokenCookie(token);
+
+            showMessage('Login is successful', 'signInMessage');
+            window.location.href = 'loggedin.html';
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
+                showMessage('Incorrect Email or Password', 'signInMessage');
+            } else {
+                showMessage('Account does not exist', 'signInMessage');
+            }
+        });
+});
+
+// Logout Logic
+document.getElementById('logoutButton').addEventListener('click', () => {
+    signOut(auth).then(() => {
+        clearTokenCookie(); // Clear the token cookie
+        showMessage('Logout successful', 'logoutMessage');
+        window.location.href = 'index.html'; // Redirect to homepage or login page
+    }).catch((error) => {
+        console.error('Error during logout', error);
+        showMessage('Logout failed', 'logoutMessage');
+    });
+});
+
 
 
 // document.addEventListener('DOMContentLoaded', () => {
+//     // Signup event listener
 //     const signUp = document.getElementById('submitSignUp');
 //     if (signUp) {
 //         signUp.addEventListener('click', (event) => {
-//             // rest of your JavaScript code
-
-
+//             event.preventDefault();
 //             const email = document.getElementById('rEmail').value;
 //             const password = document.getElementById('rPassword').value;
 //             const firstName = document.getElementById('fName').value;
 //             const lastName = document.getElementById('lName').value;
 
 //             const auth = getAuth();
-//             const db = getFirestore();
+//             // const db = getFirestore();
 
 //             createUserWithEmailAndPassword(auth, email, password)
-//                 .then((userCredential) => {
+//                 .then( async (userCredential) => {
 //                     const user = userCredential.user;
+
+//                     // Store user data in Firestore
 //                     const userData = {
 //                         email: email,
 //                         firstName: firstName,
@@ -55,239 +150,95 @@ const auth = getAuth(app);
 //                     const docRef = doc(db, "users", user.uid);
 //                     setDoc(docRef, userData)
 //                         .then(() => {
-//                             window.location.href = 'home-two.html';
+//                             window.location.href = 'login.html';
 //                         })
 //                         .catch((error) => {
-//                             console.error("error writing document", error);
-
+//                             console.error("Error writing document", error);
 //                         });
 //                 })
 //                 .catch((error) => {
 //                     const errorCode = error.code;
-//                     if (errorCode == 'auth/email-already-in-use') {
+//                     if (errorCode === 'auth/email-already-in-use') {
 //                         showMessage('Email Address Already Exists !!!', 'signUpMessage');
+//                     } else {
+//                         showMessage('Unable to create user', 'signUpMessage');
 //                     }
-//                     else {
-//                         showMessage('unable to create User', 'signUpMessage');
-//                     }
-//                 })
-
-
-
-
-
+//                 });
 //         });
 //     }
-// });
 
-
-//  const signUp=document.getElementById('DOMContentLoaded','submitSignUp');
-//  signUp.addEventListener('click', (event)=>{
-//     // event.preventDefault();
-//     const email=document.getElementById('rEmail').value;
-//     const password=document.getElementById('rPassword').value;
-//     const firstName=document.getElementById('fName').value;
-//     const lastName=document.getElementById('lName').value;
-
-//     const auth=getAuth();
-//     const db=getFirestore();
-
-//     createUserWithEmailAndPassword(auth, email, password)
-//     .then((userCredential)=>{
-//         const user=userCredential.user;
-//         const userData={
-//             email: email,
-//             firstName: firstName,
-//             lastName:lastName
-//         };
-//         showMessage('Account Created Successfully', 'signUpMessage');
-//         const docRef=doc(db, "users", user.uid);
-//         setDoc(docRef,userData)
-//         .then(()=>{
-//             window.location.href='home-two.html';
-//         })
-//         .catch((error)=>{
-//             console.error("error writing document", error);
-
-//         });
-//     })
-//     .catch((error)=>{
-//         const errorCode=error.code;
-//         if(errorCode=='auth/email-already-in-use'){
-//             showMessage('Email Address Already Exists !!!', 'signUpMessage');
-//         }
-//         else{
-//             showMessage('unable to create User', 'signUpMessage');
-//         }
-//     })
-//  });
-
-
-
-
-
-// const signIn = document.getElementById('submitSignIn');
-// signIn.addEventListener('DOMContentLoaded','click', (event) => {
-//     event.preventDefault();
-//     const email = document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
-//     const auth = getAuth();
-
-//     signInWithEmailAndPassword(auth, email, password)
-//         .then((userCredential) => {
-//             showMessage('login is successful', 'signInMessage');
-//             const user = userCredential.user;
-//             localStorage.setItem('loggedInUserId', user.uid);
-//             window.location.href = 'loggedin.html';
-//         })
-//         .catch((error) => {
-//             const errorCode = error.code;
-//             if (errorCode === 'auth/invalid-credential') {
-//                 showMessage('Incorrect Email or Password', 'signInMessage');
-//             }
-//             else {
-//                 showMessage('Account does not Exist', 'signInMessage');
-//             }
-//         })
-// })
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Signup event listener
-    const signUp = document.getElementById('submitSignUp');
-    if (signUp) {
-        signUp.addEventListener('click', (event) => {
-            event.preventDefault();
-            const email = document.getElementById('rEmail').value;
-            const password = document.getElementById('rPassword').value;
-            const firstName = document.getElementById('fName').value;
-            const lastName = document.getElementById('lName').value;
-
-            const auth = getAuth();
-            const db = getFirestore();
-
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    const userData = {
-                        email: email,
-                        firstName: firstName,
-                        lastName: lastName
-                    };
-                    showMessage('Account Created Successfully', 'signUpMessage');
-                    const docRef = doc(db, "users", user.uid);
-                    setDoc(docRef, userData)
-                        .then(() => {
-                            window.location.href = 'login.html';
-                        })
-                        .catch((error) => {
-                            console.error("Error writing document", error);
-                        });
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    if (errorCode === 'auth/email-already-in-use') {
-                        showMessage('Email Address Already Exists !!!', 'signUpMessage');
-                    } else {
-                        showMessage('Unable to create user', 'signUpMessage');
-                    }
-                });
-        });
-    }
-
-    // Signin event listener
-    const signIn = document.getElementById('submitSignIn');
-    if (signIn) {
-        signIn.addEventListener('click', (event) => {
-            event.preventDefault();
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const auth = getAuth();
-
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    showMessage('Login is successful', 'signInMessage');
-                    const user = userCredential.user;
-                    localStorage.setItem('loggedInUserId', user.uid);
-                    window.location.href = 'loggedin.html';
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    if (errorCode === 'auth/invalid-credential') {
-                        showMessage('Incorrect Email or Password', 'signInMessage');
-                    } else {
-                        showMessage('Account does not exist', 'signInMessage');
-                    }
-                });
-        });
-    }
-});
-
-// Function to display messages
-function showMessage(message, divId) {
-    const messageDiv = document.getElementById(divId);
-    if (messageDiv) {
-        messageDiv.style.display = "block";
-        messageDiv.innerHTML = message;
-        messageDiv.style.opacity = 1;
-        setTimeout(() => {
-            messageDiv.style.opacity = 0;
-        }, 5000);
-    }
-}
-
-// document.addEventListener('DOMContentLoaded', () => {
-//     const logoutButton = document.getElementById('logoutButton'); // Make sure you have a logout button with this ID
-
-//     if (logoutButton) {
-//         logoutButton.addEventListener('click', (event) => {
+//     // Signin event listener
+//     const signIn = document.getElementById('submitSignIn');
+//     if (signIn) {
+//         signIn.addEventListener('click', (event) => {
 //             event.preventDefault();
+//             const email = document.getElementById('email').value;
+//             const password = document.getElementById('password').value;
 //             const auth = getAuth();
 
-//             signOut(auth)
-//                 .then(() => {
-//                     // Clear local storage if you stored any user info
-//                     localStorage.removeItem('loggedInUserId');
-//                     // Optionally, you can redirect the user to the login page after logout
-//                     window.location.href = 'login.html';
+//             signInWithEmailAndPassword(auth, email, password)
+//                 .then((userCredential) => {
+//                     showMessage('Login is successful', 'signInMessage');
+//                     const user = userCredential.user;
+//                     localStorage.setItem('loggedInUserId', user.uid);
+//                     window.location.href = 'loggedin.html';
 //                 })
 //                 .catch((error) => {
-//                     console.error("Error signing out: ", error);
-//                     showMessage('Error signing out. Please try again.', 'logoutMessage');
+//                     const errorCode = error.code;
+//                     if (errorCode === 'auth/invalid-credential') {
+//                         showMessage('Incorrect Email or Password', 'signInMessage');
+//                     } else {
+//                         showMessage('Account does not exist', 'signInMessage');
+//                     }
 //                 });
 //         });
 //     }
 // });
 
+// // Function to display messages
+// function showMessage(message, divId) {
+//     const messageDiv = document.getElementById(divId);
+//     if (messageDiv) {
+//         messageDiv.style.display = "block";
+//         messageDiv.innerHTML = message;
+//         messageDiv.style.opacity = 1;
+//         setTimeout(() => {
+//             messageDiv.style.opacity = 0;
+//         }, 5000);
+//     }
+// }
 
-// Logout functionality
 
 
 
-const logoutButton = document.getElementById('logoutButton');
-if (logoutButton) {
-  logoutButton.addEventListener('click', (event) => {
-    event.preventDefault();
+// // Logout functionality
 
-    signOut(auth)
-      .then(() => {
-        localStorage.removeItem('loggedInUserId');
-        showMessage('You have been logged out successfully.', 'logoutMessage');
-        window.location.href = 'login.html';
-      })
-      .catch((error) => {
-        console.error("Error signing out: ", error);
-        showMessage('Error signing out. Please try again.', 'logoutMessage');
-      });
-  });
-}
+// const logoutButton = document.getElementById('logoutButton');
+// if (logoutButton) {
+//   logoutButton.addEventListener('click', (event) => {
+//     event.preventDefault();
 
-// logoutButton.addEventListener('click',()=>{
-//     localStorage.removeItem('loggedInUserId');
 //     signOut(auth)
-//     .then(()=>{
-//         window.location.href='index.html';
-//     })
-//     .catch((error)=>{
-//         console.error('Error Signing out:', error);
-//     })
-//   })
+//       .then(() => {
+//         localStorage.removeItem('loggedInUserId');
+//         showMessage('You have been logged out successfully.', 'logoutMessage');
+//         window.location.href = 'login.html';
+//       })
+//       .catch((error) => {
+//         console.error("Error signing out: ", error);
+//         showMessage('Error signing out. Please try again.', 'logoutMessage');
+//       });
+//   });
+// }
+
+// // Function to set JWT token as a cookie
+// function setTokenCookie(token) {
+//     document.cookie = `authToken=${token}; path=/; secure; HttpOnly`;
+// }
+
+// // Function to clear cookie (used for logout)
+// function clearTokenCookie() {
+//     document.cookie = `authToken=; Max-Age=0; path=/; secure; HttpOnly`;
+// }
+
+
