@@ -20160,12 +20160,12 @@ document.addEventListener("DOMContentLoaded", function() {
         pin: false
       }
     });
-    // tl.to(".move-thumb-one img", {
-    //   transform: "rotate(14deg)",
-    //   x: "300px",
-    //   opacity: 1,
-    //   duration: 3
-    // });
+    tl.to(".move-thumb-one img", {
+      transform: "rotate(14deg)",
+      x: "300px",
+      opacity: 1,
+      duration: 3
+    });
   }
   if (window.innerWidth >= 992) {
     if (document.querySelectorAll(".parallax-img").length > 0 && window.innerWidth >= 992) {
