@@ -16,11 +16,34 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const auth = getAuth(app);
+const auth = getAuth(app);
 const db = getFirestore(app);
 
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    const auth = getAuth();
+
+    // Check user authentication status on page load
+    auth.onAuthStateChanged((user) => {
+        const currentPage = window.location.pathname;
+
+        if (user) {
+            // User is signed in, allow them to remain on the page
+            if (currentPage === '/login.html' || currentPage === '/login.html') {
+                // Redirect logged-in users away from login pages
+                window.location.href = 'loggedin.html';
+            }
+        } else {
+            // No user is signed in
+            if (currentPage !== '/login.html' && currentPage !== '/login.html') {
+                // If user is trying to access a restricted page, redirect to login
+                window.location.href = 'index.html';
+            }
+        }
+    });
+
     // Signup event listener
     const signUp = document.getElementById('submitSignUp');
     if (signUp) {
@@ -31,9 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const firstName = document.getElementById('fName').value;
             const lastName = document.getElementById('lName').value;
 
-            const auth = getAuth();
-            // const db = getFirestore();
-
             createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
                     const user = userCredential.user;
@@ -42,16 +62,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     const userData = {
                         email: email,
                         firstName: firstName,
-                        lastName: lastName
+                        lastName: lastName,
                     };
-                    showMessage('Account Created Successfully', 'signUpMessage');
-                    const docRef = doc(db, "users", user.uid);
-                    await setDoc(docRef, userData);
+                    await setDoc(doc(db, "users", user.uid), userData);
 
-                    // Get JWT token and store it in a cookie
+                    // Set session cookie or local storage with auth token
                     const token = await user.getIdToken();
-                    setTokenCookie(token);
+                    document.cookie = `authToken=${token}; path=/; max-age=3600; secure`;
 
+                    showMessage('Account Created Successfully', 'signUpMessage');
                     window.location.href = 'login.html';
                 })
                 .catch((error) => {
@@ -72,18 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            const auth = getAuth();
 
             signInWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
-                    showMessage('Login is successful', 'signInMessage');
                     const user = userCredential.user;
 
-                    // Get JWT token and store it in a cookie
+                    // Set session cookie or local storage with auth token
                     const token = await user.getIdToken();
-                    setTokenCookie(token);
+                    document.cookie = `authToken=${token}; path=/; max-age=3600; secure`;
 
-                    localStorage.setItem('loggedInUserId', user.uid);
+                    showMessage('Login is successful', 'signInMessage');
                     window.location.href = 'loggedin.html';
                 })
                 .catch((error) => {
@@ -103,12 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
         logoutButton.addEventListener('click', (event) => {
             event.preventDefault();
 
-            const auth = getAuth();
             signOut(auth)
                 .then(() => {
+                    // Clear session cookie
+                    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                     localStorage.removeItem('loggedInUserId');
-                    // Clear the authentication cookie
-                    clearTokenCookie();
+
                     showMessage('You have been logged out successfully.', 'logoutMessage');
                     window.location.href = 'login.html';
                 })
@@ -133,36 +150,152 @@ function showMessage(message, divId) {
     }
 }
 
-// Function to set JWT token in a cookie
-function setTokenCookie(token) {
-    const expirationDays = 7; // Token expiration in days
-    const date = new Date();
-    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
-    const expires = "expires=" + date.toUTCString();
-    document.cookie = "authToken=" + token + ";" + expires + ";path=/";
-}
 
-// Function to clear the token cookie upon logout
-function clearTokenCookie() {
-    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
 
-// Function to get the JWT token from the cookie (optional)
-function getTokenCookie() {
-    const name = "authToken=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) === ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) === 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Signup event listener
+//     const signUp = document.getElementById('submitSignUp');
+//     if (signUp) {
+//         signUp.addEventListener('click', (event) => {
+//             event.preventDefault();
+//             const email = document.getElementById('rEmail').value;
+//             const password = document.getElementById('rPassword').value;
+//             const firstName = document.getElementById('fName').value;
+//             const lastName = document.getElementById('lName').value;
+
+//             const auth = getAuth();
+//             // const db = getFirestore();
+
+//             createUserWithEmailAndPassword(auth, email, password)
+//                 .then(async (userCredential) => {
+//                     const user = userCredential.user;
+
+//                     // Store user data in Firestore
+//                     const userData = {
+//                         email: email,
+//                         firstName: firstName,
+//                         lastName: lastName
+//                     };
+//                     const docRef = doc(db, "users", user.uid);
+//                     await setDoc(docRef, userData);
+
+//                     // Get JWT token and store in cookie
+//                     const token = await user.getIdToken();
+//                     setTokenCookie(token);
+
+//                     showMessage('Account Created Successfully', 'signUpMessage');
+//                     window.location.href = 'login.html';
+//                 })
+//                 .catch((error) => {
+//                     const errorCode = error.code;
+//                     if (errorCode === 'auth/email-already-in-use') {
+//                         showMessage('Email Address Already Exists !!!', 'signUpMessage');
+//                     } else {
+//                         showMessage('Unable to create user', 'signUpMessage');
+//                     }
+//                 });
+//         });
+//     }
+
+//     // Signin event listener
+//     const signIn = document.getElementById('submitSignIn');
+//     if (signIn) {
+//         signIn.addEventListener('click', (event) => {
+//             event.preventDefault();
+//             const email = document.getElementById('email').value;
+//             const password = document.getElementById('password').value;
+//             const auth = getAuth();
+
+//             signInWithEmailAndPassword(auth, email, password)
+//                 .then(async (userCredential) => {
+//                     const user = userCredential.user;
+//                     const token = await user.getIdToken();
+                    
+//                     // Set token cookie after login
+//                     setTokenCookie(token);
+//                     localStorage.setItem('loggedInUserId', user.uid);
+                    
+//                     showMessage('Login is successful', 'signInMessage');
+//                     window.location.href = 'loggedin.html';
+//                 })
+//                 .catch((error) => {
+//                     const errorCode = error.code;
+//                     if (errorCode === 'auth/invalid-credential') {
+//                         showMessage('Incorrect Email or Password', 'signInMessage');
+//                     } else {
+//                         showMessage('Account does not exist', 'signInMessage');
+//                     }
+//                 });
+//         });
+//     }
+// });
+
+// // Logout functionality
+// const logoutButton = document.getElementById('logoutButton');
+// if (logoutButton) {
+//     logoutButton.addEventListener('click', (event) => {
+//         event.preventDefault();
+//         const auth = getAuth();
+
+//         signOut(auth)
+//             .then(() => {
+//                 // Clear token from cookie
+//                 clearTokenCookie();
+//                 localStorage.removeItem('loggedInUserId');
+                
+//                 showMessage('You have been logged out successfully.', 'logoutMessage');
+//                 window.location.href = 'index.html';
+//             })
+//             .catch((error) => {
+//                 console.error("Error signing out: ", error);
+//                 showMessage('Error signing out. Please try again.', 'logoutMessage');
+//             });
+//     });
+// }
+
+// // Function to display messages
+// function showMessage(message, divId) {
+//     const messageDiv = document.getElementById(divId);
+//     if (messageDiv) {
+//         messageDiv.style.display = "block";
+//         messageDiv.innerHTML = message;
+//         messageDiv.style.opacity = 1;
+//         setTimeout(() => {
+//             messageDiv.style.opacity = 0;
+//         }, 5000);
+//     }
+// }
+
+// // Function to set token in cookies
+// function setTokenCookie(token) {
+//     document.cookie = `authToken=${token}; path=/; max-age=86400; secure; SameSite=Strict`;
+// }
+
+// // Function to clear token cookie on logout
+// function clearTokenCookie() {
+//     document.cookie = 'authToken=; path=/; max-age=0; secure; SameSite=Strict';
+// }
 
 
 
