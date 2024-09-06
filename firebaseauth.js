@@ -1,3 +1,5 @@
+// document.addEventListener('DOMContentLoaded', function () {
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
 import { getAuth, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
@@ -14,111 +16,159 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
-const auth = getAuth(app);
-
+// const auth = getAuth(app);
 const db = getFirestore(app);
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Signup event listener
+    const signUp = document.getElementById('submitSignUp');
+    if (signUp) {
+        signUp.addEventListener('click', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('rEmail').value;
+            const password = document.getElementById('rPassword').value;
+            const firstName = document.getElementById('fName').value;
+            const lastName = document.getElementById('lName').value;
 
+            const auth = getAuth();
+            // const db = getFirestore();
 
-function setTokenCookie(token) {
-    document.cookie = `authToken=${token}; path=/; secure; HttpOnly`;
-}
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(async (userCredential) => {
+                    const user = userCredential.user;
 
-// Function to clear cookie (used for logout)
-function clearTokenCookie() {
-    document.cookie = `authToken=; Max-Age=0; path=/; secure; HttpOnly`;
-}
+                    // Store user data in Firestore
+                    const userData = {
+                        email: email,
+                        firstName: firstName,
+                        lastName: lastName
+                    };
+                    showMessage('Account Created Successfully', 'signUpMessage');
+                    const docRef = doc(db, "users", user.uid);
+                    await setDoc(docRef, userData);
+
+                    // Get JWT token and store it in a cookie
+                    const token = await user.getIdToken();
+                    setTokenCookie(token);
+
+                    window.location.href = 'login.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === 'auth/email-already-in-use') {
+                        showMessage('Email Address Already Exists !!!', 'signUpMessage');
+                    } else {
+                        showMessage('Unable to create user', 'signUpMessage');
+                    }
+                });
+        });
+    }
+
+    // Signin event listener
+    const signIn = document.getElementById('submitSignIn');
+    if (signIn) {
+        signIn.addEventListener('click', (event) => {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const auth = getAuth();
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then(async (userCredential) => {
+                    showMessage('Login is successful', 'signInMessage');
+                    const user = userCredential.user;
+
+                    // Get JWT token and store it in a cookie
+                    const token = await user.getIdToken();
+                    setTokenCookie(token);
+
+                    localStorage.setItem('loggedInUserId', user.uid);
+                    window.location.href = 'loggedin.html';
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    if (errorCode === 'auth/invalid-credential') {
+                        showMessage('Incorrect Email or Password', 'signInMessage');
+                    } else {
+                        showMessage('Account does not exist', 'signInMessage');
+                    }
+                });
+        });
+    }
+
+    // Logout functionality
+    const logoutButton = document.getElementById('logoutButton');
+    if (logoutButton) {
+        logoutButton.addEventListener('click', (event) => {
+            event.preventDefault();
+
+            const auth = getAuth();
+            signOut(auth)
+                .then(() => {
+                    localStorage.removeItem('loggedInUserId');
+                    // Clear the authentication cookie
+                    clearTokenCookie();
+                    showMessage('You have been logged out successfully.', 'logoutMessage');
+                    window.location.href = 'login.html';
+                })
+                .catch((error) => {
+                    console.error("Error signing out: ", error);
+                    showMessage('Error signing out. Please try again.', 'logoutMessage');
+                });
+        });
+    }
+});
 
 // Function to display messages
 function showMessage(message, divId) {
-    var messageDiv = document.getElementById(divId);
-    messageDiv.style.display = "block";
-    messageDiv.innerHTML = message;
-    messageDiv.style.opacity = 1;
-    setTimeout(function () {
-        messageDiv.style.opacity = 0;
-    }, 5000);
+    const messageDiv = document.getElementById(divId);
+    if (messageDiv) {
+        messageDiv.style.display = "block";
+        messageDiv.innerHTML = message;
+        messageDiv.style.opacity = 1;
+        setTimeout(() => {
+            messageDiv.style.opacity = 0;
+        }, 5000);
+    }
 }
 
-// Sign-Up Logic
-document.getElementById('submitSignUp').addEventListener('click', (event) => {
-    event.preventDefault();
+// Function to set JWT token in a cookie
+function setTokenCookie(token) {
+    const expirationDays = 7; // Token expiration in days
+    const date = new Date();
+    date.setTime(date.getTime() + (expirationDays * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = "authToken=" + token + ";" + expires + ";path=/";
+}
 
-    const email = document.getElementById('rEmail').value;
-    const password = document.getElementById('rPassword').value;
-    const firstName = document.getElementById('fName').value;
-    const lastName = document.getElementById('lName').value;
+// Function to clear the token cookie upon logout
+function clearTokenCookie() {
+    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
 
-    createUserWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
+// Function to get the JWT token from the cookie (optional)
+function getTokenCookie() {
+    const name = "authToken=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
-            // Store user data in Firestore
-            const userData = {
-                email: email,
-                firstName: firstName,
-                lastName: lastName
-            };
-            await setDoc(doc(db, "users", user.uid), userData);
 
-            // Get JWT token and store in cookie
-            const token = await user.getIdToken();
-            setTokenCookie(token);
 
-            showMessage('Account Created Successfully', 'signUpMessage');
-            window.location.href = 'index.html';
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            if (errorCode === 'auth/email-already-in-use') {
-                showMessage('Email Address Already Exists !!!', 'signUpMessage');
-            } else {
-                showMessage('Unable to create User', 'signUpMessage');
-            }
-        });
-});
 
-// Sign-In Logic
-document.getElementById('submitSignIn').addEventListener('click', (event) => {
-    event.preventDefault();
 
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
 
-    signInWithEmailAndPassword(auth, email, password)
-        .then(async (userCredential) => {
-            const user = userCredential.user;
-
-            // Get JWT token and store in cookie
-            const token = await user.getIdToken();
-            setTokenCookie(token);
-
-            showMessage('Login is successful', 'signInMessage');
-            window.location.href = 'loggedin.html';
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
-                showMessage('Incorrect Email or Password', 'signInMessage');
-            } else {
-                showMessage('Account does not exist', 'signInMessage');
-            }
-        });
-});
-
-// Logout Logic
-document.getElementById('logoutButton').addEventListener('click', () => {
-    signOut(auth).then(() => {
-        clearTokenCookie(); // Clear the token cookie
-        showMessage('Logout successful', 'logoutMessage');
-        window.location.href = 'index.html'; // Redirect to homepage or login page
-    }).catch((error) => {
-        console.error('Error during logout', error);
-        showMessage('Logout failed', 'logoutMessage');
-    });
-});
 
 
 
@@ -209,10 +259,7 @@ document.getElementById('logoutButton').addEventListener('click', () => {
 // }
 
 
-
-
 // // Logout functionality
-
 // const logoutButton = document.getElementById('logoutButton');
 // if (logoutButton) {
 //   logoutButton.addEventListener('click', (event) => {
@@ -231,7 +278,50 @@ document.getElementById('logoutButton').addEventListener('click', () => {
 //   });
 // }
 
-// // Function to set JWT token as a cookie
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function setTokenCookie(token) {
 //     document.cookie = `authToken=${token}; path=/; secure; HttpOnly`;
 // }
@@ -240,5 +330,95 @@ document.getElementById('logoutButton').addEventListener('click', () => {
 // function clearTokenCookie() {
 //     document.cookie = `authToken=; Max-Age=0; path=/; secure; HttpOnly`;
 // }
+
+// // Function to display messages
+// function showMessage(message, divId) {
+//     var messageDiv = document.getElementById(divId);
+//     messageDiv.style.display = "block";
+//     messageDiv.innerHTML = message;
+//     messageDiv.style.opacity = 1;
+//     setTimeout(function () {
+//         messageDiv.style.opacity = 0;
+//     }, 5000);
+// }
+
+// // Sign-Up Logic
+// document.getElementById('submitSignUp').addEventListener('click', (event) => {
+//     event.preventDefault();
+
+//     const email = document.getElementById('rEmail').value;
+//     const password = document.getElementById('rPassword').value;
+//     const firstName = document.getElementById('fName').value;
+//     const lastName = document.getElementById('lName').value;
+
+//     createUserWithEmailAndPassword(auth, email, password)
+//         .then(async (userCredential) => {
+//             const user = userCredential.user;
+
+//             // Store user data in Firestore
+//             const userData = {
+//                 email: email,
+//                 firstName: firstName,
+//                 lastName: lastName
+//             };
+//             await setDoc(doc(db, "users", user.uid), userData);
+
+//             // Get JWT token and store in cookie
+//             const token = await user.getIdToken();
+//             setTokenCookie(token);
+
+//             showMessage('Account Created Successfully', 'signUpMessage');
+//             window.location.href = 'index.html';
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             if (errorCode === 'auth/email-already-in-use') {
+//                 showMessage('Email Address Already Exists !!!', 'signUpMessage');
+//             } else {
+//                 showMessage('Unable to create User', 'signUpMessage');
+//             }
+//         });
+// });
+
+// // Sign-In Logic
+// document.getElementById('submitSignIn').addEventListener('click', (event) => {
+//     event.preventDefault();
+
+//     const email = document.getElementById('email').value;
+//     const password = document.getElementById('password').value;
+
+//     signInWithEmailAndPassword(auth, email, password)
+//         .then(async (userCredential) => {
+//             const user = userCredential.user;
+
+//             // Get JWT token and store in cookie
+//             const token = await user.getIdToken();
+//             setTokenCookie(token);
+
+//             showMessage('Login is successful', 'signInMessage');
+//             window.location.href = 'loggedin.html';
+//         })
+//         .catch((error) => {
+//             const errorCode = error.code;
+//             if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
+//                 showMessage('Incorrect Email or Password', 'signInMessage');
+//             } else {
+//                 showMessage('Account does not exist', 'signInMessage');
+//             }
+//         });
+// });
+
+// // Logout Logic
+// document.getElementById('logoutButton').addEventListener('click', () => {
+//     signOut(auth).then(() => {
+//         clearTokenCookie(); // Clear the token cookie
+//         showMessage('Logout successful', 'logoutMessage');
+//         window.location.href = 'index.html'; // Redirect to homepage or login page
+//     }).catch((error) => {
+//         console.error('Error during logout', error);
+//         showMessage('Logout failed', 'logoutMessage');
+//     });
+// });
+
 
 
