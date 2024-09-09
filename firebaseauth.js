@@ -16,7 +16,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+// const auth = getAuth(app);
 const db = getFirestore(app);
 
 
@@ -31,15 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (user) {
             // User is signed in, allow them to remain on the page
-            if (currentPage === '/login.html' || currentPage === '/login.html') {
+            if (currentPage === '/login.html' || currentPage === '/signup.html') {
                 // Redirect logged-in users away from login pages
-                window.location.href = 'loggedin.html';
+                window.location.href = 'index.html';
             }
         } else {
             // No user is signed in
-            if (currentPage !== '/login.html' && currentPage !== '/login.html') {
+            if (currentPage !== '/signup.html' && currentPage !== '/login.html' && currentPage !== '/index.html') {
                 // If user is trying to access a restricted page, redirect to login
-                window.location.href = 'index.html';
+                window.location.href = 'login.html';
             }
         }
     });
