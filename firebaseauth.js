@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     localStorage.removeItem('loggedInUserId');
 
                     showMessage('You have been logged out successfully.', 'logoutMessage');
-                    window.location.href = 'login.html';
+                    window.location.href = 'index.html';
                 })
                 .catch((error) => {
                     console.error("Error signing out: ", error);
