@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // No user is signed in
             if (currentPage !== '/signup.html' && currentPage !== '/login.html' && currentPage !== '/index.html') {
                 // If user is trying to access a restricted page, redirect to login
-                window.location.href = 'login.html';
+                window.location.href = 'loggedin.html';
             }
         }
     });
