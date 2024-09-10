@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // User is signed in, allow them to remain on the page
             if (currentPage === '/login.html' || currentPage === '/signup.html') {
                 // Redirect logged-in users away from login pages
-                window.location.href = '#';
+                window.location.href = 'loggedin.html';
             }
         } else {
             // No user is signed in
