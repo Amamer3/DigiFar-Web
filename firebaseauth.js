@@ -95,6 +95,49 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
 
+
+
+    // Toggle password visibility for the password field
+    document.getElementById('togglePassword').addEventListener('click', () => {
+    const passwordField = document.getElementById('rPassword');
+    const togglePasswordIcon = document.querySelector('#togglePassword i');
+
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        togglePasswordIcon.classList.remove('fa-eye');
+        togglePasswordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        togglePasswordIcon.classList.remove('fa-eye-slash');
+        togglePasswordIcon.classList.add('fa-eye');
+    }
+});
+
+// Toggle password visibility for the confirm password field
+document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
+    const confirmPasswordField = document.getElementById('confirmPassword');
+    const toggleConfirmPasswordIcon = document.querySelector('#toggleConfirmPassword i');
+
+    if (confirmPasswordField.type === 'password') {
+        confirmPasswordField.type = 'text';
+        toggleConfirmPasswordIcon.classList.remove('fa-eye');
+        toggleConfirmPasswordIcon.classList.add('fa-eye-slash');
+    } else {
+        confirmPasswordField.type = 'password';
+        toggleConfirmPasswordIcon.classList.remove('fa-eye-slash');
+        toggleConfirmPasswordIcon.classList.add('fa-eye');
+    }
+});
+
+    
+
+// login
+
+
+
+
+
+
     // Signin event listener
     const signIn = document.getElementById('submitSignIn');
     if (signIn) {

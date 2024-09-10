@@ -5,13 +5,16 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="./assets/favicon-RTpot5iP.ico" type="image/ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-
   <title>Login - DigiFar</title>
+  <link rel="stylesheet" href="password-visibilty.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
- 
+ <link rel="stylesheet" href="password-visibilty.css">
   <link rel="stylesheet" href="authen.css">
   <link rel="stylesheet" crossorigin href="./assets/css/main.css">
+
+
 </head>
 
 <body class="relative text-black-4">
@@ -131,12 +134,34 @@
                 <form method="post" class="smt40px">
                     <div id="signInMessage" class="messageDiv" style="display:none;"></div>
                     <input id="email" type="text" placeholder="email" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
-                    <input id="password" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+
+                    <div class="password-field relative">
+                      <input id="password" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md pr-10" />
+                      <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform">
+                          <i class="fas fa-eye"></i>
+                      </button>
+                  </div>
+                  
+
+
+                </div>
+                    <!-- <div class="password-field">
+                      <input id="rPassword" type="password" placeholder="Password" required 
+                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+                      <button type="button" id="togglePassword" class="toggle-password-btn">
+                          <i class="fas fa-eye"></i>
+                      </button>
+                  </div> -->
+
+
+
 
                     <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" /> <span>Remember me</span>
-                        </div>
+                      <div class="flex items-center gap-2">
+                        <input type="checkbox" id="rememberMe" />
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    
                         <a href="signup.html">Forgot Password?</a>
                     </div>
 
@@ -151,6 +176,27 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+<script>
+  const togglePassword = document.getElementById('togglePassword');
+const passwordInput = document.getElementById('password');
+
+togglePassword.addEventListener('click', function () {
+    // Toggle the type attribute between 'password' and 'text'
+    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordInput.setAttribute('type', type);
+
+    // Toggle the eye icon
+    this.querySelector('i').classList.toggle('fa-eye');
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+});
+</script>
+
+
 
 
 

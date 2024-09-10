@@ -5,7 +5,10 @@
   <meta charset="UTF-8" />
   <link rel="icon" href="./assets/favicon-RTpot5iP.ico" type="image/ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="password-visibilty.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
   <title>Signup - DigiFar</title>
   <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
@@ -133,8 +136,23 @@
                     <input id="fName" type="text" placeholder="First Name" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
                     <input id="lName" type="text" placeholder="Last Name" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
                     <input id="rEmail" type="email" placeholder="Email Address" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
-                    <input id="rPassword" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
-                    <input id="confirmPassword" type="password" placeholder="Confirm Password" required class=" input-class w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+                    
+                    <div class="password-field">
+                      <input id="rPassword" type="password" placeholder="Password" required 
+                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+                      <button type="button" id="togglePassword" class="toggle-password-btn">
+                          <i class="fas fa-eye"></i>
+                      </button>
+                  </div>
+                  
+                  <div class="password-confirm-field">
+                      <input id="confirmPassword" type="password" placeholder="Confirm Password" required 
+                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+                      <button type="button" id="toggleConfirmPassword" class="toggle-password-btn">
+                          <i class="fas fa-eye"></i>
+                      </button>
+                  </div>
+                  
                     <!-- <input id="confirmPassword" type="password" placeholder="Confirm Password" required class="input-class" /> -->
 
 
