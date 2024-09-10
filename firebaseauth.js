@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // User is signed in, allow them to remain on the page
             if (currentPage === '/login.html' || currentPage === '/signup.html') {
                 // Redirect logged-in users away from login pages
-                window.location.href = 'loggedin.html';
+                window.location.href = '#';
             }
         } else {
             // No user is signed in
@@ -49,15 +49,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (signUp) {
         signUp.addEventListener('click', (event) => {
             event.preventDefault();
+            
+            // Get the form inputs
             const email = document.getElementById('rEmail').value;
             const password = document.getElementById('rPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value; // Confirmation password field
             const firstName = document.getElementById('fName').value;
             const lastName = document.getElementById('lName').value;
-
+    
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                showMessage('Passwords do not match!', 'signUpMessage');
+                return; // Prevent form submission if passwords do not match
+            }
+    
+            // Firebase auth
             createUserWithEmailAndPassword(auth, email, password)
                 .then(async (userCredential) => {
                     const user = userCredential.user;
-
+    
                     // Store user data in Firestore
                     const userData = {
                         email: email,
@@ -65,13 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         lastName: lastName,
                     };
                     await setDoc(doc(db, "users", user.uid), userData);
-
+    
                     // Set session cookie or local storage with auth token
                     const token = await user.getIdToken();
                     document.cookie = `authToken=${token}; path=/; max-age=3600; secure`;
-
+    
                     showMessage('Account Created Successfully', 'signUpMessage');
-                    window.location.href = 'login.html';
+                    window.location.href = 'login.html'; // Redirect to login after signup
                 })
                 .catch((error) => {
                     const errorCode = error.code;
@@ -83,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         });
     }
+    
 
     // Signin event listener
     const signIn = document.getElementById('submitSignIn');
