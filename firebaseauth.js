@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect logged-in users away from login or signup page
             if (publicPages.includes(currentPage)) {
-                window.location.href = 'signup.html';
+                window.location.href = 'index.html';
             }
         } else {
             console.log('No user is signed in');
 
             // Redirect non-logged-in users trying to access protected pages
             if (!publicPages.includes(currentPage)) {
-                window.location.href = 'index.html';
+                window.location.href = 'login.html';
             }
         }
     });
