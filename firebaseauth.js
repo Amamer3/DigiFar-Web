@@ -99,14 +99,6 @@ if (signUp) {
     });
 }
 
-
-
-
-
-
-
-
-
 // Signin event listener
 const signIn = document.getElementById('submitSignIn');
 if (signIn) {
