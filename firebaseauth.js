@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPage = window.location.pathname;
 
         if (user) {
-            alert('User is signed in:', user.email);
+            console.log('User is signed in:', user.email);
 
             // Redirect logged-in users away from login or signup page
             if (publicPages.includes(currentPage)) {
