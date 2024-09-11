@@ -50,7 +50,7 @@ auth.onAuthStateChanged((user) => {
         // User is signed in, redirect them if they are on login or index pages
         if (currentPage === '/login.html' || currentPage === '/index.html') {
             // Redirect logged-in users to a protected page (e.g., dashboard)
-            window.location.href = 'dashboard.html';  // Change 'dashboard.html' to your desired logged-in page
+            window.location.href = 'loggedin.html';  // Change 'dashboard.html' to your desired logged-in page
         }
     } else {
         // No user is signed in
