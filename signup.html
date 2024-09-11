@@ -187,28 +187,28 @@
 
 <script>
   // Function to toggle password visibility
-// function toggleVisibility(toggleElementId, passwordFieldId) {
-//     const passwordField = document.getElementById(passwordFieldId);
-//     const togglePasswordIcon = document.querySelector(`#${toggleElementId} i`);
+function toggleVisibility(toggleElementId, passwordFieldId) {
+    const passwordField = document.getElementById(passwordFieldId);
+    const togglePasswordIcon = document.querySelector(`#${toggleElementId} i`);
 
-//     if (passwordField.type === 'password') {
-//         passwordField.type = 'text';
-//         togglePasswordIcon.classList.remove('fa-eye');
-//         togglePasswordIcon.classList.add('fa-eye-slash');
-//     } else {
-//         passwordField.type = 'password';
-//         togglePasswordIcon.classList.remove('fa-eye-slash');
-//         togglePasswordIcon.classList.add('fa-eye');
-//     }
-// }
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        togglePasswordIcon.classList.remove('fa-eye');
+        togglePasswordIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordField.type = 'password';
+        togglePasswordIcon.classList.remove('fa-eye-slash');
+        togglePasswordIcon.classList.add('fa-eye');
+    }
+}
 
-// // Toggle password visibility for the password and confirm password fields
-// document.getElementById('togglePassword').addEventListener('click', () => {
-//     toggleVisibility('togglePassword', 'rPassword');
-// });
-// document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
-//     toggleVisibility('toggleConfirmPassword', 'confirmPassword');
-// });
+// Toggle password visibility for the password and confirm password fields
+document.getElementById('togglePassword').addEventListener('click', () => {
+    toggleVisibility('togglePassword', 'rPassword');
+});
+document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
+    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
+});
 </script>
 
 
