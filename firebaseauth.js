@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'index.html';
             }
         } else {
-            alert('No user is signed in');
+            console.log('No user is signed in');
 
             // Redirect non-logged-in users trying to access protected pages
             if (!publicPages.includes(currentPage)) {
