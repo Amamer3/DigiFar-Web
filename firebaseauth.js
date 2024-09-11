@@ -25,23 +25,42 @@ const db = getFirestore(app);
 document.addEventListener('DOMContentLoaded', () => {
     const auth = getAuth();
 
-    // Check user authentication status on page load
-    auth.onAuthStateChanged((user) => {
-        const currentPage = window.location.pathname;
+    // // Check user authentication status on page load
+    // auth.onAuthStateChanged((user) => {
+    //     const currentPage = window.location.pathname;
 
-        if (user) {
-            // User is signed in, allow them to remain on the page
-            if (currentPage === '/login.html' || currentPage === '/signup.html') {
-                // Redirect logged-in users away from login pages
-                window.location.href = 'index.html';
-            }
-        } else {
-            // No user is signed in
-            if (currentPage !== '/signup.html' && currentPage !== '/login.html' && currentPage !== '/index.html') {
-                // If user is trying to access a restricted page, redirect to login
-                window.location.href = 'loggedin.html';
-            }
+    //     if (user) {
+    //         // User is signed in, allow them to remain on the page
+    //         if (currentPage === '/login.html' || currentPage === '/') {
+    //             // Redirect logged-in users away from login pages
+    //             window.location.href = '';
+    //         }
+    //     } else {
+    //         // No user is signed in
+    //         if (currentPage !== '/' && currentPage !== '/login.html' && currentPage !== '/index.html') {
+    //             // If user is trying to access a restricted page, redirect to login
+    //             window.location.href = 'login.html';
+    //         }
+    //     }
+    // Check user authentication status on page load
+auth.onAuthStateChanged((user) => {
+    const currentPage = window.location.pathname;
+
+    if (user) {
+        // User is signed in, redirect them if they are on login or index pages
+        if (currentPage === '/login.html' || currentPage === '/index.html') {
+            // Redirect logged-in users to a protected page (e.g., dashboard)
+            window.location.href = 'dashboard.html';  // Change 'dashboard.html' to your desired logged-in page
         }
+    } else {
+        // No user is signed in
+        if (currentPage !== '/index.html' && currentPage !== '/login.html' && currentPage !== '/') {
+            // Redirect unauthenticated users to login page if trying to access a restricted page
+            window.location.href = 'login.html';
+        }
+    }
+
+
     });
 
     // Signup event listener
