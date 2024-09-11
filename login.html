@@ -132,42 +132,32 @@
                 </a>
 
                 <form method="post" class="smt40px">
-                    <div id="signInMessage" class="messageDiv" style="display:none;"></div>
-                    <input id="email" type="text" placeholder="email" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
-
-                    <div class="password-field relative">
-                      <input id="password" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md pr-10" />
-                      <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform">
+                  <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+              
+                  <!-- Email input field -->
+                  <input id="email" type="text" placeholder="Email" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+              
+                  <!-- Password input field with toggle visibility button -->
+                  <div class="password-field relative mt-4">
+                      <input id="password" type="password" placeholder="Password" required class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md pr-10" />
+                      <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2" aria-label="Toggle Password Visibility">
                           <i class="fas fa-eye"></i>
                       </button>
                   </div>
-                  
-
-
-                </div>
-                    <!-- <div class="password-field">
-                      <input id="rPassword" type="password" placeholder="Password" required 
-                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
-                      <button type="button" id="togglePassword" class="toggle-password-btn">
-                          <i class="fas fa-eye"></i>
-                      </button>
-                  </div> -->
-
-
-
-
-                    <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
+              
+                  <!-- Remember Me checkbox and Forgot Password link -->
+                  <div class="s-text mt-3 flex items-center justify-between gap-6 text-black-3">
                       <div class="flex items-center gap-2">
-                        <input type="checkbox" id="rememberMe" />
-                        <label for="rememberMe">Remember me</label>
-                    </div>
-                    
-                        <a href="signup.html">Forgot Password?</a>
-                    </div>
-
-                    <button id="submitSignIn" type="submit" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">Login</button>
-                </form>
-
+                          <input type="checkbox" id="rememberMe" />
+                          <label for="rememberMe">Remember me</label>
+                      </div>
+                      <a href="signup.html">Forgot Password?</a>
+                  </div>
+              
+                  <!-- Submit button -->
+                  <button id="submitSignIn" type="submit" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">Login</button>
+              </form>
+              
                 <p class="s-text smt40px text-center text-black-1">
                     Don’t have an account?
                     <a class="!text-primary" href="signup.html">Register Here</a>
