@@ -32,14 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPage = window.location.pathname;
 
         if (user) {
-            console.log('User is signed in:', user.email);
+            alert('User is signed in:', user.email);
 
             // Redirect logged-in users away from login or signup page
             if (publicPages.includes(currentPage)) {
                 window.location.href = 'index.html';
             }
         } else {
-            console.log('No user is signed in');
+            alert('No user is signed in');
 
             // Redirect non-logged-in users trying to access protected pages
             if (!publicPages.includes(currentPage)) {
