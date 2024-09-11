@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const auth = getAuth();
 
     // Public pages that do not require authentication
-    const publicPages = ['/signup.html', '/login.html', '/index.html'];
+    const publicPages = ['/signup.html', '/login.html', '/index.html','/about.html','/services.html','/contact-us.html'];
     
     // Check user authentication status on page load
     auth.onAuthStateChanged((user) => {
