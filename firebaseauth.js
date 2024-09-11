@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect logged-in users away from login or signup page
             if (publicPages.includes(currentPage)) {
-                window.location.href = 'loggedin.html';
+                window.location.href = 'index.html';
             }
         } else {
             console.log('No user is signed in');
