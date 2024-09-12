@@ -1,4 +1,4 @@
-/* #signUpButton, #signInButton{
+#signUpButton, #signInButton{
     color:rgb(125,125,235);
     border:none;
     background-color:transparent;
@@ -8,7 +8,7 @@
 #signUpButton:hover, #signInButton:hover {
     text-decoration:underline;
     color:blue;
-}  */
+} 
 .messageDiv{
     background-color:hsl(29, 93%, 47%);
     color:white;
