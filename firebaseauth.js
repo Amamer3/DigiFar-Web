@@ -20,34 +20,76 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Firebase Authentication
     const auth = getAuth();
 
-    // Public pages that do not require authentication
-    const publicPages = ['/', '/', '/index.html', '/about.html', '/services.html', '/contact-us.html'];
+    // Define public and protected pages
+    const publicPages = ['/login.html', '/signup.html', '/index.html','/about.html','/services.html','/contact-us.html'];
+    const protectedPages = ['/loggedin.html','/About-us.html','/feature.html','/Contact.html','/CCV.html'];  // Add more protected pages here
 
     // Check user authentication status on page load
     auth.onAuthStateChanged((user) => {
         const currentPage = window.location.pathname;
 
         if (user) {
+            // User is signed in
             console.log('User is signed in:', user.email);
 
-            // Redirect logged-in users away from login or signup page
+            // Redirect logged-in users away from login or signup page to a protected page
             if (publicPages.includes(currentPage)) {
-                window.location.href = '/loggedin.html';  // Redirect to a specific page for logged-in users
+                window.location.href = protectedPages[0];  // Redirect to the first protected page (loggedin.html)
             }
         } else {
+            // No user is signed in
             console.log('No user is signed in');
 
-            // Redirect non-logged-in users trying to access protected pages
-            if (!publicPages.includes(currentPage)) {
-                window.location.href = 'index.html';  // Redirect to login page if the user is not authenticated
+            // Redirect non-logged-in users trying to access protected pages to login page
+            if (protectedPages.includes(currentPage)) {
+                window.location.href = 'index.html';  // Redirect to login page
             }
         }
     });
 });
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', () => {
+//     const auth = getAuth();
+
+//     // Public pages that do not require authentication
+//     const publicPages = ['/', '/', '/index.html', '/about.html', '/services.html', '/contact-us.html'];
+
+//     // Check user authentication status on page load
+//     auth.onAuthStateChanged((user) => {
+//         const currentPage = window.location.pathname;
+
+//         if (user) {
+//             console.log('User is signed in:', user.email);
+
+//             // Redirect logged-in users away from login or signup page
+//             if (publicPages.includes(currentPage)) {
+//                 window.location.href = '/loggedin.html';  // Redirect to a specific page for logged-in users
+//             }
+//         } else {
+//             console.log('No user is signed in');
+
+//             // Redirect non-logged-in users trying to access protected pages
+//             if (!publicPages.includes(currentPage)) {
+//                 window.location.href = 'index.html';  // Redirect to login page if the user is not authenticated
+//             }
+//         }
+//     });
+// });
+
+
+
+
+
+
 
 // Signup event listener
 const signUp = document.getElementById('submitSignUp');
