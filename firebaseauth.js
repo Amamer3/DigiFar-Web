@@ -25,8 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const auth = getAuth();
 
     // Public pages that do not require authentication
-    const publicPages = ['/signup.html', '/login.html', '/index.html','/about.html','/services.html','/contact-us.html'];
-    
+    const publicPages = ['/signup.html', '/login.html', '/index.html', '/about.html', '/services.html', '/contact-us.html'];
+
     // Check user authentication status on page load
     auth.onAuthStateChanged((user) => {
         const currentPage = window.location.pathname;
@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect logged-in users away from login or signup page
             if (publicPages.includes(currentPage)) {
-                window.location.href = '#';
+                window.location.href = '/loggedin.html';  // Redirect to a specific page for logged-in users
             }
         } else {
             console.log('No user is signed in');
 
             // Redirect non-logged-in users trying to access protected pages
             if (!publicPages.includes(currentPage)) {
-                window.location.href = 'index.html';
+                window.location.href = 'login.html';  // Redirect to login page if the user is not authenticated
             }
         }
     });
