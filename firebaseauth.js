@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect non-logged-in users trying to access protected pages to login page
             if (protectedPages.includes(currentPage)) {
-                window.location.href = 'index.html';  // Redirect to login page
+                window.location.href = '/index.html';  // Redirect to login page
             }
         }
     });
