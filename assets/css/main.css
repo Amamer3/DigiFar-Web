@@ -33,14 +33,29 @@
   z-index: 1;
 }
 
+/* This is the Inner CSS */
+
 /* Error message goes here */
 .error-message {
   color: red;
-  font-size: 0.9em;
+  font-size: 1.0em;
 }
 
+
 .messageDiv{
-  background-color:hsl(327,90%,28%);
+  background-color:hsl(130, 90%, 28%);
+  color:white;
+  padding:10px 20px;
+  margin:10px;
+  border-radius: 5px;
+  font-size:1rem;
+  opacity:0;
+  animation:fadeOut 7s forwards;
+
+}
+/* errors */
+.errorDiv{
+  background-color:hsla(0, 90%, 48%, 0.788);
   color:white;
   padding:10px 20px;
   margin:10px;
@@ -51,39 +66,9 @@
 
 }
 
-/* Pop-up Styles */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-}
 
-.popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
-}
 
-/* sweet alert */
-.popover-content.popover-show {
-  display: block; /* Show popover on click */
-  position: absolute; /* Position absolutely relative to the button */
-  top: 100%; /* Position below the button */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, 0); /* Center horizontally with offset */
-  background-color: #fff; /* Set background color */
-  border-radius: 5px; /* Add rounded corners */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add slight shadow */
-  padding: 1rem; /* Add some padding */
-  z-index: 10; /* Set z-index to ensure it appears above other elements */
-}
+
 
 .swiper {
   margin-left: auto;

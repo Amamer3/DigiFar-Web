@@ -20,34 +20,43 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Firebase Authentication
     const auth = getAuth();
 
-    // Public pages that do not require authentication
-    // const publicPages = ['/signup.html', '/login.html', '/index.html','/about.html','/services.html','/contact-us.html'];
-    
+    // Define public and protected pages
+    const publicPages = ['/login.html', '/signup.html', '/index.html','/about.html','/services.html','/contact-us.html'];
+    const protectedPages = ['/loggedin.html','/About-us.html','/feature.html','/Contact.html','/CCV.html'];  // Add more protected pages here
+
     // Check user authentication status on page load
     auth.onAuthStateChanged((user) => {
         const currentPage = window.location.pathname;
 
         if (user) {
+            // User is signed in
             console.log('User is signed in:', user.email);
 
-            // Redirect logged-in users away from login or signup page
+            // Redirect logged-in users away from login or signup page to a protected page
             if (publicPages.includes(currentPage)) {
-                window.location.href = '#';
+                window.location.href = protectedPages[0];  // Redirect to the first protected page (loggedin.html)
             }
         } else {
+            // No user is signed in
             console.log('No user is signed in');
 
-            // Redirect non-logged-in users trying to access protected pages
-            if (!publicPages.includes(currentPage)) {
-                window.location.href = '#';
+            // Redirect non-logged-in users trying to access protected pages to login page
+            if (protectedPages.includes(currentPage)) {
+                window.location.href = '/index.html';  // Redirect to login page
             }
         }
     });
 });
+
+
+
+
+
+
 
 // Signup event listener
 const signUp = document.getElementById('submitSignUp');
@@ -62,7 +71,7 @@ if (signUp) {
         const lastName = document.getElementById('lName').value;
 
         if (password !== confirmPassword) {
-            showMessage('Passwords do not match!', 'signUpMessage');
+            showMessage('Passwords do not match!', 'errorMess');
             return;
         }
 
@@ -72,7 +81,7 @@ if (signUp) {
         };
 
         if (!validatePassword(password)) {
-            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'signUpMessage');
+            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'errorMess');
             return;
         }
 
@@ -100,6 +109,10 @@ if (signUp) {
 }
 
 // Signin event listener
+
+// color for succ
+
+
 const signIn = document.getElementById('submitSignIn');
 if (signIn) {
     signIn.addEventListener('click', (event) => {
@@ -114,14 +127,19 @@ if (signIn) {
                 const token = await user.getIdToken();
                 document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
-                showMessage('Login is successful', 'signInMessage');
+                // Display success message in green
+                showMessage('Login is successful', 'signInMessage', 'green');
+                
+                // Redirect to another page
                 window.location.href = 'loggedin.html';
             })
             .catch((error) => {
-                showMessage(getErrorMessage(error.code), 'signInMessage');
+                // Display error message in red
+                showMessage(getErrorMessage(error.code), 'signInMessage', 'red');
             });
     });
 }
+
 
 // Logout functionality
 const logoutButton = document.getElementById('logoutButton');
@@ -152,7 +170,7 @@ function showMessage(message, divId) {
         messageDiv.style.opacity = 1;
         setTimeout(() => {
             messageDiv.style.opacity = 0;
-        }, 5000);
+        }, 6000);
     }
 }
 
@@ -166,9 +184,9 @@ function getErrorMessage(errorCode) {
         case 'auth/email-already-in-use':
             return 'This email is already in use. Please log in.';
         case 'auth/invalid-email':
-            return 'The email address is invalid. Please enter a valid email.';
+            return 'Please enter a valid email and password.';
         default:
-            return 'An unexpected error occurred. Please try again later.';
+            return ' Please check your email and password.';
     }
 }
 
