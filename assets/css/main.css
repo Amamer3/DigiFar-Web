@@ -2594,7 +2594,7 @@ button,
 }
 
 .border-primary\/60{
-  border-color: rgba(255, 160, 18, 0.881);
+  border-color: rgba(255, 177, 60, 0.881);
 }
 
 .border-white-1{
@@ -2658,7 +2658,7 @@ button,
 }
 
 .bg-accent-3\/20{
-  background-color: rgba(255, 105, 50, 0.895);
+  background-color: rgb(255, 177, 59);
 }
 
 .bg-accent-3\/30{
@@ -2713,32 +2713,32 @@ button,
 }
 
 .bg-primary\/10{
-  background-color: rgba(177, 85, 0, 0.897);
+  background-color: rgba(255, 149, 49, 0.897);
 }
 
 .bg-primary\/20{
-  background-color: rgba(177, 85, 0, 0.897);
+  background-color: rgba(255, 142, 36, 0.897);
 }
 
 .bg-primary\/5{
-  background-color: rgba(177, 85, 0, 0.897);
+  background-color: rgba(255, 141, 34, 0.904);
 }
 
 .bg-primary\/60{
-  background-color: rgba(177, 85, 0, 0.897);
+  background-color: rgba(255, 139, 30, 0.897);
 }
 
 .bg-secondary{
   --tw-bg-opacity: 1;
-  background-color: #f36d21;
+  background-color: #ff7519d7;
 }
 
 .bg-secondary\/20{
-  background-color: rgba(226, 109, 0, 0.427);
+  background-color: rgba(255, 156, 64, 0.87);
 }
 
 .bg-secondary\/5{
-  background-color: rgba(255, 130, 28, 0.457);
+  background-color: rgba(255, 130, 28, 0.795);
 }
 
 .bg-transparent{
@@ -2777,7 +2777,7 @@ button,
 }
 
 .bg-\[linear-gradient\(0deg\2c \#005655_0\%\2c rgba\(9\2c 91\2c 90\2c 0\.20\)_100\%\)\]{
-  background-image: linear-gradient(0deg,#005655 0%,rgba(9,91,90,0.20) 100%);
+  background-image: linear-gradient(0deg,#ea690a 0%,rgba(255, 204, 0, ) 100%);
 }
 
 .bg-\[linear-gradient\(0deg\2c rgba\(18\2c 18\2c 18\2c 0\.80\)_0\%\2c rgba\(18\2c 18\2c 18\2c 0\.20\)_100\%\)\]{
@@ -2789,7 +2789,7 @@ button,
 }
 
 .bg-hero-pattern{
-  background-image: linear-gradient(256deg, #CBF1D3 2.16%, #FFEFD7 109.64%);
+  background-image: linear-gradient(256deg, #ea690a 2.16%, #636466 109.64%);
 }
 
 .bg-cover{
@@ -2801,7 +2801,7 @@ button,
 }
 
 .fill-black-1{
-  fill: #343839;
+  fill: #007e9d;
 }
 
 .fill-white-1{
@@ -4763,12 +4763,12 @@ input[type="number"]::-webkit-outer-spin-button {
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #8f8f8f;
+  background-color:  #636466;
 }
 
 ::-webkit-scrollbar {
   width: 6px;
-  background-color: #d36600;
+  background-color: #ea690a;
 }
 
 .cart-scrollbar::-webkit-scrollbar {
@@ -4776,20 +4776,20 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #d47800;
+  background-color: #ea690a;
   border-radius: 10px;
   width: 2px;
 }
 
 .navbar-dropdown-scrollbar::-webkit-scrollbar-thumb {
-  background-color: #ff8412b9;
+  background-color: #ea690a;
   border-radius: 10px;
   width: 1px;
 }
 
 .navbar-dropdown-scrollbar::-webkit-scrollbar {
   width: 3px;
-  background-color: #005655;
+  background-color: #007e9d;
 }
 
 /* mobile-menu-scrollbar */
@@ -4989,15 +4989,15 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 16px;
   width: 16px;
   border-radius: 30px;
-  border: 2px solid #ffce32;
+  border: 2px solid #FFED00;
   background-color: transparent;
 }
 
 .swiper-custom-bullet.swiper-custom-bullet-active {
   height: 16px;
   width: 16px;
-  border: 2px solid #ffce32;
-  background-color: #ffce32;
+  border: 2px solid #FFED00;
+  background-color: #FFED00;
 }
 
 i::before {
@@ -5046,7 +5046,7 @@ i::before {
   left: 0;
   width: 0%;
   height: 100%;
-  background: #cc8a28;
+  background: #FFED00;
   opacity: 0.3;
   position: absolute;
 }
