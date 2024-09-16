@@ -57,39 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     const auth = getAuth();
-
-//     // Public pages that do not require authentication
-//     const publicPages = ['/', '/', '/index.html', '/about.html', '/services.html', '/contact-us.html'];
-
-//     // Check user authentication status on page load
-//     auth.onAuthStateChanged((user) => {
-//         const currentPage = window.location.pathname;
-
-//         if (user) {
-//             console.log('User is signed in:', user.email);
-
-//             // Redirect logged-in users away from login or signup page
-//             if (publicPages.includes(currentPage)) {
-//                 window.location.href = '/loggedin.html';  // Redirect to a specific page for logged-in users
-//             }
-//         } else {
-//             console.log('No user is signed in');
-
-//             // Redirect non-logged-in users trying to access protected pages
-//             if (!publicPages.includes(currentPage)) {
-//                 window.location.href = 'index.html';  // Redirect to login page if the user is not authenticated
-//             }
-//         }
-//     });
-// });
-
-
-
-
-
-
 
 // Signup event listener
 const signUp = document.getElementById('submitSignUp');
@@ -104,7 +71,7 @@ if (signUp) {
         const lastName = document.getElementById('lName').value;
 
         if (password !== confirmPassword) {
-            showMessage('Passwords do not match!', 'signUpMessage');
+            showMessage('Passwords do not match!', 'errorMess');
             return;
         }
 
@@ -114,7 +81,7 @@ if (signUp) {
         };
 
         if (!validatePassword(password)) {
-            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'signUpMessage');
+            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'errorMess');
             return;
         }
 
@@ -142,6 +109,10 @@ if (signUp) {
 }
 
 // Signin event listener
+
+// color for succ
+
+
 const signIn = document.getElementById('submitSignIn');
 if (signIn) {
     signIn.addEventListener('click', (event) => {
@@ -156,14 +127,19 @@ if (signIn) {
                 const token = await user.getIdToken();
                 document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
-                showMessage('Login is successful', 'signInMessage');
+                // Display success message in green
+                showMessage('Login is successful', 'signInMessage', 'green');
+                
+                // Redirect to another page
                 window.location.href = 'loggedin.html';
             })
             .catch((error) => {
-                showMessage(getErrorMessage(error.code), 'signInMessage');
+                // Display error message in red
+                showMessage(getErrorMessage(error.code), 'signInMessage', 'red');
             });
     });
 }
+
 
 // Logout functionality
 const logoutButton = document.getElementById('logoutButton');
@@ -194,7 +170,7 @@ function showMessage(message, divId) {
         messageDiv.style.opacity = 1;
         setTimeout(() => {
             messageDiv.style.opacity = 0;
-        }, 5000);
+        }, 6000);
     }
 }
 
@@ -208,9 +184,9 @@ function getErrorMessage(errorCode) {
         case 'auth/email-already-in-use':
             return 'This email is already in use. Please log in.';
         case 'auth/invalid-email':
-            return 'The email address is invalid. Please enter a valid email.';
+            return 'Please enter a valid email and password.';
         default:
-            return 'An unexpected error occurred. Please try again later.';
+            return ' Please check your email and password.';
     }
 }
 
