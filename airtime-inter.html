@@ -170,7 +170,7 @@
       <div class="container left-0 top-0 flex w-full items-center justify-between py-4 xl:hidden xl:py-5">
         <div class="">
           <a href="/">
-            <img src="./assets/images/digifar.png" alt="Desktop Logo" class="max-xl:w-[120px]" />
+            <img src="./assets/payimg/digipay-logo.png" alt="Desktop Logo" class="max-xl:w-[120px]" />
           </a>
         </div>
         <div
@@ -191,7 +191,7 @@
           class="menu-sidebar mobile-menu-scrollbar fixed left-0 top-0 z-40 m-3 h-[96vh] w-[250px] translate-y-full overflow-y-auto rounded-2xl bg-black-4 pt-5 text-black-4 opacity-0 transition-all duration-700">
           <div class="px-5 pb-4">
             <a href="index.html">
-              <img src="./assets/images/digifar.png" alt="Desktop Logo" class="mx-auto block w-[130px]" />
+              <img src="./assets/payimg/digipay-logo.png" alt="Desktop Logo" class="mx-auto block w-[130px]" />
 
             </a>
           </div>
@@ -298,19 +298,11 @@
             </a>
 
 
-            <div class="flex flex-cols-2 gap-1 pt-2">
-              <button
-                class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
-                <!-- <i class="ti ti-brand-google-filled text-[24px]"> </i> -->
-                <span class="m-text">Login</span>
-              </button>
-
-              <button
-                class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
-                <!-- <i class="ti ti-brand-google-filled text-[24px]"> </i> -->
-                <span class="m-text">Signup</span>
-              </button>
-            </div>
+            <button id="logoutButton"
+            class="theme-transition-3 flex items-center gap-2 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4 rounded-full">
+            <i class="ti ti-shift-left text-[24px]"> </i>
+            <span class="m-text">Logout</span>
+          </button>
 
 
 
@@ -333,60 +325,22 @@
 
 
 
-  <!-- inner section top -->
-  <!-- <section class="spy120px relative overflow-hidden bg-primary/5">
-    <div class="container">
-      <div class="flex items-center justify-between max-xs:flex-col max-xs:gap-10">
-        <div>
-          <h3 class="d3 title-animation title-anim-active font-medium">
-            Feature
-          </h3>
-          <div class="xl-text mt-6 flex items-center gap-2 capitalize">
-            <a href="/">Home</a>
-            <i class="ti ti-chevrons-right text-[24px]"> </i>
-            <p class="text-primary">Feature</p>
-          </div>
-        </div>
-        <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-          href="#scrollPosition">
-          <div class="flex flex-col items-center justify-center">
-            <p class="capitalize">Scroll Down</p>
-
-            <i class="ti ti-arrow-down mt-3 text-[32px] font-light"> </i>
-          </div>
-          <span
-            class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
-          </span>
-        </a>
-      </div>
-    </div>
-    <div class="over hidden overflow-hidden md:block">
-      <div class="lines">
-        <div class="line absolute left-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[calc(100%-50%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute left-[30%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute right-[calc(30%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-      </div>
-    </div>
-  </section> -->
-
   <!-- feature page new journey -->
   <section class="spt120px fade-wrapper spb120px relative" id="scrollPosition">
     <div class="container">
       <div class="flex justify-between gap-6 max-md:flex-col md:items-center">
-        <div class="max-w-[600px]">
+        <!-- <div class="max-w-[600px]">
           <h3 class="d4 title-animation title-anim-active pt-3 font-semibold">
-            Make payments from anywhere, anytime
+            New journey Start From here
           </h3>
-        </div>
-        <div class="max-w-[340px]">
+        </div> -->
+        <!-- <div class="max-w-[340px]">
           <p class="m-text md:spt40px fade-top text-black-3">
-            Online services provides convenient access to your
+            Online and mobile banking provide convenient access to your
             accounts, allowing you to check balances, make transfers, pay
             bills
           </p>
-        </div>
+        </div> -->
       </div>
 
 
@@ -401,18 +355,17 @@
                 <i class="ti ti-send text-[32px]"> </i>
               </div>
               <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-                Buy Airtime / Data Bundle
-
+                INTERNATIONAL AIRTME / DATA
               </h5>
             </div>
             <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-            <p class="m-text max-w-[416px] text-black-3">
+            <!-- <p class="m-text max-w-[416px] text-black-3">
               Our airtime feature offers seamless, instant top-ups for calls, texts, and data, with secure payments and
               a user-friendly interface, making staying connected effortless.
-            </p>
+            </p> -->
           </div>
           <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-            href="airtime-inter.html">
+            href="http://digiifram.seelive.io/DigifarAirtimePurchase/Index">
             <div class="flex flex-col items-center justify-center">
               <i class="ti ti-arrow-up-right text-[40px]"> </i>
               <p class="m-text mt-1 capitalize">Continue</p>
@@ -426,50 +379,6 @@
           </div>
         </div>
         <div class="h-px w-full bg-white-3/60"></div>
-
-
-<!-- CELTIS AIRTIME / DATA BUNDLE 
-        <div
-        class="hover-image appear-down group/card relative flex justify-between gap-6 max-sm:flex-col sm:items-center">
-        <div class="flex justify-between gap-4 max-md:flex-col sm:gap-6 md:items-center md:gap-10 xxl:gap-25">
-          <div class="flex flex-col gap-7">
-            <div class="w-fit rounded-full bg-primary p-[14px] leading-none text-white-1">
-              <i class="ti ti-send text-[32px]"> </i>
-            </div>
-            <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-              CELTIS AIRTIME / DATA BUNDLE
-            </h5>
-          </div>
-          <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-          <p class="m-text max-w-[416px] text-black-3">
-            Our airtime feature offers seamless, instant top-ups for calls, texts, and data, with secure payments and
-            a user-friendly interface, making staying connected effortless.
-          </p>
-        </div>
-        <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-          href="http://digiifram.seelive.io/Home/CeltisAirtimePurchase">
-          <div class="flex flex-col items-center justify-center">
-            <i class="ti ti-arrow-up-right text-[40px]"> </i>
-            <p class="m-text mt-1 capitalize">Continue</p>
-          </div>
-          <span
-            class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
-          </span>
-        </a>
-        <div
-          class="case-study-hover pointer-events-none absolute top-1/2 -z-10 hidden h-80 w-60 -translate-y-1/2 rounded-md bg-[url('/images/hover-image.png')] bg-cover bg-no-repeat opacity-0 group-hover/card:opacity-100 md:block">
-        </div>
-      </div>
-      <div class="h-px w-full bg-white-3/60"></div>
-
--->
-
-
-
-
-
-
-
 
 
         <!-- send Money -->
@@ -481,18 +390,18 @@
                 <i class="ti ti-send text-[32px]"> </i>
               </div>
               <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-                Mobile Money
+                LOCAL AIRTIME / DATA 
               </h5>
             </div>
             <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-            <p class="m-text max-w-[416px] text-black-3">
+            <!-- <p class="m-text max-w-[416px] text-black-3">
               Sending money is now quick and secure, letting you transfer funds instantly to
               anyone, anywhere in the world. Whether for a gift,
               payment, or support, digital transfers offer convenience and peace of mind.
-            </p>
+            </p> -->
           </div>
           <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-            href="momo.html">
+            href="celtis.html">
             <div class="flex flex-col items-center justify-center">
               <i class="ti ti-arrow-up-right text-[40px]"> </i>
               <p class="m-text mt-1 capitalize">Continue</p>
@@ -512,7 +421,7 @@
 
 
 
-        <div
+        <!-- <div
           class="hover-image appear-down group/card relative flex justify-between gap-6 max-sm:flex-col sm:items-center">
           <div class="flex justify-between gap-4 max-md:flex-col sm:gap-6 md:items-center md:gap-10 xxl:gap-25">
             <div class="flex flex-col gap-7">
@@ -520,49 +429,14 @@
                 <i class="ti ti-send text-[32px]"> </i>
               </div>
               <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-                Card Payments
+                Bank Transfer
               </h5>
             </div>
             <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-            <p class="m-text max-w-[416px] text-black-3">
+            <!-- <p class="m-text max-w-[416px] text-black-3">
               Stay updated. check your bank account to manage funds and track
               transactions securely.
-            </p>
-          </div>
-          <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-            href="CCV.html">
-            <div class="flex flex-col items-center justify-center">
-              <i class="ti ti-arrow-up-right text-[40px]"> </i>
-              <p class="m-text mt-1 capitalize">Continue</p>
-            </div>
-            <span
-              class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
-            </span>
-          </a>
-          <div
-            class="case-study-hover pointer-events-none absolute top-1/2 -z-10 hidden h-80 w-60 -translate-y-1/2 overflow-hidden rounded-md bg-[url('/images/hover-image.png')] bg-cover bg-no-repeat opacity-0 group-hover/card:opacity-100 md:block">
-          </div>
-        </div>
-        <div class="h-px w-full bg-white-3/60"></div>
-
-
-        <!-- <div
-          class="hover-image appear-down group/card relative flex justify-between gap-6 max-sm:flex-col sm:items-center">
-          <div class="flex justify-between gap-4 max-md:flex-col sm:gap-6 md:items-center md:gap-10 xxl:gap-25">
-            <div class="flex flex-col gap-7">
-              <div class="w-fit rounded-full bg-primary p-[14px] text-white-1">
-                <i class="ti ti-send text-[32px]"> </i>
-              </div>
-              <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-                Interest Money
-              </h5>
-            </div>
-            <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-            <p class="m-text max-w-[416px] text-black-3">
-              While it may be more challenging, some banks offer loans for
-              individuals with bad credit. However, interest rates and terms
-              may not be as favorable.
-            </p>
+            </p> --
           </div>
           <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
             href="feature-details.html">
@@ -580,200 +454,14 @@
         </div>
         <div class="h-px w-full bg-white-3/60"></div> -->
 
-
-        <!-- <div
-          class="hover-image appear-down group/card relative flex justify-between gap-6 max-sm:flex-col sm:items-center">
-          <div class="flex justify-between gap-4 max-md:flex-col sm:gap-6 md:items-center md:gap-10 xxl:gap-25">
-            <div class="flex flex-col gap-7">
-              <div class="w-fit rounded-full bg-primary p-[14px] text-white-1">
-                <i class="ti ti-send text-[32px]"> </i>
-              </div>
-              <h5 class="h3 font-semibold text-black-2 md:w-44 3xl:w-[257px]">
-                Invest Money
-              </h5>
-            </div>
-            <div class="hidden h-16 w-px bg-white-3/80 md:block"></div>
-            <p class="m-text max-w-[416px] text-black-3">
-              You could receive payments straight into your company DigiFar
-              merchant account and collect funds there.
-            </p>
-          </div>
-          <a class="alter-btn btn-anim group/link relative z-10 inline-flex size-[140px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-black-3 bg-inherit font-semibold text-black-4 hover:border-accent-3"
-            href="feature-details.html">
-            <div class="flex flex-col items-center justify-center">
-              <i class="ti ti-arrow-up-right text-[40px]"> </i>
-              <p class="m-text mt-1 capitalize">Make Payment</p>
-            </div>
-            <span
-              class="pointer-events-none absolute z-[-1] h-0 w-0 -translate-x-1/2 -translate-y-1/2 transform rounded-full bg-accent-3 duration-700 group-hover/link:w-[calc(100%*2.25)] group-hover/link:pt-[calc(100%*2.25)]">
-            </span>
-          </a>
-          <div
-            class="case-study-hover pointer-events-none absolute top-1/2 -z-10 hidden h-80 w-60 -translate-y-1/2 overflow-hidden rounded-md bg-[url('/images/hover-image.png')] bg-cover bg-no-repeat opacity-0 group-hover/card:opacity-100 md:block">
-          </div>
-        </div>
-        <div class="h-px w-full bg-white-3/60"></div> -->
-      </div>
+   
+    </div>
     </div>
   </section>
 
-  <!-- service -->
-<!--    
-  <section
-    class="fade-wrapper relative z-10 bg-primary text-white-1 after:bottom-0 after:right-0 after:-z-10 after:h-full after:w-1/2 after:bg-accent-4 lg:after:absolute">
-    <div class="max-lg:spy120px container relative grid grid-cols-12 items-center">
-      <div class="col-start-1 col-end-13 lg:col-end-6">
-        <h5 class="h5 title-animation title-anim-active font-medium capitalize text-white-1">
-          Services
-        </h5>
-        <h3 class="d4 title-animation h2 title-anim-active mt-3 font-semibold">
-          Our Featured Products.
-        </h3>
-        <p class="m-text fade-top mt-5 text-white-2">
-          Integrate Babuz on your web-site to offer fast, secure and seamless
-          online transfer payment method.
-        </p>
-        <p class="m-text fade-top fade-top mt-4 text-white-2">
-          You could receive payments straight into your company account or
-          open a merchant account and collect funds there.
-        </p>
-        <div class="spt40px">
-          <a class="group flex items-center gap-16" href="services.html">
-            <span class="xl-text">All Services</span>
-            <span class="relative flex items-center">
-              <svg class="theme-transition-3 absolute -left-8" xmlns="http://www.w3.org/2000/svg" width="58" height="16"
-                viewBox="0 0 58 16" fill="none">
-                <path
-                  d="M57.7071 8.70711C58.0976 8.31659 58.0976 7.68342 57.7071 7.2929L51.3431 0.928937C50.9526 0.538412 50.3195 0.538412 49.9289 0.928937C49.5384 1.31946 49.5384 1.95263 49.9289 2.34315L55.5858 8L49.9289 13.6569C49.5384 14.0474 49.5384 14.6805 49.9289 15.0711C50.3195 15.4616 50.9526 15.4616 51.3431 15.0711L57.7071 8.70711ZM-8.74228e-08 9L57 9L57 7L8.74228e-08 7L-8.74228e-08 9Z"
-                  class="theme-transition-3 fill-white-1"></path>
-              </svg>
-              <span
-                class="block size-12 rounded-full border border-white-1 group-hover:border-black-1 group-hover:bg-black-4">
-              </span>
-            </span>
-          </a>
-        </div>
-      </div>
-      <div class="max-lg:spt40px col-start-1 col-end-13 grid max-lg:gap-3 xs:grid-cols-2 lg:col-start-7">
-        <div
-          class="spx40px group theme-transition-3 relative py-10 text-black-4 max-lg:bg-accent-4 sm:py-15 xxl:pb-[105px] xxl:pt-15">
-          <i class="ti ti-presentation text-[40px]"> </i>
-          <h5 class="h5 spt24px font-medium">Boost your Payments</h5>
-          <p class="m-text mt-3 text-balance text-black-3">
-            Reduced Payments maintenance and processing fees. No hidden fees.
-          </p>
-          <div
-            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
-            <a class="bg-primary p-3" href="service-details.html">
-              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
-              </i>
-            </a>
-          </div>
-        </div>
-        <div
-          class="spx40px group theme-transition-3 relative bg-accent-4 py-10 text-black-4 sm:py-15 lg:bg-primary/20 xxl:pb-[105px] xxl:pt-15">
-          <i class="ti ti-users text-[40px]"> </i>
-          <h5 class="h5 spt24px font-medium">DigiCollect</h5>
-          <p class="m-text mt-3 text-balance text-black-3">
-            Stay updated. check your bank account to manage funds and track
-            transactions securely.
-          </p>
-          <div
-            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
-            <a class="bg-primary p-3" href="service-details.html">
-              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
-              </i>
-            </a>
-          </div>
-        </div>
-        <div
-          class="spx40px group theme-transition-3 relative bg-accent-4 py-10 text-black-4 sm:py-15 lg:bg-primary/20 xxl:pb-[105px] xxl:pt-15">
-          <i class="ti ti-discount-check text-[40px]"> </i>
-          <h5 class="h5 spt24px font-medium">Digi-Integration</h5>
-          <p class="m-text mt-3 text-balance text-black-3">
-            Reduced Payments maintenance and processing fees. No hidden fees.
-          </p>
-          <div
-            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
-            <a class="bg-primary p-3" href="service-details.html">
-              <i class="ti ti-arrow-up-right stroke-1 text-[40px] text-white-1">
-              </i>
-            </a>
-          </div>
-        </div>
-        <div
-          class="spx40px group theme-transition-3 relative py-10 text-black-4 max-lg:bg-accent-4 sm:py-15 xxl:pb-[105px] xxl:pt-15">
-          <i class="ti ti-route text-[40px]"> </i>
-          <h5 class="h5 spt24px font-medium">Pay Out &amp; Refund</h5>
-          <p class="m-text mt-3 text-balance text-black-3">
-            Execute pay outs and refunds straight to your customer’s account
-            via DigiFar.
-          </p>
-          <div
-            class="rounded-16px theme-transition-4 absolute bottom-0 left-0 flex h-0 w-full items-center justify-center bg-primary/60 opacity-0 group-hover:visible group-hover:h-full group-hover:opacity-100">
-            <a class="bg-primary p-3" href="service-details.html">
-              <i class="ti ti-arrow-up-right text-[40px] text-white-1"> </i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <img alt="Service animal" class="absolute bottom-0 left-0 max-3xl:w-30 max-sm:hidden"
-      src="./assets/images/service-animale-k7JSGUUN.png" />
-    <img alt="Service animal" class="absolute bottom-0 right-0 max-3xl:w-30 max-sm:hidden"
-      src="./assets/images/service-coins-wqijGupM.png" />
-  </section>
- -->
+ 
 
 
-  <!-- counter -->
-<!-- 
-  <section class="spy120px fade-wrapper relative overflow-hidden">
-    <div class="container">
-      <h3 class="d4 title-animation h2 title-anim-active text-center font-semibold">
-        Few Interesting Numbers
-      </h3>
-      <p class="m-text fade-top mt-3 text-center text-black-3">
-        Numbers that speak about banking service.
-      </p>
-      <div class="spt60px flex flex-wrap items-center justify-center gap-10 max-sm:text-center sm:justify-between">
-        <div class="info-card">
-          <div class="d2 theme-transition-3 font-semibold">
-            <span class="odometer" counter-value="120"> </span>+
-          </div>
-          <p class="xl-text mt-4 text-black-3">Partner with us</p>
-        </div>
-        <div class="info-card">
-          <div class="d2 theme-transition-3 font-semibold">
-            <span class="odometer" counter-value="1.3"> </span>+
-          </div>
-          <p class="xl-text mt-4 text-black-3">Cumulative trading volume</p>
-        </div>
-        <div class="info-card">
-          <div class="d2 theme-transition-3 font-semibold">
-            <span class="odometer" counter-value="705"> </span>K+
-          </div>
-          <p class="xl-text mt-4 text-black-3">Successful Projects</p>
-        </div>
-        <div class="info-card">
-          <div class="d2 theme-transition-3 font-semibold">
-            <span class="odometer" counter-value="575"> </span>K
-          </div>
-          <p class="xl-text mt-4 text-black-3">Active Accounts</p>
-        </div>
-      </div>
-    </div>
-    <div class="over hidden overflow-hidden md:block">
-      <div class="lines">
-        <div class="line absolute left-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[calc(100%-50%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute left-[30%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute right-[calc(30%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-      </div>
-    </div>
-  </section>
- -->
 
 
   <!-- personalized solution -->
@@ -793,7 +481,7 @@
             your business or personal needs.
           </p>
           <a class="alter-btn btn-anim group/link smt40px relative z-10 inline-flex size-[150px] shrink-0 items-center justify-center gap-4 overflow-hidden rounded-full border border-white-1 bg-white-1 font-semibold text-black-4 hover:border-primary hover:bg-primary sm:size-[180px] lg:size-[180px]"
-            href="About-us.html">
+            href="contact-us.html">
             <div class="flex flex-col items-center justify-center">
               <i class="ti ti-arrow-up-right text-[40px]"> </i>
               <p class="m-text mt-1 capitalize">Learn More</p>
@@ -809,198 +497,8 @@
       src="./assets/images/personalized-animal-image-wyyH_bm2.png" />
   </section>
 
-
-
-
-  <!-- what people say
-  <div class="spy120px relative">
-    <div class="container relative">
-      <h5 class="h5 title-animation title-anim-active text-center font-medium capitalize text-primary">
-        TESTIMONIALS
-      </h5>
-      <h3 class="d4 title-animation h2 title-anim-active mt-3 text-center font-semibold">
-        What people say
-      </h3>
-      <div class="smt60px mx-auto w-fit rounded-full bg-primary/10 p-[18px] leading-none">
-        <i class="ti ti-quote text-[24px] text-primary"> </i>
-      </div>
-      <div class="spt60px">
-        <div class="swiper swiper-testimonial-one-container">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <div class="flex flex-col items-center text-center max-md:flex-col">
-                <div class="w-full">
-                  <div class="mx-auto flex w-fit items-center gap-1">
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-half-filled text-[24px] text-accent-3">
-                    </i>
-                  </div>
-                  <p class="xl-text mx-auto mt-6 max-w-[602px] shrink-0 text-black-1">
-                    “I switched to Bankio for my personal and business banking
-                    needs, and I couldn't be happier. The app is intuitive, and I
-                    love the convenience it offers.
-                  </p>
-                </div>
-                <div class="spt40px relative shrink-0">
-                  <img alt="Testimonial image" class="size-[60px] rounded-full"
-                    src="./assets/images/home-one-testimonial-1-H2NmZISQ.png" />
-                </div>
-                <div>
-                  <p class="h4 spt32px font-medium">John Davis</p>
-                  <p class="m-text mt-1 font-medium text-black-3">Entrepreneur</p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex flex-col items-center text-center max-md:flex-col">
-                <div class="w-full">
-                  <div class="mx-auto flex w-fit items-center gap-1">
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-half-filled text-[24px] text-accent-3">
-                    </i>
-                  </div>
-                  <p class="xl-text mx-auto mt-6 max-w-[602px] shrink-0 text-black-1">
-                    “Bankio's security features give me peace of mind. I can focus
-                    on my work without worrying about the safety of my financial
-                    information. Highly recommended!
-                  </p>
-                </div>
-                <div class="spt40px relative shrink-0">
-                  <img alt="Testimonial image" class="size-[60px] rounded-full"
-                    src="./assets/images/home-one-testimonial-2-ptsc1lo1.png" />
-                </div>
-                <div>
-                  <p class="h4 spt32px font-medium">Sophia Miller</p>
-                  <p class="m-text mt-1 font-medium text-black-3">
-                    Software Engineer
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex flex-col items-center text-center max-md:flex-col">
-                <div class="w-full">
-                  <div class="mx-auto flex w-fit items-center gap-1">
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-half-filled text-[24px] text-accent-3">
-                    </i>
-                  </div>
-                  <p class="xl-text mx-auto mt-6 max-w-[602px] shrink-0 text-black-1">
-                    “As a startup founder, Bankio has been a game-changer for
-                    managing expenses and handling transactions. The real-time
-                    updates and analytics are incredibly valuable.
-                  </p>
-                </div>
-                <div class="spt40px relative shrink-0">
-                  <img alt="Testimonial image" class="size-[60px] rounded-full"
-                    src="./assets/images/home-one-testimonial-3-YUEbtgR3.png" />
-                </div>
-                <div>
-                  <p class="h4 spt32px font-medium">Alex Turner</p>
-                  <p class="m-text mt-1 font-medium text-black-3">
-                    CEO, Tech Innovations
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex flex-col items-center text-center max-md:flex-col">
-                <div class="w-full">
-                  <div class="mx-auto flex w-fit items-center gap-1">
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-half-filled text-[24px] text-accent-3">
-                    </i>
-                  </div>
-                  <p class="xl-text mx-auto mt-6 max-w-[602px] shrink-0 text-black-1">
-                    “It's been 2 years since I found Bankio, and it's such a
-                    relief as a small business owner to not worry about
-                    unnecessary fees. I lost my credit card once, and the service
-                    was so quick.
-                  </p>
-                </div>
-                <div class="spt40px relative shrink-0">
-                  <img alt="Testimonial image" class="size-[60px] rounded-full"
-                    src="./assets/images/home-one-testimonial-5-Dvqrq0ir.png" />
-                </div>
-                <div>
-                  <p class="h4 spt32px font-medium">Andrew Russel</p>
-                  <p class="m-text mt-1 font-medium text-black-3">
-                    VP of Marketing
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="flex flex-col items-center text-center max-md:flex-col">
-                <div class="w-full">
-                  <div class="mx-auto flex w-fit items-center gap-1">
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-filled text-[24px] text-accent-3"> </i>
-                    <i class="ti ti-star-half-filled text-[24px] text-accent-3">
-                    </i>
-                  </div>
-                  <p class="xl-text mx-auto mt-6 max-w-[602px] shrink-0 text-black-1">
-                    “Bankio has made managing my finances so much easier. The
-                    user-friendly interface and excellent customer support make it
-                    the perfect choice for individuals and businesses alike.
-                  </p>
-                </div>
-                <div class="spt40px relative shrink-0">
-                  <img alt="Testimonial image" class="size-[60px] rounded-full"
-                    src="./assets/images/home-one-testimonial-4-rBoB2gP4.png" />
-                </div>
-                <div>
-                  <p class="h4 spt32px font-medium">Emily Thompson</p>
-                  <p class="m-text mt-1 font-medium text-black-3">
-                    Freelance Designer
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="max-lg:smt40px z-10 mx-auto flex w-fit items-center gap-4 max-lg:bottom-0 sm:gap-6 lg:absolute lg:top-1/2 lg:w-full lg:justify-between">
-          <button
-            class="customerSliderPrev theme-transition-3 flex items-center justify-center rounded-full border border-accent-3 bg-transparent p-3 font-semibold text-accent-3 hover:bg-accent-3 hover:text-black-4">
-            <i class="ti ti-arrow-left text-[24px]"> </i>
-          </button>
-          <button
-            class="customerSliderNext theme-transition-3 flex items-center justify-center rounded-full border border-accent-3 bg-transparent p-3 font-semibold text-accent-3 hover:bg-accent-3 hover:text-black-4">
-            <i class="ti ti-arrow-right text-[24px]"> </i>
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="over hidden overflow-hidden md:block">
-      <div class="lines">
-        <div class="line absolute left-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[calc(100%-50%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute left-[30%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line-alt absolute right-[calc(30%)] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-        <div class="line absolute right-[10%] top-0 -z-10 h-full w-px bg-white-3/30"></div>
-      </div>
-    </div>
-  </div>
- -->
-
-
-
-
+  
+  
   <!-- footer -->
   <footer class="relative overflow-hidden bg-accent-2 text-white-1">
     <div class="max-xxl:container xxl:ml-[calc((100%-1296px)/2)]">
@@ -1114,6 +612,7 @@
     <img alt="footer animale" class="absolute bottom-0 left-0 block max-3xl:size-30 max-[1500px]:hidden"
       src="./assets/images/footer-crown-HX0ow5gN.png" />
   </footer>
+
 
 
 
