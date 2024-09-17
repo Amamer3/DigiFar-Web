@@ -3088,7 +3088,7 @@ button,
 
 .\!text-primary{
   --tw-text-opacity: 1 !important;
-  color: rgb(0 86 85 / var(--tw-text-opacity)) !important;
+  color: rgb(0 126 158 / var(--tw-text-opacity)) !important;
 }
 
 .text-accent-1{
@@ -4923,9 +4923,9 @@ input[type="number"]::-webkit-outer-spin-button {
   left: 0;
   background: linear-gradient(
     to bottom,
-    rgba(255, 60, 0, 0) 0%,
-    #f36d21 75%,
-    #c1c1ff 100%
+    rgba(235, 105, 11, ) 0%,
+    #ea690a 75%,
+    #007e9d 100%
   );
   transform: translateY(30px);
   animation: run 4s 0s infinite alternate-reverse;
@@ -4981,6 +4981,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .home-two-hero-pattern {
   background-image: url(../images/banner-bg-0jMIJ_Pi.png);
+  
 }
 
 /* swiper js */
