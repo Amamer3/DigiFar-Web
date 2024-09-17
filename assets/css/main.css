@@ -55,7 +55,7 @@
 }
 /* errors */
 .errorDiv{
-  background-color:hsla(0, 90%, 48%, 0.788);
+  /* background-color:hsla(0, 90%, 48%, 0.788); */
   color:white;
   padding:10px 20px;
   margin:10px;
