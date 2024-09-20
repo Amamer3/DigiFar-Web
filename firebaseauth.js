@@ -279,7 +279,6 @@ function autoLogout() {
 
 
 
-
 // document.addEventListener('DOMContentLoaded', () => {
 //     // Initialize Firebase Authentication
 //     const auth = getAuth();
