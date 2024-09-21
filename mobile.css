@@ -1,0 +1,151 @@
+/* Main Styles for Navbar */
+.navbar {
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-toggle {
+    cursor: pointer;
+    outline: none; /* Remove default outline */
+}
+
+.sidebar-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 20;
+    opacity: 0; /* Ensure it's hidden initially */
+    visibility: hidden; /* Ensure it's not interactable initially */
+    pointer-events: none; /* Prevent interaction when hidden */
+}
+
+.menu-sidebar {
+    width: 250px;
+    background: white;
+    height: 100vh;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 30;
+    transform: translateX(-100%); /* Hide initially off-screen */
+    will-change: transform, opacity; /* Performance optimization */
+}
+
+/* When active, show overlay and sidebar */
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible; /* Ensure it's visible */
+    pointer-events: auto; /* Allow interaction when active */
+}
+
+.menu-sidebar.active {
+    transform: translateX(0); /* Slide in */
+}
+
+/* Login and Signup Button Styles */
+.login-btn, .signup-btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.login-btn {
+    background-color: transparent;
+    border: 1px solid #fbd932f1;
+    color: #646262;
+    transition: all 0.3s;
+}
+
+.signup-btn {
+    background-color: #fe6d2a;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #ffa148;
+    color: #fff;
+}
+
+.signup-btn:hover {
+    background-color: #654402;
+}
+
+/* Focus Styles for Accessibility */
+.login-btn:focus, .signup-btn:focus, .mobile-nav-toggle:focus {
+    outline: 2px solid #000;
+    outline-offset: 2px;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 1024px) {
+    .navbar {
+        display: none;
+    }
+}
+
+/* Dropdown initially hidden */
+.mobile-nav-list {
+    max-height: fit-content;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-nav-list-active {
+    max-height: fit-content;
+    transform: translateY(0);
+    overflow: auto;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Modified dropdown state handling */
+.mobile-nav-list[style*="max-height"] {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scroll Lock Utility for Sidebar */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* Add transition to body to avoid sudden overflow changes */
+body {
+    transition: overflow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+  /* Add transition for the dropdown
+.mobile-nav-list {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .mobile-nav-list.expanded {
+    max-height: 300px; /* Set to a larger value to accommodate full height */
+    /* opacity: 1;
+    transform: translateY(0);
+  }
+   */ 
