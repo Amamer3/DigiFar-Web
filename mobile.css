@@ -58,7 +58,9 @@
 }
 
 .signup-btn {
-    background-color: #fe6d2a;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #ff5506;
     color: #fff;
     transition: all 0.3s;
 }
@@ -69,7 +71,7 @@
 }
 
 .signup-btn:hover {
-    background-color: #654402;
+    background-color: #d89000;
 }
 
 /* Focus Styles for Accessibility */
