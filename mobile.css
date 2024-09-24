@@ -96,12 +96,13 @@
 
 /* Dropdown initially hidden */
 .mobile-nav-list {
-    max-height: fit-content;
-    overflow: hidden;
-    opacity: 1;
+    max-height: 0;
+    opacity: 0;
     transform: translateY(-10px);
-    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
+
 
 .mobile-nav-list-active {
     max-height: fit-content;
@@ -117,15 +118,25 @@
     transform: translateY(0);
 }
 
-/* Scroll Lock Utility for Sidebar */
-body.no-scroll {
-    overflow: hidden;
+
+.expanded {
+    max-height: none; /* or a specific height */
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
+
+
+/* Scroll Lock Utility for Sidebar */
+/* body.no-scroll {
+    overflow: hidden;
+} */
+
 /* Add transition to body to avoid sudden overflow changes */
-body {
+/* body {
     transition: overflow 0.3s ease;
-}
+} */
 
 
 
@@ -151,3 +162,52 @@ body {
     transform: translateY(0);
   }
    */ 
+
+
+   /*                                       */
+   /*     THE MOBILE SCREEN LOGOUT BTN     */
+   /*                                     */
+
+   /* body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  } */
+  
+  /* .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #fff;
+  }
+   */
+   
+  #logoutButton {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logoutButton:hover {
+    background-color: #ff1744;
+  }
+  
+  .message {
+    margin-top: 20px;
+    color: green;
+    font-size: 16px;
+    text-align: center;
+  }
+  

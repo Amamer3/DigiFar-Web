@@ -19838,33 +19838,33 @@ document.addEventListener("DOMContentLoaded", function() {
   const allList = document.querySelectorAll(
     ".mobile-menu-container .mobile-nav-list"
   );
-  mobileNavListParent.forEach((item) => {
-    item.addEventListener("click", function() {
-      allList.forEach((item2) => {
-        item2.classList.remove("mobile-nav-list-active");
-      });
-      const mobileNavList = item.querySelector(".mobile-nav-list");
-      mobileNavList.classList.toggle("mobile-nav-list-active");
-    });
-  });
-  const mobileMenus = document.querySelectorAll(".mobile-nav-list-parent");
-  mobileMenus.forEach((mobileMenu) => {
-    const mobileMenuItems = mobileMenu.nextElementSibling.querySelectorAll(".mobile-nav-item a");
-    mobileMenuItems.forEach((item) => {
-      const menuItemUrl = item.getAttribute("href");
-      const currentUrl2 = window.location.pathname;
-      let withoutSlash2;
-      if (currentUrl2.length > 1) {
-        withoutSlash2 = currentUrl2.split("/")[1];
-      } else {
-        withoutSlash2 = currentUrl2;
-      }
-      if (withoutSlash2 === menuItemUrl) {
-        item.parentElement.classList.add("mobile-nav-active");
-        mobileMenu.classList.add("parent-nav-active");
-      }
-    });
-  });
+  // mobileNavListParent.forEach((item) => {
+  //   item.addEventListener("click", function() {
+  //     allList.forEach((item2) => {
+  //       item2.classList.remove("mobile-nav-list-active");
+  //     });
+  //     const mobileNavList = item.querySelector(".mobile-nav-list");
+  //     mobileNavList.classList.toggle("mobile-nav-list-active");
+  //   });
+  // });
+  // const mobileMenus = document.querySelectorAll(".mobile-nav-list-parent");
+  // mobileMenus.forEach((mobileMenu) => {
+  //   const mobileMenuItems = mobileMenu.nextElementSibling.querySelectorAll(".mobile-nav-item a");
+  //   mobileMenuItems.forEach((item) => {
+  //     const menuItemUrl = item.getAttribute("href");
+  //     const currentUrl2 = window.location.pathname;
+  //     let withoutSlash2;
+  //     if (currentUrl2.length > 1) {
+  //       withoutSlash2 = currentUrl2.split("/")[1];
+  //     } else {
+  //       withoutSlash2 = currentUrl2;
+  //     }
+  //     if (withoutSlash2 === menuItemUrl) {
+  //       item.parentElement.classList.add("mobile-nav-active");
+  //       mobileMenu.classList.add("parent-nav-active");
+  //     }
+  //   });
+  // });
   const pricingButtons = document.querySelectorAll(".tab-links");
   pricingButtons.forEach((pricingButton) => {
     pricingButton.addEventListener("click", function() {
