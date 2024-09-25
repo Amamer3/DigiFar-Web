@@ -46,7 +46,7 @@ function handleLogout() {
 
 // Add event listener to the logout button
 document.addEventListener("DOMContentLoaded", function () {
-    const logoutButton = document.getElementById('logoutButton');
+    const logoutButton = document.getElementById('logoutButtonMobile');
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogout);
     } else {
