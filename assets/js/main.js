@@ -19798,73 +19798,68 @@ document.addEventListener("DOMContentLoaded", function() {
     withoutSlash = currentUrl;
   }
   const singleMenu = document.querySelectorAll(".single-menu");
-  const menuItems = document.querySelectorAll(".menu li a");
-  menuItems.forEach((item) => {
-    const menuItemUrl = item.getAttribute("href");
-    if (withoutSlash === menuItemUrl) {
-      item.parentElement.classList.add("active-nav");
-      item.parentElement.parentElement.parentElement.querySelector("li p").classList.add("parent-nav-active");
-      item.parentElement.classList.add("parent-nav-active");
-    }
-  });
-  singleMenu.forEach((item) => {
-    const menuItemUrl = item.getAttribute("href");
-    if (withoutSlash === menuItemUrl) {
-      item.classList.add("parent-nav-active");
-    }
-  });
-  const menuToggleButton = document.querySelector(".mobile-nav-toggle");
-  const mobileMenuOverlay = document.querySelector(".sidebar-overlay");
-  menuToggleButton && menuToggleButton.addEventListener("click", sidebarToggle);
-  mobileMenuOverlay && mobileMenuOverlay.addEventListener("click", sidebarToggle);
-  function sidebarToggle() {
-    const menuSidebar = document.querySelector(".menu-sidebar");
-    menuSidebar.classList.forEach((item) => {
-      if (item === "menu-sidebar-active") {
-        menuSidebar.classList.remove("menu-sidebar-active");
-      } else {
-        menuSidebar.classList.add("menu-sidebar-active");
-      }
-    });
-    mobileMenuOverlay.classList.forEach((item) => {
-      if (item === "menu-sidebar-overlay-active") {
-        mobileMenuOverlay.classList.remove("menu-sidebar-overlay-active");
-      } else {
-        mobileMenuOverlay.classList.add("menu-sidebar-overlay-active");
-      }
-    });
+const menuItems = document.querySelectorAll(".menu li a");
+// const currentUrl = window.location.pathname;
+// const withoutSlash = currentUrl.length > 1 ? currentUrl.split("/")[1] : currentUrl;
+
+menuItems.forEach((item) => {
+  const menuItemUrl = item.getAttribute("href");
+  if (withoutSlash === menuItemUrl) {
+    item.parentElement.classList.add("active-nav", "parent-nav-active");
+    item.parentElement.parentElement.parentElement.querySelector("li p").classList.add("parent-nav-active");
   }
-  const mobileNavListParent = document.querySelectorAll(".mobile-nav-dropdown");
-  const allList = document.querySelectorAll(
-    ".mobile-menu-container .mobile-nav-list"
-  );
-  // mobileNavListParent.forEach((item) => {
-  //   item.addEventListener("click", function() {
-  //     allList.forEach((item2) => {
-  //       item2.classList.remove("mobile-nav-list-active");
-  //     });
-  //     const mobileNavList = item.querySelector(".mobile-nav-list");
-  //     mobileNavList.classList.toggle("mobile-nav-list-active");
-  //   });
-  // });
-  // const mobileMenus = document.querySelectorAll(".mobile-nav-list-parent");
-  // mobileMenus.forEach((mobileMenu) => {
-  //   const mobileMenuItems = mobileMenu.nextElementSibling.querySelectorAll(".mobile-nav-item a");
-  //   mobileMenuItems.forEach((item) => {
-  //     const menuItemUrl = item.getAttribute("href");
-  //     const currentUrl2 = window.location.pathname;
-  //     let withoutSlash2;
-  //     if (currentUrl2.length > 1) {
-  //       withoutSlash2 = currentUrl2.split("/")[1];
-  //     } else {
-  //       withoutSlash2 = currentUrl2;
-  //     }
-  //     if (withoutSlash2 === menuItemUrl) {
-  //       item.parentElement.classList.add("mobile-nav-active");
-  //       mobileMenu.classList.add("parent-nav-active");
-  //     }
-  //   });
-  // });
+});
+
+singleMenu.forEach((item) => {
+  const menuItemUrl = item.getAttribute("href");
+  if (withoutSlash === menuItemUrl) {
+    item.classList.add("parent-nav-active");
+  }
+});
+
+const menuToggleButton = document.querySelector(".mobile-nav-toggle");
+const mobileMenuOverlay = document.querySelector(".sidebar-overlay");
+menuToggleButton?.addEventListener("click", sidebarToggle);
+mobileMenuOverlay?.addEventListener("click", sidebarToggle);
+
+function sidebarToggle() {
+  const menuSidebar = document.querySelector(".menu-sidebar");
+  menuSidebar?.classList.toggle("menu-sidebar-active");
+  mobileMenuOverlay?.classList.toggle("menu-sidebar-overlay-active");
+}
+
+const mobileNavListParent = document.querySelectorAll(".mobile-nav-dropdown");
+const allList = document.querySelectorAll(".mobile-menu-container .mobile-nav-list");
+
+mobileNavListParent.forEach((item) => {
+  item.addEventListener("click", function() {
+    allList.forEach((item2) => {
+      item2.classList.remove("mobile-nav-list-active");
+    });
+    const mobileNavList = item.querySelector(".mobile-nav-list");
+    mobileNavList?.classList.toggle("mobile-nav-list-active");
+  });
+});
+
+const mobileMenus = document.querySelectorAll(".mobile-nav-list-parent");
+mobileMenus.forEach((mobileMenu) => {
+  const nextSibling = mobileMenu.nextElementSibling;
+  if (nextSibling) {
+    const mobileMenuItems = nextSibling.querySelectorAll(".mobile-nav-item a");
+    mobileMenuItems.forEach((item) => {
+      const menuItemUrl = item.getAttribute("href");
+      if (withoutSlash === menuItemUrl) {
+        item.parentElement.classList.add("mobile-nav-active");
+        mobileMenu.classList.add("parent-nav-active");
+      }
+    });
+  } else {
+    console.log("Next sibling not found for", mobileMenu);
+  }
+});
+
+
+
   const pricingButtons = document.querySelectorAll(".tab-links");
   pricingButtons.forEach((pricingButton) => {
     pricingButton.addEventListener("click", function() {

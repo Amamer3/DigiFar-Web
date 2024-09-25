@@ -190,30 +190,50 @@
         <div
           class="menu-sidebar mobile-menu-scrollbar fixed left-0 top-0 z-40 m-3 h-[96vh] w-[250px] translate-y-full overflow-y-auto rounded-2xl bg-black-4 pt-5 text-black-4 opacity-0 transition-all duration-700">
           <div class="px-5 pb-4">
-            <a href="index.html">
-              <img src="./assets/images/digifar.png" alt="Desktop Logo" class="mx-auto block w-[130px]" />
-
+            <a href="/">
+              <img src="./assets/images/digifar.png" alt="Desktop Logo"
+                class="mx-auto block w-[130px] " />
             </a>
           </div>
+          <hr>
           <div class="mobile-menu-container min-h-screen rounded-xl bg-white-1 p-2 pt-10">
             <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
               <li class="theme-transition-3">
+                <a href="loggedin.html">
                 <p
                   class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
                   <span class="l-text">Home</span>
+                 
                 </p>
-                <div></div>
+              </a>
+                <!-- <div>
+                  <ul
+                    class="mobile-nav-list theme-transition-3 mx-8 flex max-h-0 -translate-y-10 flex-col rounded-md bg-white-4 opacity-0">
+                    <!-- menuItems  --
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="" class="l-text">Home One</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="home-two.html" class="l-text">Home Two</a>
+                    </li>
+                    <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="home-three.html" class="l-text">Home Three</a>
+                    </li>
+                  </ul>
+                </div> -->
               </li>
             </ul>
-
-
-            <a href="about.html"
+            <a href="About-us.html"
               class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
-              <span class="l-text">About Us</span>
+              <span class="l-text">About</span>
             </a>
 
 
-            <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
+
+            <ul data-lenis-prevent class=" mobile-menu-container mobile-nav-dropdown theme-transition-3 flex flex-col">
               <li>
                 <p
                   class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
@@ -226,104 +246,90 @@
                     <!-- menuItems  -->
                     <li
                       class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="careers.html" class="l-text">Textarea</a>
+                      <a href="#" class="l-text">Careers</a>
                     </li>
                     <li
                       class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="careers-details.html" class="l-text">
-                        Textarea</a>
+                      <a href="#" class="l-text">
+                         Details</a>
+                    </li>
+                    <!-- <li
+                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
+                      <a href="feature.html" class="l-text">Feature</a>
                     </li>
                     <li
                       class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="feature.html" class="l-text">Textarea</a>
+                      <a href="feature-details.html" class="l-text">Feature Details</a>
                     </li>
                     <li
                       class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="feature-details.html" class="l-text">Textarea</a>
-                    </li>
-                    <li
-                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="how-it-works.html" class="l-text">Textarea</a>
+                      <a href="how-it-works.html" class="l-text">How It Works</a>
                     </li>
 
                     <li
                       class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="our-team.html" class="l-text">Textarea</a>
-                    </li>
-                    <li
-                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="team-details.html" class="l-text">Textarea</a>
-                    </li>
-                    <li
-                      class="mobile-nav-item theme-transition-3 relative my-0.5 w-full rounded-md bg-secondary/20 py-2 ps-10 before:left-5 before:top-1/2 before:size-2 before:-translate-y-1/2 before:rounded-full before:bg-primary hover:text-primary hover:before:absolute">
-                      <a href="pricing-plan.html" class="l-text">Textarea</a>
-                    </li>
-
-
-
-
-
-
+                      <a href="our-team.html" class="l-text">Our Team</a>
+                    </li> -->
+                    
+                    
+                    
                   </ul>
                 </div>
               </li>
             </ul>
 
 
-            <!--  -->
             <ul data-lenis-prevent class="mobile-nav-dropdown theme-transition-3 flex flex-col">
               <li>
+                <a href="feature.html">
                 <p
                   class="mobile-nav-list-parent theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
-                  <span class="l-text">Merchant</span>
-
+                  <span class="l-text">Services</span>
+                 
                 </p>
-                <div>
-
-                </div>
+              </a>
               </li>
             </ul>
 
 
-
-            <!--  -->
-            <a href="blogs.html"
+            <a href="#"
               class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
-              <span class="l-text">Blogs</span>
+              <span class="l-text">Merchants</span>
+            </a>
+            
+            <a href="#"
+              class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
+              <span class="l-text">Developers</span>
             </a>
 
-            <a href="contact-us.html"
+            <a href="Contact.html"
               class="single-menu theme-transition-3 relative z-10 my-1 flex cursor-pointer items-center justify-between rounded-md border-b bg-secondary/20 px-8 py-5">
               <span class="l-text">Contact</span>
             </a>
 
+            <button id="logoutButton"
+              class="theme-transition-3 flex items-center text-center gap-2 border  px-4 py-3 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-4 rounded-full ">
+              <i class="ti ti-shift-left text-[24px]"> </i>
+              <span class="m-text text-center" >Logout</span>
+              
 
-            <div class="flex flex-cols-2 gap-1 pt-2">
-              <button
-                class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
-                <!-- <i class="ti ti-brand-google-filled text-[24px]"> </i> -->
-                <span class="m-text">Login</span>
-              </button>
-
-              <button
-                class="theme-transition-3 flex rounded-full items-center gap-1 border border-[#4687F2] bg-[#4687F2] px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4">
-                <!-- <i class="ti ti-brand-google-filled text-[24px]"> </i> -->
-                <span class="m-text">Signup</span>
-              </button>
-            </div>
-
-
+            </button>
 
 
           </div>
 
 
-
-
-
+          
         </div>
       </div>
     </div>
+
+
+
+
+
+
+
   </div>
 
   <!-- End of the navbar -->

@@ -24,38 +24,76 @@ const auth = getAuth(app);
 
 
 
-const logoutButton = document.getElementById('logoutButton');
-
-if (logoutButton) {
-    logoutButton.addEventListener('click', (event) => {
-        event.preventDefault();
-
-        signOut(auth)
-            .then(() => {
-                // Clear the authentication token (cookie) and localStorage
-                document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict; HttpOnly";
-                localStorage.removeItem('loggedInUserId');
-
-                // Display a logout success message
-                showMessage('You have been logged out successfully.', 'logoutMessage');
-
-                // Redirect to the homepage
-                window.location.href = 'index.html';
-            })
-            .catch((error) => {
-                // Handle any logout errors
-                showMessage('Error signing out. Please try again.', 'logoutMessage');
-            });
-    });
+// Logout functionality
+function handleLogout() {
+    // Firebase logout logic
+    signOut(auth) // Make sure Firebase is initialized correctly
+        .then(() => {
+            // Clear auth token and local storage
+            document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict; HttpOnly";
+            localStorage.removeItem('loggedInUserId');
+            
+            // Show logout message
+            document.getElementById('logoutMessage').innerText = 'You have been logged out successfully.';
+            
+            // Redirect to the home page
+            window.location.href = 'index.html';
+        })
+        .catch((error) => {
+            // Show error message
+            document.getElementById('logoutMessage').innerText = 'Error signing out. Please try again.';
+            console.error('Logout error: ', error);
+        });
 }
 
-// Function to show messages on the page
-function showMessage(message, elementId) {
-    const messageElement = document.getElementById(elementId);
-    if (messageElement) {
-        messageElement.textContent = message;
-    }
-}
+
+
+// document.addEventListener("DOMContentLoaded", function () {
+//     // Get the logout button and message div
+//     const logoutButton = document.getElementById('logoutButton');
+//     const logoutMessage = document.getElementById('logoutMessage');
+
+//     // Ensure Firebase is properly initialized
+//     if (!logoutButton) {
+//         console.error("Logout button not found.");
+//         return;
+//     }
+
+//     // Add click event listener for the logout button
+//     logoutButton.addEventListener('click', function (event) {
+//         event.preventDefault();  // Prevent the button's default behavior
+
+//         // Sign out the user using Firebase
+//         signOut(auth)
+//             .then(() => {
+//                 // Clear cookies and local storage
+//                 document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Strict; HttpOnly";
+//                 localStorage.removeItem('loggedInUserId');
+
+//                 // Show logout success message
+//                 logoutMessage.innerText = 'You have been logged out successfully.';
+//                 logoutMessage.classList.add('success-message');  // Add any success message styles
+
+//                 // Optionally, redirect the user to the login page or homepage
+//                 window.location.href = 'index.html';
+//             })
+//             .catch((error) => {
+//                 // Handle errors and display error message
+//                 logoutMessage.innerText = 'Error signing out. Please try again.';
+//                 logoutMessage.classList.add('error-message');  // Add error message styles
+//                 console.error('Logout error: ', error);
+//             });
+//     });
+// });
+
+
+// // Function to show messages on the page
+// function showMessage(message, elementId) {
+//     const messageElement = document.getElementById(elementId);
+//     if (messageElement) {
+//         messageElement.textContent = message;
+//     }
+// }
 
 
 

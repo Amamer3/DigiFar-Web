@@ -1,3 +1,75 @@
+
+
+
+
+
+
+
+
+
+
+/* Sidebar is hidden by default */
+.menu-sidebar {
+    transform: translateY(100%);  /* Hidden by default */
+    opacity: 0;
+    transition: transform 0.7s ease, opacity 0.7s ease;
+  }
+  
+  .menu-sidebar-active {
+    transform: translateY(0);  /* Show sidebar */
+    opacity: 1;
+  }
+  
+  /* Overlay is hidden by default */
+  .sidebar-overlay {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  
+  .menu-sidebar-overlay-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Active navigation item */
+  .active-nav {
+    background-color: #f0f0f0;  /* Example highlight color */
+  }
+  
+  .parent-nav-active {
+    font-weight: bold;  /* Highlight parent menu */
+  }
+  
+  /* Dropdown menu initially hidden */
+  .mobile-nav-list {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+  }
+  
+  .mobile-nav-list-active {
+    max-height: 500px;  /* Set a reasonable max height */
+    opacity: 1;
+  }
+  
+  /* Active submenu item */
+  .mobile-nav-active {
+    background-color: #e0e0e0;  /* Highlight active submenu item */
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
 /* Main Styles for Navbar */
 .navbar {
     background-color: white;
@@ -185,7 +257,7 @@
     background-color: #fff;
   }
    */
-   
+
   #logoutButton {
     background-color: #ff5252;
     color: white;
