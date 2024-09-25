@@ -275,6 +275,24 @@
   #logoutButton:hover {
     background-color: #ff1744;
   }
+
+  #logoutButtonMobile {
+    background-color: #ff5252;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px;
+    transition: background-color 0.3s ease;
+  }
+  
+  #logoutButtonMobile:hover {
+    background-color: #ff1744;
+  }
   
   .message {
     margin-top: 20px;
