@@ -6,8 +6,8 @@
   <link rel="icon" href="./assets/fav/logo2.png" type="image/ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feature - DigiFar Solutions </title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="authen.css">
   <link rel="stylesheet" crossorigin href="./assets/css/main.css">
@@ -132,32 +132,24 @@
           </div>
           <!-- Menu Items  end-->
 
-          <!-- <div class="flex gap-8">
-          <a href="#"
-            class="l-text theme-transition-3 flex items-center gap-1 text-black-4 hover:text-primary">
-            <svg class="icon-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-              <!-- SVG Path for Lock Icon --
-            </svg>
-            <span></span>
-          </a>
-          <a class="spy12px spx24px l-text group relative inline-flex items-center justify-center overflow-hidden bg-primary p-4 px-6 py-3 text-white-4 shadow-md transition duration-300 ease-out"
-            href="#">
+          
+
+        <!-- <button id="logoutButton" class="theme-transition-3 border bg-secondary  ">
+          <i class="ti ti-shift-left text-[24px]"> </i>
+          <span class="m-text" >Logout</span>
+        </button>
+        <div id="logoutMessage" class="messageDiv" style="display:none;"></div> -->
+
+        <a class="spy12px spx24px l-text group relative inline-flex items-center justify-center overflow-hidden bg-primary p-4 px-6 py-3 text-white-4 shadow-md transition duration-300 ease-out"
+            id="logoutButton">
             <span
               class="text-white ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-accent-2 duration-300 group-hover:translate-x-0">
               <i class="ti ti-arrow-narrow-right shrink-0"> </i>
             </span>
             <span
-              class="ease absolute flex h-full w-full transform items-center justify-center text-white-4 transition-all duration-300 group-hover:translate-x-full rounded-full"></span>
-            <span class="l-text invisible relative rounded-full"></span>
+              class="ease absolute flex h-full w-full transform items-center justify-center text-white-4 transition-all duration-300 group-hover:translate-x-full">Logout</span>
+            <span class="l-text invisible relative">Logout</span>
           </a>
-        </div> -->
-
-          <button id="logoutButton"
-            class="theme-transition-3 flex items-center gap-2 border border-[#4687F2] bg-[#4687F2] bg-secondary px-4 py-3 text-white-1 hover:bg-white-1 hover:text-black-4 rounded-full">
-            <i class="ti ti-shift-left text-[24px]"> </i>
-            <span class="m-text">Logout</span>
-          </button>
 
         </div>
       </div>
@@ -427,10 +419,10 @@
   </section>
 
   <div class="flex items-center mx-5 my-4">
-    <a href="feature.html">
-    <button class="theme-transition-3 flex items-center text-center gap-2 border text-5xl px-6 py-5 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-5 rounded-md ">
-      <!-- <i class="ti ti-shift-left text-[24px]"> </i> -->
-      <span class="m-text text-center text-2xl" >Back</span>
+    <a href="airtime-inter.html">
+    <button class="theme-transition-3 flex items-center text-center gap-2 border text-5xl px-6 py-5 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-5 rounded-full ">
+      <i class="bi bi-arrow-left-short text-[24px] "> </i>
+      <span class="m-text" >Back</span>
     </button>
     </a>
   </div>

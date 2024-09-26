@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Feature - DigiFar Solutions </title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://kit.fontawesome.com/48336ffa01.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="authen.css">
   <link rel="stylesheet" crossorigin href="./assets/css/main.css">
@@ -125,18 +126,33 @@
 
             <a href="feature.html"
               class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">Services</a>
-            <a href="Contact.html"
+            
+              <a href="Contact.html"
+              class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">Developers</a>
+            
+              <a href="Contact.html"
               class="l-text single-menu navbar-hover-text font-l-text theme-transition-3 relative z-10 flex cursor-pointer items-center justify-between gap-1 text-black-4 before:theme-transition-3 before:absolute before:bottom-0 before:block before:h-px before:w-0 before:bg-primary hover:text-primary hover:before:w-full">Contact</a>
           </div>
           <!-- Menu Items  end-->
 
           
 
-          <button id="logoutButton" class="theme-transition-3 flex items-center text-center gap-2 border  px-4 py-3 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-4 rounded-full ">
+          <!-- <button id="logoutButton" class="theme-transition-3 border bg-secondary  ">
             <i class="ti ti-shift-left text-[24px]"> </i>
-            <span class="m-text text-center" >Logout</span>
+            <span class="m-text" >Logout</span>
           </button>
-          <div id="logoutMessage" class="messageDiv" style="display:none;"></div>
+          <div id="logoutMessage" class="messageDiv" style="display:none;"></div> -->
+
+          <a class="spy12px spx24px l-text group relative inline-flex items-center justify-center overflow-hidden bg-primary p-4 px-6 py-3 text-white-4 shadow-md transition duration-300 ease-out"
+            id="logoutButton">
+            <span
+              class="text-white ease absolute inset-0 flex h-full w-full -translate-x-full items-center justify-center bg-accent-2 duration-300 group-hover:translate-x-0">
+              <i class="ti ti-arrow-narrow-right shrink-0"> </i>
+            </span>
+            <span
+              class="ease absolute flex h-full w-full transform items-center justify-center text-white-4 transition-all duration-300 group-hover:translate-x-full">Logout</span>
+            <span class="l-text invisible relative">Logout</span>
+          </a>
 
         </div>
       </div>
@@ -291,13 +307,11 @@
               <span class="l-text">Contact</span>
             </a>
 
-            <button id="logoutButtonMobile"
-              class="theme-transition-3 flex items-center text-center gap-2 border  px-4 py-3 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-4 rounded-full ">
+            <button id="logoutButtonMobile" class="theme-transition-3 flex items-center text-center gap-2 border  px-4 py-3 bg-secondary text-black-1 hover:bg-white-1 hover:text-black-4 rounded-full ">
               <i class="ti ti-shift-left text-[24px]"> </i>
               <span class="m-text text-center" >Logout</span>
-              
-
             </button>
+            <div id="logoutMessage" class="messageDiv" style="display:none;"></div>
 
 
           </div>

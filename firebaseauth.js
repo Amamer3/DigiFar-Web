@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Define public and protected pages
     const publicPages = ['/login.html', '/signup.html', '/index.html','/about.html','/services.html','/contact-us.html'];
-    const protectedPages = ['/loggedin.html','/About-us.html','/feature.html','/Contact.html','/CCV.html'];  // Add more protected pages here
+    const protectedPages = ['/loggedin.html','/About-us.html','/feature.html','/Contact.html','/CCV.html','/momo.html','/airtime-inter.html','/celtis.html','/airtime.html'];  // Add more protected pages here
 
     // Check user authentication status on page load
     auth.onAuthStateChanged((user) => {
