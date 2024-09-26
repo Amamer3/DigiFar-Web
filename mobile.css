@@ -200,63 +200,14 @@
 
 
 
-/* Scroll Lock Utility for Sidebar */
-/* body.no-scroll {
-    overflow: hidden;
-} */
-
-/* Add transition to body to avoid sudden overflow changes */
-/* body {
-    transition: overflow 0.3s ease;
-} */
 
 
 
-
-
-
-
-
-
-
-  /* Add transition for the dropdown
-.mobile-nav-list {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
-  }
-  
-  .mobile-nav-list.expanded {
-    max-height: 300px; /* Set to a larger value to accommodate full height */
-    /* opacity: 1;
-    transform: translateY(0);
-  }
-   */ 
 
 
    /*                                       */
    /*     THE MOBILE SCREEN LOGOUT BTN     */
    /*                                     */
-
-   /* body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  } */
-  
-  /* .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding: 20px;
-    background-color: #fff;
-  }
-   */
 
   #logoutButton {
     background-color: #ff5252;
