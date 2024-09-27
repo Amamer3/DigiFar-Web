@@ -17,7 +17,7 @@ app.use(session({
 }));
 
 // Example route to serve the logged-in page
-app.get('/loggedin', (req, res) => {
+app.get('./frontend/index.html', (req, res) => {
   if (!req.session.userId) {
     return res.redirect('./frontend/index.html');
   }
