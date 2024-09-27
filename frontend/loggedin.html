@@ -1528,7 +1528,7 @@
     // Function to auto-logout after 2 minutes
     function logoutAfter40Minutes() {
       setTimeout(() => {
-        alert("Your session has expired. You will be logged out.");
+        alert("Your session has expired. You will be logged out."); 
         window.location.href = "./index.html";
       }, 2400000); //2 in milliseconds
     }
@@ -1536,6 +1536,8 @@
     // Start the logout timer
     logoutAfter40Minutes();
   </script>
+
+
 
 <script type="module" crossorigin src="mobile.js" defer></script>
   <script type="module" crossorigin src="firebaseauth.js"></script>
