@@ -13,7 +13,7 @@ app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge:  60000} // 1-minute session expiration
+  cookie: { maxAge:  2400000} // 2-minute session expiration
 }));
 
 // Middleware to check if user is logged in
