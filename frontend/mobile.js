@@ -40,7 +40,7 @@ function handleLogout() {
             const logoutMessage = document.getElementById('logoutMessage');
             logoutMessage.innerText = 'Error signing out. Please try again.';
             logoutMessage.style.display = 'block';
-            console.error('Logout error: ', error);
+            console.log('Logout error: ', error);
         });
 }
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (logoutButton) {
         logoutButton.addEventListener('click', handleLogout);
     } else {
-        console.error("Logout button not found.");
+        console.log("Logout button not found.");
     }
 
     const toggleButton = document.querySelector(".mobile-nav-toggle");
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const smeDropdownMenu = document.querySelector(".mobile-nav-list");
 
     if (!smeDropdownParent || !smeDropdownMenu) {
-        console.error("Dropdown elements not found.");
+        console.log("Dropdown elements not found.");
         return;
     }
 

@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Ensure Firebase is properly initialized
     if (!logoutButton) {
-        console.error("Logout button not found.");
+        console.log("Logout button not found.");
         return;
     }
 
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch((error) => {
                 // Handle errors and display error message
                 showMessage('Error signing out. Please try again.', 'logoutMessage');
-                console.error('Logout error: ', error);
+                console.log('Logout error: ', error);
             });
     });
 });
