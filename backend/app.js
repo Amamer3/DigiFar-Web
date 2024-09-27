@@ -13,13 +13,13 @@ app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 120000 } // 00-minute session expiration
+  cookie: { maxAge: 60000 } // 00-minute session expiration
 }));
 
 // Example route to serve the logged-in page
 app.get('/loggedin', (req, res) => {
   if (!req.session.userId) {
-    return res.redirect('/frontend/index.html');
+    return res.redirect('./frontend/index.html');
   }
   res.sendFile(path.join(__dirname, '../frontend/loggedin.html'));
 });
