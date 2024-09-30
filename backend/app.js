@@ -29,7 +29,7 @@ app.use(session({
 // Middleware to check if user session is active
 function checkSession(req, res, next) {
   if (!req.session.userId) {
-    return res.redirect('/'); // Redirect to homepage if session has expired
+    return res.redirect('/frontend/index.html'); // Redirect to homepage if session has expired
   }
   next(); // Continue to the next middleware/route handler if session is valid
 }
@@ -43,10 +43,10 @@ app.get('/loggedin', checkSession, (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
-      return res.redirect('/loggedin'); // Redirect to loggedin page if there's an error during logout
+      return res.redirect('/frontend/index.html'); // Redirect to loggedin page if there's an error during logout
     }
     res.clearCookie('connect.sid'); // Clear session cookie
-    res.redirect('/'); // Redirect to homepage after logout
+    res.redirect('/frontend/index.html'); // Redirect to homepage after logout
   });
 });
 
