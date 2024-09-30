@@ -1,3 +1,7 @@
+// 
+
+
+
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
@@ -8,15 +12,21 @@ const PORT = 3000;
 // Middleware to serve static frontend files
 app.use(express.static(path.join(__dirname, '../frontend')));
 
+// Disable caching to prevent accessing logged-in pages after logout
+app.use((req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store');
+  next();
+});
+
 // Set up session management
 app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge:  90000} // 2-minute session expiration
+  cookie: { maxAge: 90000 } // session expiration (90 seconds)
 }));
 
-// Middleware to check if user is logged in
+// Middleware to check if user session is active
 function checkSession(req, res, next) {
   if (!req.session.userId) {
     return res.redirect('/'); // Redirect to homepage if session has expired
@@ -33,9 +43,9 @@ app.get('/loggedin', checkSession, (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
-      return res.redirect('/loggedin');
+      return res.redirect('/loggedin'); // Redirect to loggedin page if there's an error during logout
     }
-    res.clearCookie('connect.sid');
+    res.clearCookie('connect.sid'); // Clear session cookie
     res.redirect('/'); // Redirect to homepage after logout
   });
 });
