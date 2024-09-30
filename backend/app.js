@@ -9,48 +9,48 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-// Middleware to serve static frontend files
+// Serve static files from the frontend folder
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// Disable caching to prevent accessing logged-in pages after logout
-app.use((req, res, next) => {
-  res.setHeader('Cache-Control', 'no-store');
+// Disable caching for all routes to prevent users from accessing cached pages after logout
+app.use((_req, res, next) => {
+  res.setHeader('Cache-Control', 'no-store'); // Disables caching
   next();
 });
 
-// Set up session management
+// Set up session management with a 90-second expiration (you can adjust this as needed)
 app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 90000 } // session expiration (90 seconds)
+  cookie: { maxAge: 90000 } // Session expires after 90 seconds
 }));
 
-// Middleware to check if user session is active
+// Middleware to check if a session exists (i.e., if the user is logged in)
 function checkSession(req, res, next) {
   if (!req.session.userId) {
-    return res.redirect('/frontend/index.html'); // Redirect to homepage if session has expired
+    return res.redirect('/frontend/index.html'); // If no session, redirect to homepage
   }
-  next(); // Continue to the next middleware/route handler if session is valid
+  next(); // If session exists, proceed to the next middleware
 }
 
-// Example route to serve the logged-in page
+// Example protected route for the logged-in page
 app.get('/loggedin', checkSession, (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/loggedin.html'));
+  res.sendFile(path.join(__dirname, '../frontend/loggedin.html')); // Serve the logged-in page if session is active
 });
 
-// Logout route
+// Logout route: destroys the session and clears the cookie
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if (err) {
-      return res.redirect('/frontend/index.html'); // Redirect to loggedin page if there's an error during logout
+      return res.redirect('/frontend/index.html'); // If there's an error, redirect to homepage
     }
-    res.clearCookie('connect.sid'); // Clear session cookie
+    res.clearCookie('connect.sid'); // Clear the session cookie (connect.sid is the default for express-session)
     res.redirect('/frontend/index.html'); // Redirect to homepage after logout
   });
 });
 
-// Start the server
+// Start the server on port 3000
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

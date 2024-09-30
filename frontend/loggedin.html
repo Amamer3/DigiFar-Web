@@ -1526,15 +1526,15 @@
 <!-- Auto Logout function -->
   <script>
     // Function to auto-logout after 2 minutes
-    function logoutAfter40Minutes() {
+    function logoutSession() {
       setTimeout(() => {
         alert("Your session has expired. You will be logged out."); 
         window.location.href = "./index.html";
-      }, 90000); //2 in milliseconds
+      }, 90000); // In milliseconds
     }
 
     // Start the logout timer
-    logoutAfter40Minutes();
+    logoutSession();
   </script>
 
 
