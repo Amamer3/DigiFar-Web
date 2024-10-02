@@ -2,11 +2,11 @@
 .slider-container44 {
     width: 80%;
     overflow: hidden;
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
     align-items: center;
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(255, 205, 164, 0.847);
+    /* border-radius: 10px; */
+    /* box-shadow: 0 4px 10px rgba(255, 205, 164, 0.847); */
     margin: 0 auto; /* Centers the container horizontally */
   }
   
