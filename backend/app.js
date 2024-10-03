@@ -33,7 +33,7 @@ function checkSession(req, res, next) {
 }
 
 // Example protected route for the logged-in page
-app.get('/loggedin', checkSession, (req, res) => {
+app.get('/loggedin', checkSession, (_req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/loggedin.html')); // Serve the logged-in page if session is active
 });
 
