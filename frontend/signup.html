@@ -2,143 +2,146 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="./assets/fav/logo2.png" type="image/ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="password-visibilty.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="./assets/fav/logo2.png" type="image/ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="password-visibilty.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 
-  <title>Signup - DigiFar</title>
-  <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
-  
-  <link rel="stylesheet" href="authen.css">
-  <link rel="stylesheet" crossorigin href="./assets/css/main.css">
+    <title>Signup - DigiFar</title>
+    <!-- <script type="module" crossorigin src="./assets/js/main.js"></script> -->
+
+    <link rel="stylesheet" href="authen.css">
+    <link rel="stylesheet" crossorigin href="./assets/css/main.css">
 </head>
 
 <body class="relative text-black-4">
-  
 
 
-  <!-- preloader -->
-  <div class="preloader__wrap fixed z-[1000] flex h-screen w-full items-center justify-center bg-white-1">
-    <div class="my-auto h-20 w-20 animate-spin rounded-full border-8 border-gray-300 border-t-accent-3"></div>
-  </div>
 
-  <!-- scroll top -->
-  <button
-    class="group/topButton scroll-top theme-transition-3 invisible fixed bottom-8 right-8 z-50 block size-10 cursor-pointer rounded-full bg-black-4 opacity-0 md:!size-12"
-    title="Go To Top">
-    <i
-      class="ti ti-arrow-badge-up theme-transition-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[32px] text-white-1 group-hover/topButton:text-accent-3 md:size-8">
-    </i>
-  </button>
+    <!-- preloader -->
+    <div class="preloader__wrap fixed z-[1000] flex h-screen w-full items-center justify-center bg-white-1">
+        <div class="my-auto h-20 w-20 animate-spin rounded-full border-8 border-gray-300 border-t-accent-3"></div>
+    </div>
+
+    <!-- scroll top -->
+    <button
+        class="group/topButton scroll-top theme-transition-3 invisible fixed bottom-8 right-8 z-50 block size-10 cursor-pointer rounded-full bg-black-4 opacity-0 md:!size-12"
+        title="Go To Top">
+        <i
+            class="ti ti-arrow-badge-up theme-transition-3 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[32px] text-white-1 group-hover/topButton:text-accent-3 md:size-8">
+        </i>
+    </button>
 
 
-  <div class="relative" id="signup">
-    <div class="relative h-screen grid-cols-12 items-center justify-center gap-6 lg:grid xxl:overflow-hidden">
-        <div class="col-start-1 col-end-7">
-            <img alt="Signup Image" src="./assets/images/signup-bg.webp" />
-        </div>
-        
-        <div class="col-start-7 col-end-12 max-lg:px-4 max-lg:py-8 xl:col-start-8">
-            <div class="items-center justify-center">
-                <a href="index.html">
-                    <div>
-                        <img alt="Logo" class="mx-auto block h-20" src="./assets/images/digifar.png" />
-                        <h5 class="h5 mt-6 text-center font-medium">Create an Account</h5>
-                    </div>
-                </a>
+    <div class="relative" id="signup">
+        <div class="relative h-screen grid-cols-12 items-center justify-center gap-6 lg:grid xxl:overflow-hidden">
+            <div class="col-start-1 col-end-7 hidden md:block">
+                <img alt="Signup Image" src="./assets/images/signup-bg.webp" />
+            </div>
 
-                <form method="post" class="smt40px">
-                  <!-- Sign-up message div for displaying feedback -->
-                  <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
-                  <div id="errorMess" class="errorDiv" style="display:none;"></div>
-                  <div class="error-message" id="signInMessage"></div>
-              
-                  <!-- First Name input -->
-                  <input id="fName" type="text" placeholder="First Name" required 
-                         class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
-              
-                  <!-- Last Name input -->
-                  <input id="lName" type="text" placeholder="Last Name" required 
-                         class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
-              
-                  <!-- Email input -->
-                  <input id="rEmail" type="email" placeholder="Email Address" required 
-                         class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
-              
-                  <!-- Password input field with toggle visibility button -->
-                  <div class="password-field relative mt-4">
-                      <input id="rPassword" type="password" placeholder="Password" required 
-                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md pr-10" />
-                      <button type="button" id="togglePassword" class="absolute right-3 top-1/2 transform -translate-y-1/2" 
-                              aria-label="Toggle Password Visibility">
-                          <i class="fas fa-eye"></i>
-                      </button>
-                  </div>
-              
-                  <!-- Confirm Password input field with toggle visibility button -->
-                  <div class="password-confirm-field relative mt-4">
-                      <input id="confirmPassword" type="password" placeholder="Confirm Password" required 
-                             class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md pr-10" />
-                      <button type="button" id="toggleConfirmPassword" class="absolute right-3 top-1/2 transform -translate-y-1/2" 
-                              aria-label="Toggle Confirm Password Visibility">
-                          <i class="fas fa-eye"></i>
-                      </button>
-                  </div>
-              
-                  <!-- Sign Up Button -->
-                  <button id="submitSignUp" type="submit" class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">
-                      Signup
-                  </button>
-              </form>
-              
+            <div class="col-start-7 col-end-12 max-lg:px-4 max-lg:py-8 xl:col-start-8">
+                <div class="items-center justify-center">
+                    <a href="index.html">
+                        <div>
+                            <img alt="Logo" class="mx-auto block h-20 " src="./assets/images/digifar.png" />
+                            <h5 class="h5 mt-6 text-center font-medium">Create an Account</h5>
+                        </div>
+                    </a>
 
-                <p class="s-text smt40px text-center text-black-1">
-                    Already have an account?
-                    <a class="!text-primary" href="login.html">Login Here</a>
-                </p>
+                    <form method="post" class="smt40px">
+                        <!-- Sign-up message div for displaying feedback -->
+                        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+                        <div id="errorMess" class="errorDiv" style="display:none;"></div>
+                        <div class="error-message" id="signInMessage"></div>
+
+                        <!-- First Name input -->
+                        <input id="fName" type="text" placeholder="First Name" required
+                            class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md" />
+
+                        <!-- Last Name input -->
+                        <input id="lName" type="text" placeholder="Last Name" required
+                            class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+
+                        <!-- Email input -->
+                        <input id="rEmail" type="email" placeholder="Email Address" required
+                            class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 mt-4 rounded-md" />
+
+                        <!-- Password input field with toggle visibility button -->
+                        <div class="password-field relative mt-4">
+                            <input id="rPassword" type="password" placeholder="Password" required
+                                class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md pr-10" />
+                            <button type="button" id="togglePassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2"
+                                aria-label="Toggle Password Visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <!-- Confirm Password input field with toggle visibility button -->
+                        <div class="password-confirm-field relative mt-4">
+                            <input id="confirmPassword" type="password" placeholder="Confirm Password" required
+                                class="w-full bg-white-4 px-5 py-3 placeholder:text-black-3 rounded-md pr-10" />
+                            <button type="button" id="toggleConfirmPassword"
+                                class="absolute right-3 top-1/2 transform -translate-y-1/2"
+                                aria-label="Toggle Confirm Password Visibility">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+
+                        <!-- Sign Up Button -->
+                        <button id="submitSignUp" type="submit"
+                            class="h6 smb32px smt32px w-full bg-primary py-3 text-center text-white-1 rounded-md">
+                            Signup
+                        </button>
+                    </form>
+
+
+                    <p class="s-text smt40px text-center text-black-1">
+                        Already have an account?
+                        <a class="!text-primary" href="login.html">Login Here</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-<script>
-  // Function to toggle password visibility
-function toggleVisibility(toggleElementId, passwordFieldId) {
-    const passwordField = document.getElementById(passwordFieldId);
-    const togglePasswordIcon = document.querySelector(`#${toggleElementId} i`);
+    <script>
+        // Function to toggle password visibility
+        function toggleVisibility(toggleElementId, passwordFieldId) {
+            const passwordField = document.getElementById(passwordFieldId);
+            const togglePasswordIcon = document.querySelector(`#${toggleElementId} i`);
 
-    if (passwordField.type === 'password') {
-        passwordField.type = 'text';
-        togglePasswordIcon.classList.remove('fa-eye');
-        togglePasswordIcon.classList.add('fa-eye-slash');
-    } else {
-        passwordField.type = 'password';
-        togglePasswordIcon.classList.remove('fa-eye-slash');
-        togglePasswordIcon.classList.add('fa-eye');
-    }
-}
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                togglePasswordIcon.classList.remove('fa-eye');
+                togglePasswordIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                togglePasswordIcon.classList.remove('fa-eye-slash');
+                togglePasswordIcon.classList.add('fa-eye');
+            }
+        }
 
-// Toggle password visibility for the password and confirm password fields
-document.getElementById('togglePassword').addEventListener('click', () => {
-    toggleVisibility('togglePassword', 'rPassword');
-});
-document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
-    toggleVisibility('toggleConfirmPassword', 'confirmPassword');
-});
-</script>
+        // Toggle password visibility for the password and confirm password fields
+        document.getElementById('togglePassword').addEventListener('click', () => {
+            toggleVisibility('togglePassword', 'rPassword');
+        });
+        document.getElementById('toggleConfirmPassword').addEventListener('click', () => {
+            toggleVisibility('toggleConfirmPassword', 'confirmPassword');
+        });
+    </script>
 
 
-  
 
-<script type="module" src="firebaseauth.js"></script>
 
-<script type="module" crossorigin src="./assets/js/main.js"></script>
+    <script type="module" src="firebaseauth.js"></script>
+
+    <script type="module" crossorigin src="./assets/js/main.js"></script>
 </body>
 
 </html>

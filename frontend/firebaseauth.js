@@ -14,7 +14,7 @@ const firebaseConfig = {
     appId: "1:29299407975:web:0620f7cae1cd3b5816a8c2"
 };
 
-// Initialize Firebase
+// Initialize Firebase -----------------------------------------------
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-// Signup event listener
+// Signup event listener -----------------------------------------------------------------
 const signUp = document.getElementById('submitSignUp');
 if (signUp) {
     signUp.addEventListener('click', (event) => {
@@ -108,11 +108,8 @@ if (signUp) {
     });
 }
 
-// Signin event listener
-
-// color for succ
-
-
+// Signin event listener --------------------------------------------------------
+//login logic
 const signIn = document.getElementById('submitSignIn');
 if (signIn) {
     signIn.addEventListener('click', (event) => {
