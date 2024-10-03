@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap");/**
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+ @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800&display=swap");/** 
  * Swiper 11.0.6
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
@@ -19,10 +20,10 @@
 /* FONT_END */
 :root {
   --swiper-theme-color:  #007e9d;
-  /*
+  
   --swiper-preloader-color: var(--swiper-theme-color);
   --swiper-wrapper-transition-timing-function: initial;
-  */
+ 
 }
 :host {
   position: relative;
@@ -3091,7 +3092,7 @@ button,
 
 .\!text-primary{
   --tw-text-opacity: 1 !important;
-  color: rgb(0 126 158 / var(--tw-text-opacity)) !important;
+  color: rgb(235 105 11 / var(--tw-text-opacity)) !important;
 }
 
 .text-accent-1{
@@ -4785,7 +4786,7 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 2px;
 }
 
-/* .navbar-dropdown-scrollbar::-webkit-scrollbar-thumb {
+.navbar-dropdown-scrollbar::-webkit-scrollbar-thumb {
   background-color: #ea670ab0;
   border-radius: 10px;
   width: 1px;
@@ -4794,7 +4795,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .navbar-dropdown-scrollbar::-webkit-scrollbar {
   width: 3px;
   background-color: #9d5c00;
-} */
+}
 
 /* mobile-menu-scrollbar */
 
@@ -4857,7 +4858,7 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-/* .mobile-nav-list-active{
+ .mobile-nav-list-active{
   transition: all 0.3s ease-in-out;
   max-height: -moz-fit-content;
   max-height: fit-content;
@@ -4865,11 +4866,11 @@ input[type="number"]::-webkit-outer-spin-button {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   overflow: auto;
   opacity: 1;
-} */
+} 
 
 .mobile-nav-active{
   --tw-text-opacity: 1;
-  color: rgb(#ea670aa9 / var(--tw-text-opacity));
+  color: rgb(#ea820aa9 / var(--tw-text-opacity));
 }
 
 /* mobile navbar end */
@@ -6655,7 +6656,7 @@ i::before {
 
 .hover\:text-primary:hover{
   --tw-text-opacity: 1;
-  color: rgb(0 86 85 / var(--tw-text-opacity));
+  color: rgb(235 105 11 / var(--tw-text-opacity));
 }
 
 .hover\:text-secondary:hover{
@@ -6793,7 +6794,7 @@ i::before {
 
 .group:hover .group-hover\:text-primary{
   --tw-text-opacity: 1;
-  color: rgb(0 86 85 / var(--tw-text-opacity));
+  color: rgb(235 105 11 / var(--tw-text-opacity));
 }
 
 .group:hover .group-hover\:text-white-1{
@@ -8660,7 +8661,7 @@ i::before {
   }
 
   .lg\:bg-primary\/20{
-    background-color: rgba(0 126 158);
+    background-color: rgba(bg-primary);
   }
 
   .lg\:ps-20{
