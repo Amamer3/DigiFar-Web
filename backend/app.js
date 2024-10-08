@@ -24,6 +24,12 @@ app.use(session({
   cookie: { maxAge: 90000 } // Session expires after 90 seconds
 }));
 
+
+// Example protected route for the logged-in page
+app.get('/loggedin', checkSession, (_req, res) => {
+  res.sendFile(path.join(__dirname, '../frontend/loggedin.html')); // Serve the logged-in page if session is active
+});
+
 // Middleware to check if a session exists (i.e., if the user is logged in)
 function checkSession(req, res, next) {
   if (!req.session.userId) {
@@ -32,10 +38,6 @@ function checkSession(req, res, next) {
   next(); // If session exists, proceed to the next middleware
 }
 
-// Example protected route for the logged-in page
-app.get('/loggedin', checkSession, (_req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/loggedin.html')); // Serve the logged-in page if session is active
-});
 
 // Logout route: destroys the session and clears the cookie
 app.get('/logout', (req, res) => {

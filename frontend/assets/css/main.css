@@ -37,25 +37,46 @@
 
 /* Error message goes here */
 .error-message {
-  color: red;
-  font-size: 1.3em;
-}
-
-
-.messageDiv{
-  background-color:hsl(130, 90%, 28%);
-  color:white;
+  background-color: rgb(255, 0, 0);
+  color:hsl(20, 27%, 98%);
   padding:10px 20px;
   margin:10px;
   border-radius: 5px;
-  font-size:1rem;
+  font-size:1.3rem;
+  opacity:0;
+  animation:fadeOut 4s forwards;
+}
+
+.messageDiv{
+  background-color: rgb(255, 0, 0);
+  color:hsl(20, 27%, 98%);
+  padding:10px 20px;
+  margin:10px;
+  border-radius: 5px;
+  font-size:1.3rem;
   opacity:0;
   animation:fadeOut 7s forwards;
 
 }
+
+.successgreet{
+  background-color: #4BB543;
+  color: hsl(20, 27%, 98%);
+  padding:10px 20px;
+  margin:10px;
+  border-radius: 5px;
+  font-size:1.3rem;
+  opacity:0;
+  animation:fadeOut 6s forwards;
+
+}
+
+
+
+
 /* errors */
 .errorDiv{
-  background-color:hsla(0, 90%, 48%, 0.788);
+  background-color:rgb(255, 0, 0);
   color:white;
   padding:10px 20px;
   margin:10px;

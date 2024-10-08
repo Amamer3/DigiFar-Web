@@ -14,7 +14,7 @@ const firebaseConfig = {
     appId: "1:29299407975:web:0620f7cae1cd3b5816a8c2"
 };
 
-// Initialize Firebase -----------------------------------------------
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -99,7 +99,7 @@ if (signUp) {
                 const token = await user.getIdToken();
                 document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
-                showMessage('Account Created Successfully', 'signUpMessage');
+                showMessage('Account Created Successfully', 'goodSign');
                 window.location.href = 'login.html';
             })
             .catch((error) => {
@@ -125,7 +125,7 @@ if (signIn) {
                 document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
                 // Display success message in green
-                showMessage('Login is successful', 'signInMessage', 'green');
+                showMessage('Login is successful', 'goodSign', 'green');
                 
                 // Redirect to another page
                 window.location.href = 'loggedin.html';
@@ -139,23 +139,67 @@ if (signIn) {
 
 
 
+// Autologout Logic
+document.addEventListener('DOMContentLoaded', async () => {
+    const auth = getAuth();  // Make sure auth is initialized outside
 
+    // Check user authentication status
+    auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            try {
+                const tokenResult = await user.getIdTokenResult();
+                const expirationTime = new Date(tokenResult.expirationTime).getTime();
+                const currentTime = new Date().getTime();
+
+                // Set auto logout timer based on token expiration
+                const timeUntilExpiration = expirationTime - currentTime;
+
+                // If the token is about to expire, log out the user automatically
+                setTimeout(() => {
+                    logoutUser();  // Call the logout function
+                }, timeUntilExpiration);
+
+            } catch (error) {
+                console.error("Error retrieving token expiration time: ", error);
+            }
+        } else {
+            console.log("No user is signed in.");
+        }
+    });
+
+    // Logout function
+    async function logoutUser() {
+        try {
+            await signOut(auth);  // Log out the user
+            // Clear cookies or any session info
+            document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            localStorage.removeItem('loggedInUserId');
+
+            // Redirect to the login page or homepage
+            window.location.href = 'login.html';
+        } catch (error) {
+            console.error("Error signing out: ", error);
+        }
+    }
+});
+
+// Manual Logout with Logout Button Logic
 document.addEventListener("DOMContentLoaded", function () {
+    const auth = getAuth();  // Ensure Firebase auth is initialized here
+
     // Get the logout button and message div
     const logoutButton = document.getElementById('logoutButton');
     const logoutMessage = document.getElementById('logoutMessage');
 
-    // Ensure Firebase is properly initialized
     if (!logoutButton) {
         console.log("Logout button not found.");
-        return;
+        return;  // Exit if the logout button is not available
     }
 
     // Add click event listener for the logout button
     logoutButton.addEventListener('click', function (event) {
-        event.preventDefault();  // Prevent the button's default behavior
+        event.preventDefault();  // Prevent the default behavior of the button
 
-        // Sign out the user using Firebase
         signOut(auth)
             .then(() => {
                 // Clear cookies and local storage
@@ -163,31 +207,66 @@ document.addEventListener("DOMContentLoaded", function () {
                 localStorage.removeItem('loggedInUserId');
 
                 // Show logout success message
-                showMessage('You have been logged out successfully.', 'logoutMessage');
+                showMessage('You have been logged out successfully.', 'successgreet', 'green');
 
-                // Optionally, redirect the user to the login page or homepage
+                // Redirect the user to the login page or homepage
                 window.location.href = 'index.html';
             })
             .catch((error) => {
-                // Handle errors and display error message
-                showMessage('Error signing out. Please try again.', 'logoutMessage');
-                console.log('Logout error: ', error);
+                // Handle any errors that occur during the sign-out process
+                showMessage('Error signing out. Please try again.', 'logoutMessage', 'red');
+                console.error('Logout error: ', error);
             });
     });
 });
 
-// Show Message Function
-function showMessage(message, divId) {
+// Helper function to display messages
+function showMessage(message, divId, color = 'black') {
     const messageDiv = document.getElementById(divId);
     if (messageDiv) {
         messageDiv.style.display = "block";
         messageDiv.innerHTML = message;
+        messageDiv.style.color = color;
         messageDiv.style.opacity = 1;
         setTimeout(() => {
             messageDiv.style.opacity = 0;
-        }, 6000);
+        }, 5000);
     }
 }
+
+
+// // Show Message Function
+// function showMessage(message, divId) {
+//     const messageDiv = document.getElementById(divId);
+//     if (messageDiv) {
+//         messageDiv.style.display = "block";
+//         messageDiv.innerHTML = message;
+//         messageDiv.style.opacity = 1;
+//         setTimeout(() => {
+//             messageDiv.style.opacity = 0;
+//         }, 6000);
+//     }
+// }
+
+
+function getErrorMessage(errorCode) {
+    switch (errorCode) {
+        case 'auth/wrong-password':
+            return 'The password is incorrect. Please try again.';
+        case 'auth/user-not-found':
+            return 'No user found with this email address.';
+        case 'auth/email-already-in-use':
+            return 'This email is already in use. Please use different credentials or log in.';
+        case 'auth/invalid-email':
+            return 'Please enter a valid email address.';
+        default:
+            return 'Please check your email and password.';
+    }
+}
+
+
+
+
 
 // // Logout functionality
 // const logoutButton = document.getElementById('logoutButton');
@@ -264,20 +343,7 @@ function showMessage(message, divId) {
 // }
 
 // Error Handling Function
-function getErrorMessage(errorCode) {
-    switch (errorCode) {
-        case 'auth/wrong-password':
-            return 'The password is incorrect. Please try again.';
-        case 'auth/user-not-found':
-            return 'No user found with this email address.';
-        case 'auth/email-already-in-use':
-            return 'This email is already in use. Please log in.';
-        case 'auth/invalid-email':
-            return 'Please enter a valid email and password.';
-        default:
-            return ' Please check your email and password.';
-    }
-}
+
 
 
 
