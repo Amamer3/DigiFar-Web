@@ -125,7 +125,7 @@ if (signIn) {
                 document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
                 // Display success message in green
-                showMessage('Login is successful', 'goodSign', 'green');
+                showMessage('Login is successful', 'goodSign', '');
                 
                 // Redirect to another page
                 window.location.href = 'loggedin.html';
