@@ -35,14 +35,14 @@
 
 /* This is the Inner CSS */
 
-/* Error message goes here */
+/* Error messages goes here */
 .error-message {
   background-color: rgb(255, 0, 0);
   color:hsl(20, 27%, 98%);
   padding:10px 20px;
   margin:10px;
   border-radius: 5px;
-  font-size:1.3rem;
+  font-size:0.9rem;
   opacity:0;
   animation:fadeOut 4s forwards;
 }
@@ -53,7 +53,7 @@
   padding:10px 20px;
   margin:10px;
   border-radius: 5px;
-  font-size:1.3rem;
+  font-size:0.9rem;
   opacity:0;
   animation:fadeOut 7s forwards;
 
@@ -65,7 +65,7 @@
   padding:10px 20px;
   margin:10px;
   border-radius: 5px;
-  font-size:1.3rem;
+  font-size:0.9rem;
   opacity:0;
   animation:fadeOut 6s forwards;
 
@@ -81,7 +81,7 @@
   padding:10px 20px;
   margin:10px;
   border-radius: 5px;
-  font-size:1rem;
+  font-size:0.9rem;
   opacity:0;
   animation:fadeOut 7s forwards;
 
