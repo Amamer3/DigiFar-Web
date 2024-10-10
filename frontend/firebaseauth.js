@@ -132,7 +132,7 @@ if (signIn) {
             })
             .catch((error) => {
                 // Display error message in red
-                showMessage(getErrorMessage(error.code), 'signInMessage', 'red');
+                showMessage(getErrorMessage(error.code), 'signInMessage', '');
             });
     });
 }
@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .catch((error) => {
                 // Handle any errors that occur during the sign-out process
-                showMessage('Error signing out. Please try again.', 'logoutMessage', 'red');
+                showMessage('Error signing out. Please try again.', 'logoutMessage', '');
                 console.error('Logout error: ', error);
             });
     });
