@@ -16,13 +16,13 @@ app.use((_req, res, next) => {
   next();
 });
 
-// Set up session management with a 90-second expiration (you can adjust this as needed)
+// Set up session management with a ... second expiration (you can adjust this as needed)
 app.use(session({
   secret: 'yourSecretKey',
   resave: false,
   saveUninitialized: true,
-  cookie: { maxAge: 90000 } // Session expires after 90 seconds
-}));
+  cookie: { maxAge: 600000 } // Session expires after ... seconds
+}));                
 
 
 // Example protected route for the logged-in page
