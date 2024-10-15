@@ -61,52 +61,60 @@ document.addEventListener('DOMContentLoaded', () => {
 // Signup event listener -----------------------------------------------------------------
 const signUp = document.getElementById('submitSignUp');
 if (signUp) {
-    signUp.addEventListener('click', (event) => {
+    signUp.addEventListener('click', async (event) => {
         event.preventDefault();
 
-        const email = document.getElementById('rEmail').value;
-        const password = document.getElementById('rPassword').value;
-        const confirmPassword = document.getElementById('confirmPassword').value;
-        const firstName = document.getElementById('fName').value;
-        const lastName = document.getElementById('lName').value;
+        const email = document.getElementById('rEmail').value.trim();
+        const password = document.getElementById('rPassword').value.trim();
+        const confirmPassword = document.getElementById('confirmPassword').value.trim();
+        const firstName = document.getElementById('fName').value.trim();
+        const lastName = document.getElementById('lName').value.trim();
 
-        if (password !== confirmPassword) {
-            showMessage('Passwords do not match!', 'errorMess');
+        // Check if any field is empty
+        if (!email || !password || !confirmPassword || !firstName || !lastName) {
+            showMessage('All fields are required!', 'errorMess', "white");
             return;
         }
 
+        // Password match validation
+        if (password !== confirmPassword) {
+            showMessage('Passwords do not match!', 'errorMess', "");
+            return;
+        }
+
+        // Password complexity validation
         const validatePassword = (password) => {
             const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
             return regex.test(password);
         };
 
         if (!validatePassword(password)) {
-            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'errorMess');
+            showMessage('Password must be at least 8 characters long, contain uppercase, lowercase, and a number.', 'errorMess', "white");
             return;
         }
 
-        createUserWithEmailAndPassword(auth, email, password)
-            .then(async (userCredential) => {
-                const user = userCredential.user;
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
 
-                const userData = {
-                    email: email,
-                    firstName: firstName,
-                    lastName: lastName,
-                };
-                await setDoc(doc(db, "users", user.uid), userData);
+            const userData = {
+                email: email,
+                firstName: firstName,
+                lastName: lastName,
+            };
+            await setDoc(doc(db, "users", user.uid), userData);
 
-                const token = await user.getIdToken();
-                document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
+            const token = await user.getIdToken();
+            document.cookie = `authToken=${token}; path=/; max-age=3600; secure; SameSite=Strict; HttpOnly`;
 
-                showMessage('Account Created Successfully', 'goodSign');
-                window.location.href = 'login.html';
-            })
-            .catch((error) => {
-                showMessage(getErrorMessage(error.code), 'signUpMessage');
-            });
+            showMessage('Account Created Successfully', 'goodSign');
+            window.location.href = 'login.html';
+        } catch (error) {
+            showMessage(getErrorMessage(error.code), 'signUpMessage');
+        }
     });
 }
+
 
 // Signin event listener --------------------------------------------------------
 //login logic
