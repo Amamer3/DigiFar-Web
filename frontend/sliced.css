@@ -1,11 +1,11 @@
 .slider-container44 {
   display: grid;
   justify-content: center;
-  width: 80%;
+  width: 70%;
   overflow: hidden;
   /* background-color: #ffffff; */
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   /* border-radius: 10px; */
   /* box-shadow: 0 4px 10px rgba(255, 205, 164, 0.847); */
   margin: 0 auto;
@@ -20,8 +20,8 @@
 }
 
 .slider44 img {
-  height: 70px;
-  margin: 0 40px;
+  height: 60px;
+  margin: 15 20px;
   object-fit: contain;
 }
 
